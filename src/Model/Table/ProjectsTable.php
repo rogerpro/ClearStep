@@ -20,8 +20,8 @@ use Cake\Validation\Validator;
  * @method \App\Model\Entity\Project patchEntity(\Cake\Datasource\EntityInterface $entity, array $data, array $options = [])
  * @method \App\Model\Entity\Project[] patchEntities($entities, array $data, array $options = [])
  * @method \App\Model\Entity\Project findOrCreate($search, callable $callback = null, $options = [])
- *
- * @mixin \Cake\ORM\Behavior\TimestampBehavior
+ *        
+ *         @mixin \Cake\ORM\Behavior\TimestampBehavior
  */
 class ProjectsTable extends Table
 {
@@ -29,19 +29,20 @@ class ProjectsTable extends Table
     /**
      * Initialize method
      *
-     * @param array $config The configuration for the Table.
+     * @param array $config
+     *            The configuration for the Table.
      * @return void
      */
     public function initialize(array $config)
     {
         parent::initialize($config);
-
+        
         $this->table('projects');
         $this->displayField('name');
         $this->primaryKey('id');
-
+        
         $this->addBehavior('Timestamp');
-
+        
         $this->belongsTo('Clients', [
             'foreignKey' => 'client_id'
         ]);
@@ -56,41 +57,35 @@ class ProjectsTable extends Table
     /**
      * Default validation rules.
      *
-     * @param \Cake\Validation\Validator $validator Validator instance.
+     * @param \Cake\Validation\Validator $validator
+     *            Validator instance.
      * @return \Cake\Validation\Validator
      */
     public function validationDefault(Validator $validator)
     {
-        $validator
-            ->uuid('id')
-            ->allowEmpty('id', 'create');
-
-        $validator
-            ->requirePresence('name', 'create')
+        $validator->uuid('id')->allowEmpty('id', 'create');
+        
+        $validator->requirePresence('name', 'create')
             ->notEmpty('name')
-            ->add('name', 'unique', ['rule' => 'validateUnique', 'provider' => 'table']);
-
-        $validator
-            ->allowEmpty('description');
-
-        $validator
-            ->boolean('billable')
+            ->add('name', 'unique', [
+            'rule' => 'validateUnique',
+            'provider' => 'table'
+        ]);
+        
+        $validator->allowEmpty('description');
+        
+        $validator->boolean('billable')
             ->requirePresence('billable', 'create')
             ->notEmpty('billable');
-
-        $validator
-            ->numeric('hourly_price')
-            ->allowEmpty('hourly_price');
-
-        $validator
-            ->integer('expected_hours')
-            ->allowEmpty('expected_hours');
-
-        $validator
-            ->boolean('active')
+        
+        $validator->numeric('hourly_price')->allowEmpty('hourly_price');
+        
+        $validator->integer('expected_hours')->allowEmpty('expected_hours');
+        
+        $validator->boolean('active')
             ->requirePresence('active', 'create')
             ->notEmpty('active');
-
+        
         return $validator;
     }
 
@@ -98,14 +93,19 @@ class ProjectsTable extends Table
      * Returns a rules checker object that will be used for validating
      * application integrity.
      *
-     * @param \Cake\ORM\RulesChecker $rules The rules object to be modified.
+     * @param \Cake\ORM\RulesChecker $rules
+     *            The rules object to be modified.
      * @return \Cake\ORM\RulesChecker
      */
     public function buildRules(RulesChecker $rules)
     {
-        $rules->add($rules->isUnique(['name']));
-        $rules->add($rules->existsIn(['client_id'], 'Clients'));
-
+        $rules->add($rules->isUnique([
+            'name'
+        ]));
+        $rules->add($rules->existsIn([
+            'client_id'
+        ], 'Clients'));
+        
         return $rules;
     }
 }

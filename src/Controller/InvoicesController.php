@@ -19,29 +19,42 @@ class InvoicesController extends AppController
     public function index()
     {
         $this->paginate = [
-            'contain' => ['Currencies', 'Transactions']
+            'contain' => [
+                'Currencies',
+                'Transactions'
+            ]
         ];
         $invoices = $this->paginate($this->Invoices);
-
+        
         $this->set(compact('invoices'));
-        $this->set('_serialize', ['invoices']);
+        $this->set('_serialize', [
+            'invoices'
+        ]);
     }
 
     /**
      * View method
      *
-     * @param string|null $id Invoice id.
+     * @param string|null $id
+     *            Invoice id.
      * @return \Cake\Network\Response|null
      * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
      */
     public function view($id = null)
     {
         $invoice = $this->Invoices->get($id, [
-            'contain' => ['Currencies', 'Transactions', 'Tickets', 'Budgets']
+            'contain' => [
+                'Currencies',
+                'Transactions',
+                'Tickets',
+                'Budgets'
+            ]
         ]);
-
+        
         $this->set('invoice', $invoice);
-        $this->set('_serialize', ['invoice']);
+        $this->set('_serialize', [
+            'invoice'
+        ]);
     }
 
     /**
@@ -56,21 +69,30 @@ class InvoicesController extends AppController
             $invoice = $this->Invoices->patchEntity($invoice, $this->request->data);
             if ($this->Invoices->save($invoice)) {
                 $this->Flash->success(__('The invoice has been saved.'));
-
-                return $this->redirect(['action' => 'index']);
+                
+                return $this->redirect([
+                    'action' => 'index'
+                ]);
             }
             $this->Flash->error(__('The invoice could not be saved. Please, try again.'));
         }
-        $currencies = $this->Invoices->Currencies->find('list', ['limit' => 200]);
-        $transactions = $this->Invoices->Transactions->find('list', ['limit' => 200]);
+        $currencies = $this->Invoices->Currencies->find('list', [
+            'limit' => 200
+        ]);
+        $transactions = $this->Invoices->Transactions->find('list', [
+            'limit' => 200
+        ]);
         $this->set(compact('invoice', 'currencies', 'transactions'));
-        $this->set('_serialize', ['invoice']);
+        $this->set('_serialize', [
+            'invoice'
+        ]);
     }
 
     /**
      * Edit method
      *
-     * @param string|null $id Invoice id.
+     * @param string|null $id
+     *            Invoice id.
      * @return \Cake\Network\Response|null Redirects on successful edit, renders view otherwise.
      * @throws \Cake\Network\Exception\NotFoundException When record not found.
      */
@@ -79,38 +101,56 @@ class InvoicesController extends AppController
         $invoice = $this->Invoices->get($id, [
             'contain' => []
         ]);
-        if ($this->request->is(['patch', 'post', 'put'])) {
+        if ($this->request->is([
+            'patch',
+            'post',
+            'put'
+        ])) {
             $invoice = $this->Invoices->patchEntity($invoice, $this->request->data);
             if ($this->Invoices->save($invoice)) {
                 $this->Flash->success(__('The invoice has been saved.'));
-
-                return $this->redirect(['action' => 'index']);
+                
+                return $this->redirect([
+                    'action' => 'index'
+                ]);
             }
             $this->Flash->error(__('The invoice could not be saved. Please, try again.'));
         }
-        $currencies = $this->Invoices->Currencies->find('list', ['limit' => 200]);
-        $transactions = $this->Invoices->Transactions->find('list', ['limit' => 200]);
+        $currencies = $this->Invoices->Currencies->find('list', [
+            'limit' => 200
+        ]);
+        $transactions = $this->Invoices->Transactions->find('list', [
+            'limit' => 200
+        ]);
         $this->set(compact('invoice', 'currencies', 'transactions'));
-        $this->set('_serialize', ['invoice']);
+        $this->set('_serialize', [
+            'invoice'
+        ]);
     }
 
     /**
      * Delete method
      *
-     * @param string|null $id Invoice id.
+     * @param string|null $id
+     *            Invoice id.
      * @return \Cake\Network\Response|null Redirects to index.
      * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
      */
     public function delete($id = null)
     {
-        $this->request->allowMethod(['post', 'delete']);
+        $this->request->allowMethod([
+            'post',
+            'delete'
+        ]);
         $invoice = $this->Invoices->get($id);
         if ($this->Invoices->delete($invoice)) {
             $this->Flash->success(__('The invoice has been deleted.'));
         } else {
             $this->Flash->error(__('The invoice could not be deleted. Please, try again.'));
         }
-
-        return $this->redirect(['action' => 'index']);
+        
+        return $this->redirect([
+            'action' => 'index'
+        ]);
     }
 }

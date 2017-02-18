@@ -22,8 +22,8 @@ use Cake\Validation\Validator;
  * @method \App\Model\Entity\Invoice patchEntity(\Cake\Datasource\EntityInterface $entity, array $data, array $options = [])
  * @method \App\Model\Entity\Invoice[] patchEntities($entities, array $data, array $options = [])
  * @method \App\Model\Entity\Invoice findOrCreate($search, callable $callback = null, $options = [])
- *
- * @mixin \Cake\ORM\Behavior\TimestampBehavior
+ *        
+ *         @mixin \Cake\ORM\Behavior\TimestampBehavior
  */
 class InvoicesTable extends Table
 {
@@ -31,19 +31,20 @@ class InvoicesTable extends Table
     /**
      * Initialize method
      *
-     * @param array $config The configuration for the Table.
+     * @param array $config
+     *            The configuration for the Table.
      * @return void
      */
     public function initialize(array $config)
     {
         parent::initialize($config);
-
+        
         $this->table('invoices');
         $this->displayField('title');
         $this->primaryKey('id');
-
+        
         $this->addBehavior('Timestamp');
-
+        
         $this->belongsTo('Tickets', [
             'foreignKey' => 'ticket_id',
             'joinType' => 'INNER'
@@ -67,38 +68,30 @@ class InvoicesTable extends Table
     /**
      * Default validation rules.
      *
-     * @param \Cake\Validation\Validator $validator Validator instance.
+     * @param \Cake\Validation\Validator $validator
+     *            Validator instance.
      * @return \Cake\Validation\Validator
      */
     public function validationDefault(Validator $validator)
     {
-        $validator
-            ->uuid('id')
-            ->allowEmpty('id', 'create');
-
-        $validator
-            ->requirePresence('year', 'create')
-            ->notEmpty('year');
-
-        $validator
-            ->integer('number')
+        $validator->uuid('id')->allowEmpty('id', 'create');
+        
+        $validator->requirePresence('year', 'create')->notEmpty('year');
+        
+        $validator->integer('number')
             ->requirePresence('number', 'create')
             ->notEmpty('number');
-
-        $validator
-            ->requirePresence('title', 'create')
-            ->notEmpty('title');
-
-        $validator
-            ->decimal('amount')
+        
+        $validator->requirePresence('title', 'create')->notEmpty('title');
+        
+        $validator->decimal('amount')
             ->requirePresence('amount', 'create')
             ->notEmpty('amount');
-
-        $validator
-            ->boolean('rendered')
+        
+        $validator->boolean('rendered')
             ->requirePresence('rendered', 'create')
             ->notEmpty('rendered');
-
+        
         return $validator;
     }
 
@@ -106,15 +99,22 @@ class InvoicesTable extends Table
      * Returns a rules checker object that will be used for validating
      * application integrity.
      *
-     * @param \Cake\ORM\RulesChecker $rules The rules object to be modified.
+     * @param \Cake\ORM\RulesChecker $rules
+     *            The rules object to be modified.
      * @return \Cake\ORM\RulesChecker
      */
     public function buildRules(RulesChecker $rules)
     {
-        $rules->add($rules->existsIn(['ticket_id'], 'Tickets'));
-        $rules->add($rules->existsIn(['currency_id'], 'Currencies'));
-        $rules->add($rules->existsIn(['transaction_id'], 'Transactions'));
-
+        $rules->add($rules->existsIn([
+            'ticket_id'
+        ], 'Tickets'));
+        $rules->add($rules->existsIn([
+            'currency_id'
+        ], 'Currencies'));
+        $rules->add($rules->existsIn([
+            'transaction_id'
+        ], 'Transactions'));
+        
         return $rules;
     }
 }

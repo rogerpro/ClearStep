@@ -35,6 +35,5 @@ class AppView extends View
      * @return void
      */
     public function initialize()
-    {
-    }
+    {}
 }

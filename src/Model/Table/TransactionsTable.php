@@ -18,8 +18,8 @@ use Cake\Validation\Validator;
  * @method \App\Model\Entity\Transaction patchEntity(\Cake\Datasource\EntityInterface $entity, array $data, array $options = [])
  * @method \App\Model\Entity\Transaction[] patchEntities($entities, array $data, array $options = [])
  * @method \App\Model\Entity\Transaction findOrCreate($search, callable $callback = null, $options = [])
- *
- * @mixin \Cake\ORM\Behavior\TimestampBehavior
+ *        
+ *         @mixin \Cake\ORM\Behavior\TimestampBehavior
  */
 class TransactionsTable extends Table
 {
@@ -27,19 +27,20 @@ class TransactionsTable extends Table
     /**
      * Initialize method
      *
-     * @param array $config The configuration for the Table.
+     * @param array $config
+     *            The configuration for the Table.
      * @return void
      */
     public function initialize(array $config)
     {
         parent::initialize($config);
-
+        
         $this->table('transactions');
         $this->displayField('id');
         $this->primaryKey('id');
-
+        
         $this->addBehavior('Timestamp');
-
+        
         $this->hasMany('Invoices', [
             'foreignKey' => 'transaction_id'
         ]);
@@ -48,26 +49,22 @@ class TransactionsTable extends Table
     /**
      * Default validation rules.
      *
-     * @param \Cake\Validation\Validator $validator Validator instance.
+     * @param \Cake\Validation\Validator $validator
+     *            Validator instance.
      * @return \Cake\Validation\Validator
      */
     public function validationDefault(Validator $validator)
     {
-        $validator
-            ->uuid('id')
-            ->allowEmpty('id', 'create');
-
-        $validator
-            ->decimal('amount')
+        $validator->uuid('id')->allowEmpty('id', 'create');
+        
+        $validator->decimal('amount')
             ->requirePresence('amount', 'create')
             ->notEmpty('amount');
-
-        $validator
-            ->allowEmpty('paypal_details');
-
-        $validator
-            ->allowEmpty('paypal_result');
-
+        
+        $validator->allowEmpty('paypal_details');
+        
+        $validator->allowEmpty('paypal_result');
+        
         return $validator;
     }
 }

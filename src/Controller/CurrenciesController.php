@@ -19,26 +19,34 @@ class CurrenciesController extends AppController
     public function index()
     {
         $currencies = $this->paginate($this->Currencies);
-
+        
         $this->set(compact('currencies'));
-        $this->set('_serialize', ['currencies']);
+        $this->set('_serialize', [
+            'currencies'
+        ]);
     }
 
     /**
      * View method
      *
-     * @param string|null $id Currency id.
+     * @param string|null $id
+     *            Currency id.
      * @return \Cake\Network\Response|null
      * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
      */
     public function view($id = null)
     {
         $currency = $this->Currencies->get($id, [
-            'contain' => ['Budgets', 'Invoices']
+            'contain' => [
+                'Budgets',
+                'Invoices'
+            ]
         ]);
-
+        
         $this->set('currency', $currency);
-        $this->set('_serialize', ['currency']);
+        $this->set('_serialize', [
+            'currency'
+        ]);
     }
 
     /**
@@ -53,19 +61,24 @@ class CurrenciesController extends AppController
             $currency = $this->Currencies->patchEntity($currency, $this->request->data);
             if ($this->Currencies->save($currency)) {
                 $this->Flash->success(__('The currency has been saved.'));
-
-                return $this->redirect(['action' => 'index']);
+                
+                return $this->redirect([
+                    'action' => 'index'
+                ]);
             }
             $this->Flash->error(__('The currency could not be saved. Please, try again.'));
         }
         $this->set(compact('currency'));
-        $this->set('_serialize', ['currency']);
+        $this->set('_serialize', [
+            'currency'
+        ]);
     }
 
     /**
      * Edit method
      *
-     * @param string|null $id Currency id.
+     * @param string|null $id
+     *            Currency id.
      * @return \Cake\Network\Response|null Redirects on successful edit, renders view otherwise.
      * @throws \Cake\Network\Exception\NotFoundException When record not found.
      */
@@ -74,36 +87,50 @@ class CurrenciesController extends AppController
         $currency = $this->Currencies->get($id, [
             'contain' => []
         ]);
-        if ($this->request->is(['patch', 'post', 'put'])) {
+        if ($this->request->is([
+            'patch',
+            'post',
+            'put'
+        ])) {
             $currency = $this->Currencies->patchEntity($currency, $this->request->data);
             if ($this->Currencies->save($currency)) {
                 $this->Flash->success(__('The currency has been saved.'));
-
-                return $this->redirect(['action' => 'index']);
+                
+                return $this->redirect([
+                    'action' => 'index'
+                ]);
             }
             $this->Flash->error(__('The currency could not be saved. Please, try again.'));
         }
         $this->set(compact('currency'));
-        $this->set('_serialize', ['currency']);
+        $this->set('_serialize', [
+            'currency'
+        ]);
     }
 
     /**
      * Delete method
      *
-     * @param string|null $id Currency id.
+     * @param string|null $id
+     *            Currency id.
      * @return \Cake\Network\Response|null Redirects to index.
      * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
      */
     public function delete($id = null)
     {
-        $this->request->allowMethod(['post', 'delete']);
+        $this->request->allowMethod([
+            'post',
+            'delete'
+        ]);
         $currency = $this->Currencies->get($id);
         if ($this->Currencies->delete($currency)) {
             $this->Flash->success(__('The currency has been deleted.'));
         } else {
             $this->Flash->error(__('The currency could not be deleted. Please, try again.'));
         }
-
-        return $this->redirect(['action' => 'index']);
+        
+        return $this->redirect([
+            'action' => 'index'
+        ]);
     }
 }

@@ -27,7 +27,8 @@ class AjaxView extends AppView
 {
 
     /**
-     * The name of the layout file to render the view inside of. The name
+     * The name of the layout file to render the view inside of.
+     * The name
      * specified is the filename of the layout in /src/Template/Layout without
      * the .ctp extension.
      *
@@ -43,7 +44,7 @@ class AjaxView extends AppView
     public function initialize()
     {
         parent::initialize();
-
+        
         $this->response->type('ajax');
     }
 }

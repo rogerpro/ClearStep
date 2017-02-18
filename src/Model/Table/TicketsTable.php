@@ -24,8 +24,8 @@ use Cake\Validation\Validator;
  * @method \App\Model\Entity\Ticket patchEntity(\Cake\Datasource\EntityInterface $entity, array $data, array $options = [])
  * @method \App\Model\Entity\Ticket[] patchEntities($entities, array $data, array $options = [])
  * @method \App\Model\Entity\Ticket findOrCreate($search, callable $callback = null, $options = [])
- *
- * @mixin \Cake\ORM\Behavior\TimestampBehavior
+ *        
+ *         @mixin \Cake\ORM\Behavior\TimestampBehavior
  */
 class TicketsTable extends Table
 {
@@ -33,19 +33,20 @@ class TicketsTable extends Table
     /**
      * Initialize method
      *
-     * @param array $config The configuration for the Table.
+     * @param array $config
+     *            The configuration for the Table.
      * @return void
      */
     public function initialize(array $config)
     {
         parent::initialize($config);
-
+        
         $this->table('tickets');
         $this->displayField('id');
         $this->primaryKey('id');
-
+        
         $this->addBehavior('Timestamp');
-
+        
         $this->belongsTo('Projects', [
             'foreignKey' => 'project_id',
             'joinType' => 'INNER'
@@ -77,27 +78,20 @@ class TicketsTable extends Table
     /**
      * Default validation rules.
      *
-     * @param \Cake\Validation\Validator $validator Validator instance.
+     * @param \Cake\Validation\Validator $validator
+     *            Validator instance.
      * @return \Cake\Validation\Validator
      */
     public function validationDefault(Validator $validator)
     {
-        $validator
-            ->uuid('id')
-            ->allowEmpty('id', 'create');
-
-        $validator
-            ->time('min_time')
-            ->allowEmpty('min_time');
-
-        $validator
-            ->time('max_time')
-            ->allowEmpty('max_time');
-
-        $validator
-            ->date('deadline')
-            ->allowEmpty('deadline');
-
+        $validator->uuid('id')->allowEmpty('id', 'create');
+        
+        $validator->time('min_time')->allowEmpty('min_time');
+        
+        $validator->time('max_time')->allowEmpty('max_time');
+        
+        $validator->date('deadline')->allowEmpty('deadline');
+        
         return $validator;
     }
 
@@ -105,17 +99,28 @@ class TicketsTable extends Table
      * Returns a rules checker object that will be used for validating
      * application integrity.
      *
-     * @param \Cake\ORM\RulesChecker $rules The rules object to be modified.
+     * @param \Cake\ORM\RulesChecker $rules
+     *            The rules object to be modified.
      * @return \Cake\ORM\RulesChecker
      */
     public function buildRules(RulesChecker $rules)
     {
-        $rules->add($rules->existsIn(['project_id'], 'Projects'));
-        $rules->add($rules->existsIn(['session_id'], 'Sessions'));
-        $rules->add($rules->existsIn(['invoice_id'], 'Invoices'));
-        $rules->add($rules->existsIn(['state_id'], 'States'));
-        $rules->add($rules->existsIn(['budget_id'], 'Budgets'));
-
+        $rules->add($rules->existsIn([
+            'project_id'
+        ], 'Projects'));
+        $rules->add($rules->existsIn([
+            'session_id'
+        ], 'Sessions'));
+        $rules->add($rules->existsIn([
+            'invoice_id'
+        ], 'Invoices'));
+        $rules->add($rules->existsIn([
+            'state_id'
+        ], 'States'));
+        $rules->add($rules->existsIn([
+            'budget_id'
+        ], 'Budgets'));
+        
         return $rules;
     }
 }

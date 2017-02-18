@@ -23,6 +23,7 @@ use Cake\Event\Event;
  */
 class ErrorController extends AppController
 {
+
     /**
      * Initialization hook method.
      *
@@ -36,33 +37,34 @@ class ErrorController extends AppController
     /**
      * beforeFilter callback.
      *
-     * @param \Cake\Event\Event $event Event.
+     * @param \Cake\Event\Event $event
+     *            Event.
      * @return \Cake\Network\Response|null|void
      */
     public function beforeFilter(Event $event)
-    {
-    }
+    {}
 
     /**
      * beforeRender callback.
      *
-     * @param \Cake\Event\Event $event Event.
+     * @param \Cake\Event\Event $event
+     *            Event.
      * @return \Cake\Network\Response|null|void
      */
     public function beforeRender(Event $event)
     {
         parent::beforeRender($event);
-
+        
         $this->viewBuilder()->setTemplatePath('Error');
     }
 
     /**
      * afterFilter callback.
      *
-     * @param \Cake\Event\Event $event Event.
+     * @param \Cake\Event\Event $event
+     *            Event.
      * @return \Cake\Network\Response|null|void
      */
     public function afterFilter(Event $event)
-    {
-    }
+    {}
 }

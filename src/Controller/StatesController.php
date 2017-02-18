@@ -19,26 +19,33 @@ class StatesController extends AppController
     public function index()
     {
         $states = $this->paginate($this->States);
-
+        
         $this->set(compact('states'));
-        $this->set('_serialize', ['states']);
+        $this->set('_serialize', [
+            'states'
+        ]);
     }
 
     /**
      * View method
      *
-     * @param string|null $id State id.
+     * @param string|null $id
+     *            State id.
      * @return \Cake\Network\Response|null
      * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
      */
     public function view($id = null)
     {
         $state = $this->States->get($id, [
-            'contain' => ['Tickets']
+            'contain' => [
+                'Tickets'
+            ]
         ]);
-
+        
         $this->set('state', $state);
-        $this->set('_serialize', ['state']);
+        $this->set('_serialize', [
+            'state'
+        ]);
     }
 
     /**
@@ -53,19 +60,24 @@ class StatesController extends AppController
             $state = $this->States->patchEntity($state, $this->request->data);
             if ($this->States->save($state)) {
                 $this->Flash->success(__('The state has been saved.'));
-
-                return $this->redirect(['action' => 'index']);
+                
+                return $this->redirect([
+                    'action' => 'index'
+                ]);
             }
             $this->Flash->error(__('The state could not be saved. Please, try again.'));
         }
         $this->set(compact('state'));
-        $this->set('_serialize', ['state']);
+        $this->set('_serialize', [
+            'state'
+        ]);
     }
 
     /**
      * Edit method
      *
-     * @param string|null $id State id.
+     * @param string|null $id
+     *            State id.
      * @return \Cake\Network\Response|null Redirects on successful edit, renders view otherwise.
      * @throws \Cake\Network\Exception\NotFoundException When record not found.
      */
@@ -74,36 +86,50 @@ class StatesController extends AppController
         $state = $this->States->get($id, [
             'contain' => []
         ]);
-        if ($this->request->is(['patch', 'post', 'put'])) {
+        if ($this->request->is([
+            'patch',
+            'post',
+            'put'
+        ])) {
             $state = $this->States->patchEntity($state, $this->request->data);
             if ($this->States->save($state)) {
                 $this->Flash->success(__('The state has been saved.'));
-
-                return $this->redirect(['action' => 'index']);
+                
+                return $this->redirect([
+                    'action' => 'index'
+                ]);
             }
             $this->Flash->error(__('The state could not be saved. Please, try again.'));
         }
         $this->set(compact('state'));
-        $this->set('_serialize', ['state']);
+        $this->set('_serialize', [
+            'state'
+        ]);
     }
 
     /**
      * Delete method
      *
-     * @param string|null $id State id.
+     * @param string|null $id
+     *            State id.
      * @return \Cake\Network\Response|null Redirects to index.
      * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
      */
     public function delete($id = null)
     {
-        $this->request->allowMethod(['post', 'delete']);
+        $this->request->allowMethod([
+            'post',
+            'delete'
+        ]);
         $state = $this->States->get($id);
         if ($this->States->delete($state)) {
             $this->Flash->success(__('The state has been deleted.'));
         } else {
             $this->Flash->error(__('The state could not be deleted. Please, try again.'));
         }
-
-        return $this->redirect(['action' => 'index']);
+        
+        return $this->redirect([
+            'action' => 'index'
+        ]);
     }
 }
