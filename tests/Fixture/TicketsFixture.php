@@ -5,7 +5,6 @@ use Cake\TestSuite\Fixture\TestFixture;
 
 /**
  * TicketsFixture
- *
  */
 class TicketsFixture extends TestFixture
 {
@@ -17,42 +16,233 @@ class TicketsFixture extends TestFixture
      */
     // @codingStandardsIgnoreStart
     public $fields = [
-        'id' => ['type' => 'uuid', 'length' => null, 'null' => false, 'default' => null, 'comment' => '', 'precision' => null],
-        'project_id' => ['type' => 'uuid', 'length' => null, 'null' => false, 'default' => null, 'comment' => '', 'precision' => null],
-        'session_id' => ['type' => 'uuid', 'length' => null, 'null' => false, 'default' => null, 'comment' => '', 'precision' => null],
-        'invoice_id' => ['type' => 'uuid', 'length' => null, 'null' => false, 'default' => null, 'comment' => '', 'precision' => null],
-        'state_id' => ['type' => 'uuid', 'length' => null, 'null' => false, 'default' => null, 'comment' => '', 'precision' => null],
-        'budget_id' => ['type' => 'uuid', 'length' => null, 'null' => false, 'default' => null, 'comment' => '', 'precision' => null],
-        'min_time' => ['type' => 'time', 'length' => null, 'null' => true, 'default' => null, 'comment' => 'Minimum expected resolution time', 'precision' => null],
-        'max_time' => ['type' => 'time', 'length' => null, 'null' => true, 'default' => null, 'comment' => 'Maximum expected resolution time', 'precision' => null],
-        'deadline' => ['type' => 'date', 'length' => null, 'null' => true, 'default' => null, 'comment' => '', 'precision' => null],
-        'created' => ['type' => 'datetime', 'length' => null, 'null' => false, 'default' => null, 'comment' => '', 'precision' => null],
-        'modified' => ['type' => 'datetime', 'length' => null, 'null' => false, 'default' => null, 'comment' => '', 'precision' => null],
+        'id' => [
+            'type' => 'uuid',
+            'length' => null,
+            'null' => false,
+            'default' => null,
+            'comment' => '',
+            'precision' => null
+        ],
+        'project_id' => [
+            'type' => 'uuid',
+            'length' => null,
+            'null' => false,
+            'default' => null,
+            'comment' => '',
+            'precision' => null
+        ],
+        'session_id' => [
+            'type' => 'uuid',
+            'length' => null,
+            'null' => false,
+            'default' => null,
+            'comment' => '',
+            'precision' => null
+        ],
+        'invoice_id' => [
+            'type' => 'uuid',
+            'length' => null,
+            'null' => false,
+            'default' => null,
+            'comment' => '',
+            'precision' => null
+        ],
+        'state_id' => [
+            'type' => 'uuid',
+            'length' => null,
+            'null' => false,
+            'default' => null,
+            'comment' => '',
+            'precision' => null
+        ],
+        'budget_id' => [
+            'type' => 'uuid',
+            'length' => null,
+            'null' => false,
+            'default' => null,
+            'comment' => '',
+            'precision' => null
+        ],
+        'min_time' => [
+            'type' => 'time',
+            'length' => null,
+            'null' => true,
+            'default' => null,
+            'comment' => 'Minimum expected resolution time',
+            'precision' => null
+        ],
+        'max_time' => [
+            'type' => 'time',
+            'length' => null,
+            'null' => true,
+            'default' => null,
+            'comment' => 'Maximum expected resolution time',
+            'precision' => null
+        ],
+        'deadline' => [
+            'type' => 'date',
+            'length' => null,
+            'null' => true,
+            'default' => null,
+            'comment' => '',
+            'precision' => null
+        ],
+        'created' => [
+            'type' => 'datetime',
+            'length' => null,
+            'null' => false,
+            'default' => null,
+            'comment' => '',
+            'precision' => null
+        ],
+        'modified' => [
+            'type' => 'datetime',
+            'length' => null,
+            'null' => false,
+            'default' => null,
+            'comment' => '',
+            'precision' => null
+        ],
         '_indexes' => [
-            'created' => ['type' => 'index', 'columns' => ['created'], 'length' => []],
-            'modified' => ['type' => 'index', 'columns' => ['modified'], 'length' => []],
-            'project_id' => ['type' => 'index', 'columns' => ['project_id'], 'length' => []],
-            'session_id' => ['type' => 'index', 'columns' => ['session_id'], 'length' => []],
-            'invoice_id' => ['type' => 'index', 'columns' => ['invoice_id'], 'length' => []],
-            'state_id' => ['type' => 'index', 'columns' => ['state_id'], 'length' => []],
-            'budget_id' => ['type' => 'index', 'columns' => ['budget_id'], 'length' => []],
-            'deadline' => ['type' => 'index', 'columns' => ['deadline'], 'length' => []],
+            'created' => [
+                'type' => 'index',
+                'columns' => [
+                    'created'
+                ],
+                'length' => []
+            ],
+            'modified' => [
+                'type' => 'index',
+                'columns' => [
+                    'modified'
+                ],
+                'length' => []
+            ],
+            'project_id' => [
+                'type' => 'index',
+                'columns' => [
+                    'project_id'
+                ],
+                'length' => []
+            ],
+            'session_id' => [
+                'type' => 'index',
+                'columns' => [
+                    'session_id'
+                ],
+                'length' => []
+            ],
+            'invoice_id' => [
+                'type' => 'index',
+                'columns' => [
+                    'invoice_id'
+                ],
+                'length' => []
+            ],
+            'state_id' => [
+                'type' => 'index',
+                'columns' => [
+                    'state_id'
+                ],
+                'length' => []
+            ],
+            'budget_id' => [
+                'type' => 'index',
+                'columns' => [
+                    'budget_id'
+                ],
+                'length' => []
+            ],
+            'deadline' => [
+                'type' => 'index',
+                'columns' => [
+                    'deadline'
+                ],
+                'length' => []
+            ]
         ],
         '_constraints' => [
-            'primary' => ['type' => 'primary', 'columns' => ['id'], 'length' => []],
-            'tickets_ibfk_1' => ['type' => 'foreign', 'columns' => ['project_id'], 'references' => ['projects', 'id'], 'update' => 'restrict', 'delete' => 'restrict', 'length' => []],
-            'tickets_ibfk_2' => ['type' => 'foreign', 'columns' => ['session_id'], 'references' => ['sessions', 'id'], 'update' => 'restrict', 'delete' => 'restrict', 'length' => []],
-            'tickets_ibfk_3' => ['type' => 'foreign', 'columns' => ['invoice_id'], 'references' => ['invoices', 'id'], 'update' => 'restrict', 'delete' => 'restrict', 'length' => []],
-            'tickets_ibfk_4' => ['type' => 'foreign', 'columns' => ['state_id'], 'references' => ['states', 'id'], 'update' => 'restrict', 'delete' => 'restrict', 'length' => []],
-            'tickets_ibfk_5' => ['type' => 'foreign', 'columns' => ['budget_id'], 'references' => ['budgets', 'id'], 'update' => 'restrict', 'delete' => 'restrict', 'length' => []],
+            'primary' => [
+                'type' => 'primary',
+                'columns' => [
+                    'id'
+                ],
+                'length' => []
+            ],
+            'tickets_ibfk_1' => [
+                'type' => 'foreign',
+                'columns' => [
+                    'project_id'
+                ],
+                'references' => [
+                    'projects',
+                    'id'
+                ],
+                'update' => 'restrict',
+                'delete' => 'restrict',
+                'length' => []
+            ],
+            'tickets_ibfk_2' => [
+                'type' => 'foreign',
+                'columns' => [
+                    'session_id'
+                ],
+                'references' => [
+                    'sessions',
+                    'id'
+                ],
+                'update' => 'restrict',
+                'delete' => 'restrict',
+                'length' => []
+            ],
+            'tickets_ibfk_3' => [
+                'type' => 'foreign',
+                'columns' => [
+                    'invoice_id'
+                ],
+                'references' => [
+                    'invoices',
+                    'id'
+                ],
+                'update' => 'restrict',
+                'delete' => 'restrict',
+                'length' => []
+            ],
+            'tickets_ibfk_4' => [
+                'type' => 'foreign',
+                'columns' => [
+                    'state_id'
+                ],
+                'references' => [
+                    'states',
+                    'id'
+                ],
+                'update' => 'restrict',
+                'delete' => 'restrict',
+                'length' => []
+            ],
+            'tickets_ibfk_5' => [
+                'type' => 'foreign',
+                'columns' => [
+                    'budget_id'
+                ],
+                'references' => [
+                    'budgets',
+                    'id'
+                ],
+                'update' => 'restrict',
+                'delete' => 'restrict',
+                'length' => []
+            ]
         ],
         '_options' => [
             'engine' => 'InnoDB',
             'collation' => 'utf8_unicode_ci'
-        ],
+        ]
     ];
     // @codingStandardsIgnoreEnd
-
+    
     /**
      * Records
      *
@@ -71,6 +261,6 @@ class TicketsFixture extends TestFixture
             'deadline' => '2017-02-17',
             'created' => '2017-02-17 18:35:47',
             'modified' => '2017-02-17 18:35:47'
-        ],
+        ]
     ];
 }

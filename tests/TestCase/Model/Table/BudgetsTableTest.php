@@ -38,7 +38,9 @@ class BudgetsTableTest extends TestCase
     public function setUp()
     {
         parent::setUp();
-        $config = TableRegistry::exists('Budgets') ? [] : ['className' => 'App\Model\Table\BudgetsTable'];
+        $config = TableRegistry::exists('Budgets') ? [] : [
+            'className' => 'App\Model\Table\BudgetsTable'
+        ];
         $this->Budgets = TableRegistry::get('Budgets', $config);
     }
 
@@ -50,7 +52,7 @@ class BudgetsTableTest extends TestCase
     public function tearDown()
     {
         unset($this->Budgets);
-
+        
         parent::tearDown();
     }
 

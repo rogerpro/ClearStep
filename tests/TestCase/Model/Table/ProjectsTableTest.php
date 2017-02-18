@@ -40,7 +40,9 @@ class ProjectsTableTest extends TestCase
     public function setUp()
     {
         parent::setUp();
-        $config = TableRegistry::exists('Projects') ? [] : ['className' => 'App\Model\Table\ProjectsTable'];
+        $config = TableRegistry::exists('Projects') ? [] : [
+            'className' => 'App\Model\Table\ProjectsTable'
+        ];
         $this->Projects = TableRegistry::get('Projects', $config);
     }
 
@@ -52,7 +54,7 @@ class ProjectsTableTest extends TestCase
     public function tearDown()
     {
         unset($this->Projects);
-
+        
         parent::tearDown();
     }
 

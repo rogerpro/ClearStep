@@ -37,7 +37,9 @@ class ClientsTableTest extends TestCase
     public function setUp()
     {
         parent::setUp();
-        $config = TableRegistry::exists('Clients') ? [] : ['className' => 'App\Model\Table\ClientsTable'];
+        $config = TableRegistry::exists('Clients') ? [] : [
+            'className' => 'App\Model\Table\ClientsTable'
+        ];
         $this->Clients = TableRegistry::get('Clients', $config);
     }
 
@@ -49,7 +51,7 @@ class ClientsTableTest extends TestCase
     public function tearDown()
     {
         unset($this->Clients);
-
+        
         parent::tearDown();
     }
 

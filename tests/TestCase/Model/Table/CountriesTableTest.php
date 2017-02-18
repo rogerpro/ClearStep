@@ -36,7 +36,9 @@ class CountriesTableTest extends TestCase
     public function setUp()
     {
         parent::setUp();
-        $config = TableRegistry::exists('Countries') ? [] : ['className' => 'App\Model\Table\CountriesTable'];
+        $config = TableRegistry::exists('Countries') ? [] : [
+            'className' => 'App\Model\Table\CountriesTable'
+        ];
         $this->Countries = TableRegistry::get('Countries', $config);
     }
 
@@ -48,7 +50,7 @@ class CountriesTableTest extends TestCase
     public function tearDown()
     {
         unset($this->Countries);
-
+        
         parent::tearDown();
     }
 

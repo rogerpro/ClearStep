@@ -36,7 +36,9 @@ class StatesTableTest extends TestCase
     public function setUp()
     {
         parent::setUp();
-        $config = TableRegistry::exists('States') ? [] : ['className' => 'App\Model\Table\StatesTable'];
+        $config = TableRegistry::exists('States') ? [] : [
+            'className' => 'App\Model\Table\StatesTable'
+        ];
         $this->States = TableRegistry::get('States', $config);
     }
 
@@ -48,7 +50,7 @@ class StatesTableTest extends TestCase
     public function tearDown()
     {
         unset($this->States);
-
+        
         parent::tearDown();
     }
 

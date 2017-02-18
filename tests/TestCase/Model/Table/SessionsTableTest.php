@@ -40,7 +40,9 @@ class SessionsTableTest extends TestCase
     public function setUp()
     {
         parent::setUp();
-        $config = TableRegistry::exists('Sessions') ? [] : ['className' => 'App\Model\Table\SessionsTable'];
+        $config = TableRegistry::exists('Sessions') ? [] : [
+            'className' => 'App\Model\Table\SessionsTable'
+        ];
         $this->Sessions = TableRegistry::get('Sessions', $config);
     }
 
@@ -52,7 +54,7 @@ class SessionsTableTest extends TestCase
     public function tearDown()
     {
         unset($this->Sessions);
-
+        
         parent::tearDown();
     }
 

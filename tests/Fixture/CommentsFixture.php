@@ -5,7 +5,6 @@ use Cake\TestSuite\Fixture\TestFixture;
 
 /**
  * CommentsFixture
- *
  */
 class CommentsFixture extends TestFixture
 {
@@ -17,27 +16,100 @@ class CommentsFixture extends TestFixture
      */
     // @codingStandardsIgnoreStart
     public $fields = [
-        'id' => ['type' => 'uuid', 'length' => null, 'null' => false, 'default' => null, 'comment' => '', 'precision' => null],
-        'ticket_id' => ['type' => 'uuid', 'length' => null, 'null' => false, 'default' => null, 'comment' => '', 'precision' => null],
-        'content' => ['type' => 'string', 'length' => 10000, 'null' => false, 'default' => null, 'collate' => 'utf8_unicode_ci', 'comment' => '', 'precision' => null, 'fixed' => null],
-        'created' => ['type' => 'datetime', 'length' => null, 'null' => false, 'default' => null, 'comment' => '', 'precision' => null],
-        'modified' => ['type' => 'datetime', 'length' => null, 'null' => false, 'default' => null, 'comment' => '', 'precision' => null],
+        'id' => [
+            'type' => 'uuid',
+            'length' => null,
+            'null' => false,
+            'default' => null,
+            'comment' => '',
+            'precision' => null
+        ],
+        'ticket_id' => [
+            'type' => 'uuid',
+            'length' => null,
+            'null' => false,
+            'default' => null,
+            'comment' => '',
+            'precision' => null
+        ],
+        'content' => [
+            'type' => 'string',
+            'length' => 10000,
+            'null' => false,
+            'default' => null,
+            'collate' => 'utf8_unicode_ci',
+            'comment' => '',
+            'precision' => null,
+            'fixed' => null
+        ],
+        'created' => [
+            'type' => 'datetime',
+            'length' => null,
+            'null' => false,
+            'default' => null,
+            'comment' => '',
+            'precision' => null
+        ],
+        'modified' => [
+            'type' => 'datetime',
+            'length' => null,
+            'null' => false,
+            'default' => null,
+            'comment' => '',
+            'precision' => null
+        ],
         '_indexes' => [
-            'ticket_id' => ['type' => 'index', 'columns' => ['ticket_id'], 'length' => []],
-            'created' => ['type' => 'index', 'columns' => ['created'], 'length' => []],
-            'modified' => ['type' => 'index', 'columns' => ['modified'], 'length' => []],
+            'ticket_id' => [
+                'type' => 'index',
+                'columns' => [
+                    'ticket_id'
+                ],
+                'length' => []
+            ],
+            'created' => [
+                'type' => 'index',
+                'columns' => [
+                    'created'
+                ],
+                'length' => []
+            ],
+            'modified' => [
+                'type' => 'index',
+                'columns' => [
+                    'modified'
+                ],
+                'length' => []
+            ]
         ],
         '_constraints' => [
-            'primary' => ['type' => 'primary', 'columns' => ['id'], 'length' => []],
-            'comments_ibfk_1' => ['type' => 'foreign', 'columns' => ['ticket_id'], 'references' => ['tickets', 'id'], 'update' => 'restrict', 'delete' => 'restrict', 'length' => []],
+            'primary' => [
+                'type' => 'primary',
+                'columns' => [
+                    'id'
+                ],
+                'length' => []
+            ],
+            'comments_ibfk_1' => [
+                'type' => 'foreign',
+                'columns' => [
+                    'ticket_id'
+                ],
+                'references' => [
+                    'tickets',
+                    'id'
+                ],
+                'update' => 'restrict',
+                'delete' => 'restrict',
+                'length' => []
+            ]
         ],
         '_options' => [
             'engine' => 'InnoDB',
             'collation' => 'utf8_unicode_ci'
-        ],
+        ]
     ];
     // @codingStandardsIgnoreEnd
-
+    
     /**
      * Records
      *
@@ -50,6 +122,6 @@ class CommentsFixture extends TestFixture
             'content' => 'Lorem ipsum dolor sit amet',
             'created' => '2017-02-17 18:35:45',
             'modified' => '2017-02-17 18:35:45'
-        ],
+        ]
     ];
 }

@@ -36,9 +36,9 @@ class ApplicationTest extends IntegrationTestCase
     {
         $app = new Application(dirname(dirname(__DIR__)) . '/config');
         $middleware = new MiddlewareQueue();
-
+        
         $middleware = $app->middleware($middleware);
-
+        
         $this->assertInstanceOf(ErrorHandlerMiddleware::class, $middleware->get(0));
         $this->assertInstanceOf(AssetMiddleware::class, $middleware->get(1));
         $this->assertInstanceOf(RoutingMiddleware::class, $middleware->get(2));

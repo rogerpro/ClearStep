@@ -38,7 +38,9 @@ class FiscalDataTableTest extends TestCase
     public function setUp()
     {
         parent::setUp();
-        $config = TableRegistry::exists('FiscalData') ? [] : ['className' => 'App\Model\Table\FiscalDataTable'];
+        $config = TableRegistry::exists('FiscalData') ? [] : [
+            'className' => 'App\Model\Table\FiscalDataTable'
+        ];
         $this->FiscalData = TableRegistry::get('FiscalData', $config);
     }
 
@@ -50,7 +52,7 @@ class FiscalDataTableTest extends TestCase
     public function tearDown()
     {
         unset($this->FiscalData);
-
+        
         parent::tearDown();
     }
 

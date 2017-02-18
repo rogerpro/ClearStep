@@ -46,7 +46,9 @@ class TransactionsTableTest extends TestCase
     public function setUp()
     {
         parent::setUp();
-        $config = TableRegistry::exists('Transactions') ? [] : ['className' => 'App\Model\Table\TransactionsTable'];
+        $config = TableRegistry::exists('Transactions') ? [] : [
+            'className' => 'App\Model\Table\TransactionsTable'
+        ];
         $this->Transactions = TableRegistry::get('Transactions', $config);
     }
 
@@ -58,7 +60,7 @@ class TransactionsTableTest extends TestCase
     public function tearDown()
     {
         unset($this->Transactions);
-
+        
         parent::tearDown();
     }
 

@@ -38,7 +38,9 @@ class CurrenciesTableTest extends TestCase
     public function setUp()
     {
         parent::setUp();
-        $config = TableRegistry::exists('Currencies') ? [] : ['className' => 'App\Model\Table\CurrenciesTable'];
+        $config = TableRegistry::exists('Currencies') ? [] : [
+            'className' => 'App\Model\Table\CurrenciesTable'
+        ];
         $this->Currencies = TableRegistry::get('Currencies', $config);
     }
 
@@ -50,7 +52,7 @@ class CurrenciesTableTest extends TestCase
     public function tearDown()
     {
         unset($this->Currencies);
-
+        
         parent::tearDown();
     }
 

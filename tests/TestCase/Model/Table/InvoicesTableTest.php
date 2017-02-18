@@ -39,7 +39,9 @@ class InvoicesTableTest extends TestCase
     public function setUp()
     {
         parent::setUp();
-        $config = TableRegistry::exists('Invoices') ? [] : ['className' => 'App\Model\Table\InvoicesTable'];
+        $config = TableRegistry::exists('Invoices') ? [] : [
+            'className' => 'App\Model\Table\InvoicesTable'
+        ];
         $this->Invoices = TableRegistry::get('Invoices', $config);
     }
 
@@ -51,7 +53,7 @@ class InvoicesTableTest extends TestCase
     public function tearDown()
     {
         unset($this->Invoices);
-
+        
         parent::tearDown();
     }
 

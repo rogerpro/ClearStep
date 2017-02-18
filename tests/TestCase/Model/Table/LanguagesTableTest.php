@@ -35,7 +35,9 @@ class LanguagesTableTest extends TestCase
     public function setUp()
     {
         parent::setUp();
-        $config = TableRegistry::exists('Languages') ? [] : ['className' => 'App\Model\Table\LanguagesTable'];
+        $config = TableRegistry::exists('Languages') ? [] : [
+            'className' => 'App\Model\Table\LanguagesTable'
+        ];
         $this->Languages = TableRegistry::get('Languages', $config);
     }
 
@@ -47,7 +49,7 @@ class LanguagesTableTest extends TestCase
     public function tearDown()
     {
         unset($this->Languages);
-
+        
         parent::tearDown();
     }
 

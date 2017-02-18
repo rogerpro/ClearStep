@@ -27,6 +27,7 @@ use Cake\View\Exception\MissingTemplateException;
  */
 class PagesControllerTest extends IntegrationTestCase
 {
+
     /**
      * testMultipleGet method
      *
@@ -62,7 +63,7 @@ class PagesControllerTest extends IntegrationTestCase
     {
         Configure::write('debug', false);
         $this->get('/pages/not_existing');
-
+        
         $this->assertResponseError();
         $this->assertResponseContains('Error');
     }
@@ -76,7 +77,7 @@ class PagesControllerTest extends IntegrationTestCase
     {
         Configure::write('debug', true);
         $this->get('/pages/not_existing');
-
+        
         $this->assertResponseFailure();
         $this->assertResponseContains('Missing Template');
         $this->assertResponseContains('Stacktrace');
