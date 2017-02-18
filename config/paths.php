@@ -15,7 +15,7 @@
 /**
  * Use the DS to separate the directories in other defines
  */
-if (!defined('DS')) {
+if (! defined('DS')) {
     define('DS', DIRECTORY_SEPARATOR);
 }
 
@@ -31,7 +31,8 @@ if (!defined('DS')) {
 define('ROOT', dirname(__DIR__));
 
 /**
- * The actual directory name for the application directory. Normally
+ * The actual directory name for the application directory.
+ * Normally
  * named 'src'.
  */
 define('APP_DIR', 'src');
@@ -67,7 +68,8 @@ define('TMP', ROOT . DS . 'tmp' . DS);
 define('LOGS', ROOT . DS . 'logs' . DS);
 
 /**
- * Path to the cache files directory. It can be shared between hosts in a multi-server setup.
+ * Path to the cache files directory.
+ * It can be shared between hosts in a multi-server setup.
  */
 define('CACHE', TMP . 'cache' . DS);
 

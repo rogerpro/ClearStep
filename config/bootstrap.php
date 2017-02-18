@@ -19,16 +19,16 @@ if (version_compare(PHP_VERSION, '5.6.0') < 0) {
 }
 
 /*
- *  You can remove this if you are confident you have intl installed.
+ * You can remove this if you are confident you have intl installed.
  */
-if (!extension_loaded('intl')) {
+if (! extension_loaded('intl')) {
     trigger_error('You must enable the intl extension to use CakePHP.', E_USER_ERROR);
 }
 
 /*
  * You can remove this if you are confident you have mbstring installed.
  */
-if (!extension_loaded('mbstring')) {
+if (! extension_loaded('mbstring')) {
     trigger_error('You must enable the mbstring extension to use CakePHP.', E_USER_ERROR);
 }
 
@@ -84,7 +84,7 @@ try {
  * You can use a file like app_local.php to provide local overrides to your
  * shared configuration.
  */
-//Configure::load('app_local', 'default');
+// Configure::load('app_local', 'default');
 
 /*
  * When debug = true the metadata cache should only last
@@ -135,12 +135,12 @@ if ($isCli) {
  *
  * If you define fullBaseUrl in your config file you can remove this.
  */
-if (!Configure::read('App.fullBaseUrl')) {
+if (! Configure::read('App.fullBaseUrl')) {
     $s = null;
     if (env('HTTPS')) {
         $s = 's';
     }
-
+    
     $httpHost = env('HTTP_HOST');
     if (isset($httpHost)) {
         Configure::write('App.fullBaseUrl', 'http' . $s . '://' . $httpHost);
@@ -160,19 +160,19 @@ Security::salt(Configure::consume('Security.salt'));
  * If you are migrating from 2.x uncomment this code to
  * use a more compatible Mcrypt based implementation
  */
-//Security::engine(new \Cake\Utility\Crypto\Mcrypt());
+// Security::engine(new \Cake\Utility\Crypto\Mcrypt());
 
 /*
  * Setup detectors for mobile and tablet.
  */
 Request::addDetector('mobile', function ($request) {
     $detector = new \Detection\MobileDetect();
-
+    
     return $detector->isMobile();
 });
 Request::addDetector('tablet', function ($request) {
     $detector = new \Detection\MobileDetect();
-
+    
     return $detector->isTablet();
 });
 
@@ -184,24 +184,20 @@ Request::addDetector('tablet', function ($request) {
  * locale specific date formats. For details see
  * @link http://book.cakephp.org/3.0/en/core-libraries/internationalization-and-localization.html#parsing-localized-datetime-data
  */
-Type::build('time')
-    ->useImmutable();
-Type::build('date')
-    ->useImmutable();
-Type::build('datetime')
-    ->useImmutable();
-Type::build('timestamp')
-    ->useImmutable();
+Type::build('time')->useImmutable();
+Type::build('date')->useImmutable();
+Type::build('datetime')->useImmutable();
+Type::build('timestamp')->useImmutable();
 
 /*
  * Custom Inflector rules, can be set to correctly pluralize or singularize
  * table, model, controller names or whatever other string is passed to the
  * inflection functions.
  */
-//Inflector::rules('plural', ['/^(inflect)or$/i' => '\1ables']);
-//Inflector::rules('irregular', ['red' => 'redlings']);
-//Inflector::rules('uninflected', ['dontinflectme']);
-//Inflector::rules('transliteration', ['/å/' => 'aa']);
+// Inflector::rules('plural', ['/^(inflect)or$/i' => '\1ables']);
+// Inflector::rules('irregular', ['red' => 'redlings']);
+// Inflector::rules('uninflected', ['dontinflectme']);
+// Inflector::rules('transliteration', ['/å/' => 'aa']);
 
 /*
  * Plugins need to be loaded manually, you can either load them one by one or all of them in a single call
@@ -218,5 +214,7 @@ Type::build('timestamp')
  * Debug Kit should not be installed on a production system
  */
 if (Configure::read('debug')) {
-    Plugin::load('DebugKit', ['bootstrap' => true]);
+    Plugin::load('DebugKit', [
+        'bootstrap' => true
+    ]);
 }
