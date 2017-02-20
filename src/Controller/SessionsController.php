@@ -83,6 +83,34 @@ class SessionsController extends AppController
     }
 
     /**
+     * Log method
+     *
+     * @return \Cake\Network\Response|null Redirects on successful add, renders view otherwise.
+     */
+    public function log()
+    {
+        $session = $this->Sessions->newEntity();
+        if ($this->request->is('post')) {
+            $session = $this->Sessions->patchEntity($session, $this->request->data);
+            if ($this->Sessions->save($session)) {
+                $this->Flash->success(__('The session has been saved.'));
+                
+                return $this->redirect([
+                    'action' => 'index'
+                ]);
+            }
+            $this->Flash->error(__('The session could not be saved. Please, try again.'));
+        }
+        $projects = $this->Sessions->Projects->find('list', [
+            'limit' => 200
+        ]);
+        $this->set(compact('session', 'projects'));
+        $this->set('_serialize', [
+            'session'
+        ]);
+    }
+
+    /**
      * Edit method
      *
      * @param string|null $id
