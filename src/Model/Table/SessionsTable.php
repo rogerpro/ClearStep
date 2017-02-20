@@ -97,4 +97,21 @@ class SessionsTable extends Table
         
         return $rules;
     }
+
+    /**
+     * Find ongoing sessions.
+     *
+     * @param Query $q            
+     * @param array $options            
+     * @throws OutOfBoundsException
+     */
+    public function findOngoingSessions(Query $q, array $options)
+    {
+        $q->select([
+            'id'
+        ])->where([
+            $this->aliasField('end IS') => null
+        ]);
+        return $q;
+    }
 }

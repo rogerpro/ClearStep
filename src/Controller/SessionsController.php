@@ -11,6 +11,12 @@ use App\Controller\AppController;
 class SessionsController extends AppController
 {
 
+    public function initialize()
+    {
+        parent::initialize();
+        // $this->loadComponent('Auth');
+    }
+
     /**
      * Index method
      *
@@ -87,27 +93,22 @@ class SessionsController extends AppController
      *
      * @return \Cake\Network\Response|null Redirects on successful add, renders view otherwise.
      */
-    public function log()
+    public function register()
     {
-        $session = $this->Sessions->newEntity();
-        if ($this->request->is('post')) {
-            $session = $this->Sessions->patchEntity($session, $this->request->data);
-            if ($this->Sessions->save($session)) {
-                $this->Flash->success(__('The session has been saved.'));
-                
-                return $this->redirect([
-                    'action' => 'index'
-                ]);
-            }
-            $this->Flash->error(__('The session could not be saved. Please, try again.'));
+        // Check for ongoing sessions
+        // debug($this->Auth->user('id'));
+        $ongoing = $this->Sessions->find('ongoingSessions', [])->count();
+        debug($ongoing);
+        
+        if ($ongoing) {
+            // Ongoing sessions
+            
+            ;
+        } else {
+            // No ongoing sessions
         }
-        $projects = $this->Sessions->Projects->find('list', [
-            'limit' => 200
-        ]);
-        $this->set(compact('session', 'projects'));
-        $this->set('_serialize', [
-            'session'
-        ]);
+        
+        $this->render(false);
     }
 
     /**
