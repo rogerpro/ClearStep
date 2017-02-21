@@ -48,9 +48,8 @@ Router::scope('/', function (RouteBuilder $routes) {
      * to use (in this case, src/Template/Pages/home.ctp)...
      */
     $routes->connect('/', [
-        'controller' => 'Pages',
-        'action' => 'display',
-        'home'
+        'controller' => 'Sessions',
+        'action' => 'register'
     ]);
     
     /**
