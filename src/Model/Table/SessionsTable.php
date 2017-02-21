@@ -108,9 +108,19 @@ class SessionsTable extends Table
     public function findOngoingSessions(Query $q, array $options)
     {
         $q->select([
-            'id'
-        ])->where([
+            'id',
+            'project_id',
+            'begin',
+            'time',
+            'section',
+            'subsection',
+            'task'
+        ])
+            ->where([
             $this->aliasField('end IS') => null
+        ])
+            ->order([
+            'created' => 'ASC'
         ]);
         return $q;
     }

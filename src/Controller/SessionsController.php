@@ -2,6 +2,7 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
+use Cake\I18n\Time;
 
 /**
  * Sessions Controller
@@ -97,18 +98,91 @@ class SessionsController extends AppController
     {
         // Check for ongoing sessions
         // debug($this->Auth->user('id'));
-        $ongoing = $this->Sessions->find('ongoingSessions', [])->count();
+        // $ongoing = $this->Sessions->find('ongoingSessions', [])->count();
+        $ongoing = $this->Sessions->find('ongoingSessions', [])->first();
+        if ($ongoing) {
+            debug("session in progress");
+        } else {
+            debug("no session in progress");
+        }
         debug($ongoing);
         
-        if ($ongoing) {
-            // Ongoing sessions
-            
-            ;
-        } else {
-            // No ongoing sessions
-        }
+        $this->set('ongoing', $ongoing);
         
-        $this->render(false);
+        if ($ongoing) {
+            // Ongoing sessions: edit
+            
+            $id = $ongoing['id'];
+            debug($id);
+            
+            $session = $this->Sessions->get($id, [
+                'contain' => []
+            ]);
+            if ($this->request->is([
+                'patch',
+                'post',
+                'put'
+            ])) {
+                // Set end time to session
+                debug($session);
+                debug($this->request->data);
+                $data = array_merge($this->request->data, [
+                    'end' => Time::now()
+                ]);
+                debug($data);
+                
+                $session = $this->Sessions->patchEntity($session, $data);
+                if ($this->Sessions->save($session)) {
+                    $this->Flash->success(__('The session has been saved.'));
+                    
+                    // return $this->redirect([
+                    // 'action' => 'index'
+                    // ]);
+                }
+                $this->Flash->error(__('The session could not be saved. Please, try again.'));
+            }
+            $projects = $this->Sessions->Projects->find('list', [
+                'limit' => 200
+            ]);
+            $this->set(compact('session', 'projects'));
+            $this->set('_serialize', [
+                'session'
+            ]);
+        } else {
+            // No ongoing sessions: add
+            
+            $session = $this->Sessions->newEntity();
+            if ($this->request->is('post')) {
+                
+                // Set begin time to session
+                debug($session);
+                debug($this->request->data);
+                $data = array_merge($this->request->data, [
+                    'begin' => Time::now()
+                ]);
+                debug($data);
+                
+                $session = $this->Sessions->patchEntity($session, $data);
+                if ($this->Sessions->save($session)) {
+                    $this->Flash->success(__('The session has been saved.'));
+                    
+                    // return $this->redirect([
+                    // 'action' => 'index'
+                    // ]);
+                } else {
+                    debug($session);
+                    debug($session->errors());
+                    $this->Flash->error(__('The session could not be saved. Please, try again.'));
+                }
+            }
+            $projects = $this->Sessions->Projects->find('list', [
+                'limit' => 200
+            ]);
+            $this->set(compact('session', 'projects'));
+            $this->set('_serialize', [
+                'session'
+            ]);
+        }
     }
 
     /**
