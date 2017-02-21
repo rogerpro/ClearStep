@@ -105,7 +105,7 @@ class SessionsController extends AppController
         } else {
             debug("no session in progress");
         }
-        debug($ongoing);
+        // debug($ongoing);
         
         $this->set('ongoing', $ongoing);
         
@@ -113,7 +113,7 @@ class SessionsController extends AppController
             // Ongoing sessions: edit
             
             $id = $ongoing['id'];
-            debug($id);
+            // debug($id);
             
             $session = $this->Sessions->get($id, [
                 'contain' => []
@@ -124,16 +124,18 @@ class SessionsController extends AppController
                 'put'
             ])) {
                 // Set end time to session
-                debug($session);
-                debug($this->request->data);
+                // debug($session);
+                // debug($this->request->data);
                 $data = array_merge($this->request->data, [
                     'end' => Time::now()
                 ]);
-                debug($data);
+                // debug($data);
                 
                 $session = $this->Sessions->patchEntity($session, $data);
                 if ($this->Sessions->save($session)) {
                     $this->Flash->success(__('The session has been saved.'));
+                    
+                    return $this->redirect($this->referer());
                     
                     // return $this->redirect([
                     // 'action' => 'index'
@@ -155,23 +157,25 @@ class SessionsController extends AppController
             if ($this->request->is('post')) {
                 
                 // Set begin time to session
-                debug($session);
-                debug($this->request->data);
+                // debug($session);
+                // debug($this->request->data);
                 $data = array_merge($this->request->data, [
                     'begin' => Time::now()
                 ]);
-                debug($data);
+                // debug($data);
                 
                 $session = $this->Sessions->patchEntity($session, $data);
                 if ($this->Sessions->save($session)) {
                     $this->Flash->success(__('The session has been saved.'));
                     
+                    return $this->redirect($this->referer());
+                    
                     // return $this->redirect([
                     // 'action' => 'index'
                     // ]);
                 } else {
-                    debug($session);
-                    debug($session->errors());
+                    // debug($session);
+                    // debug($session->errors());
                     $this->Flash->error(__('The session could not be saved. Please, try again.'));
                 }
             }
