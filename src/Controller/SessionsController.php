@@ -135,7 +135,7 @@ class SessionsController extends AppController
                 if ($this->Sessions->save($session)) {
                     $this->Flash->success(__('The session has been saved.'));
                     
-                    return $this->redirect($this->referer());
+                    return $this->redirect($this->here);
                     
                     // return $this->redirect([
                     // 'action' => 'index'
@@ -168,7 +168,7 @@ class SessionsController extends AppController
                 if ($this->Sessions->save($session)) {
                     $this->Flash->success(__('The session has been saved.'));
                     
-                    return $this->redirect($this->referer());
+                    return $this->redirect($this->here);
                     
                     // return $this->redirect([
                     // 'action' => 'index'
