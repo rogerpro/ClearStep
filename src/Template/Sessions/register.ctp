@@ -2,6 +2,7 @@
 /**
  * @var \App\View\AppView $this
  */
+$button_caption = ($ongoing) ? 'End' : 'Begin';
 ?>
 <nav class="large-3 medium-4 columns" id="actions-sidebar">
 	<ul class="side-nav">
@@ -30,6 +31,6 @@
         // echo $this->Form->input('expected_hours');
         ?>
     </fieldset>
-    <?= $this->Form->button(__('Submit'))?>
+    <?= $this->Form->button(__($button_caption))?>
     <?= $this->Form->end()?>
 </div>
