@@ -135,7 +135,6 @@ class SessionsController extends AppController
                 
                 $session = $this->Sessions->patchEntity($session, $data);
                 if ($this->Sessions->save($session)) {
-                    $this->Flash->success(__('The session has been saved.'));
                     
                     return $this->redirect($this->here);
                     
@@ -166,7 +165,6 @@ class SessionsController extends AppController
                 
                 $session = $this->Sessions->patchEntity($session, $data);
                 if ($this->Sessions->save($session)) {
-                    $this->Flash->success(__('The session has been saved.'));
                     
                     return $this->redirect($this->here);
                     
