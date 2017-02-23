@@ -108,4 +108,26 @@ class ProjectsTable extends Table
         
         return $rules;
     }
+
+    /**
+     * Find active projects.
+     *
+     * @param Query $q            
+     * @param array $options            
+     * @throws OutOfBoundsException
+     */
+    public function findActiveProjects(Query $q, array $options)
+    {
+        $q->select([
+            'id',
+            'name'
+        ])
+            ->where([
+            $this->aliasField('active') => true
+        ])
+            ->order([
+            'name' => 'ASC'
+        ]);
+        return $q;
+    }
 }

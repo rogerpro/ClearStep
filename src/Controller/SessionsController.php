@@ -109,6 +109,8 @@ class SessionsController extends AppController
         
         $this->set('ongoing', $ongoing);
         
+        $projects = $this->Sessions->Projects->find('list')->find('activeProjects');
+        
         if ($ongoing) {
             // Ongoing sessions: edit
             
@@ -143,9 +145,7 @@ class SessionsController extends AppController
                 }
                 $this->Flash->error(__('The session could not be saved. Please, try again.'));
             }
-            $projects = $this->Sessions->Projects->find('list', [
-                'limit' => 200
-            ]);
+            
             $this->set(compact('session', 'projects'));
             $this->set('_serialize', [
                 'session'
@@ -179,9 +179,7 @@ class SessionsController extends AppController
                     $this->Flash->error(__('The session could not be saved. Please, try again.'));
                 }
             }
-            $projects = $this->Sessions->Projects->find('list', [
-                'limit' => 200
-            ]);
+            
             $this->set(compact('session', 'projects'));
             $this->set('_serialize', [
                 'session'
