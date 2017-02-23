@@ -20,11 +20,6 @@ $button_caption = ($ongoing) ? 'End' : 'Begin';
 		<legend><?= __('Add Session') ?></legend>
         <?php
         echo $this->Form->input('project_id');
-        // echo $this->Form->input('begin');
-        // echo $this->Form->input('end');
-        // echo $this->Form->input('time', [
-        // 'empty' => true
-        // ]);
         // echo $this->Form->input('section');
         // echo $this->Form->input('subsection');
         echo $this->Form->input('task');

@@ -98,14 +98,7 @@ class SessionsController extends AppController
     {
         // Check for ongoing sessions
         // debug($this->Auth->user('id'));
-        // $ongoing = $this->Sessions->find('ongoingSessions', [])->count();
         $ongoing = $this->Sessions->find('ongoingSessions', [])->first();
-        if ($ongoing) {
-            debug("session in progress");
-        } else {
-            debug("no session in progress");
-        }
-        // debug($ongoing);
         
         $this->set('ongoing', $ongoing);
         
@@ -115,32 +108,24 @@ class SessionsController extends AppController
             // Ongoing sessions: edit
             
             $id = $ongoing['id'];
-            // debug($id);
             
             $session = $this->Sessions->get($id, [
                 'contain' => []
             ]);
+            
             if ($this->request->is([
                 'patch',
                 'post',
                 'put'
             ])) {
                 // Set end time to session
-                // debug($session);
-                // debug($this->request->data);
                 $data = array_merge($this->request->data, [
                     'end' => Time::now()
                 ]);
-                // debug($data);
                 
                 $session = $this->Sessions->patchEntity($session, $data);
                 if ($this->Sessions->save($session)) {
-                    
                     return $this->redirect($this->here);
-                    
-                    // return $this->redirect([
-                    // 'action' => 'index'
-                    // ]);
                 }
                 $this->Flash->error(__('The session could not be saved. Please, try again.'));
             }
@@ -156,24 +141,14 @@ class SessionsController extends AppController
             if ($this->request->is('post')) {
                 
                 // Set begin time to session
-                // debug($session);
-                // debug($this->request->data);
                 $data = array_merge($this->request->data, [
                     'begin' => Time::now()
                 ]);
-                // debug($data);
                 
                 $session = $this->Sessions->patchEntity($session, $data);
                 if ($this->Sessions->save($session)) {
-                    
                     return $this->redirect($this->here);
-                    
-                    // return $this->redirect([
-                    // 'action' => 'index'
-                    // ]);
                 } else {
-                    // debug($session);
-                    // debug($session->errors());
                     $this->Flash->error(__('The session could not be saved. Please, try again.'));
                 }
             }
