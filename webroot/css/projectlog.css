@@ -5,3 +5,8 @@
 .end {
 	background: #DC143C;
 }
+
+.form button.begin, .form button.end {
+	float: none;
+	margin-left: 45%;
+}
