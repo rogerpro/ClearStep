@@ -3,6 +3,7 @@
  * @var \App\View\AppView $this
  */
 $button_caption = ($ongoing) ? 'End' : 'Begin';
+$button_class = ($ongoing) ? 'end' : 'begin';
 ?>
 <nav class="large-3 medium-4 columns" id="actions-sidebar">
 	<ul class="side-nav">
@@ -26,6 +27,6 @@ $button_caption = ($ongoing) ? 'End' : 'Begin';
         // echo $this->Form->input('expected_hours');
         ?>
     </fieldset>
-    <?= $this->Form->button(__($button_caption))?>
+    <?= $this->Form->button(__($button_caption), ['class' => $button_class])?>
     <?= $this->Form->end()?>
 </div>
