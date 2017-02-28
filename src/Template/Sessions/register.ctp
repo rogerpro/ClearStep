@@ -17,8 +17,6 @@ $button_class = ($ongoing) ? 'end' : 'begin';
 </nav>
 <div class="sessions form large-9 medium-8 columns content">
 	<div><?php echo $this->element('table/todays_detail'); ?></div>
-	<div><?php echo $this->element('table/todays_summary'); ?></div>
-	<div><?php echo $this->element('table/todays_total'); ?></div>
     <?= $this->Form->create($session)?>
     <fieldset>
 		<legend><?= __('Add Session') ?></legend>
@@ -32,4 +30,6 @@ $button_class = ($ongoing) ? 'end' : 'begin';
     </fieldset>
     <?= $this->Form->button(__($button_caption), ['class' => $button_class])?>
     <?= $this->Form->end()?>
+	<div><?php echo $this->element('table/todays_summary'); ?></div>
+	<div><?php echo $this->element('table/todays_total'); ?></div>
 </div>
