@@ -17,6 +17,7 @@ $button_class = ($ongoing) ? 'end' : 'begin';
 </nav>
 <div><?php echo $this->element('table/todays_detail'); ?></div>
 <div><?php echo $this->element('table/todays_summary'); ?></div>
+<div><?php echo $this->element('table/todays_total'); ?></div>
 <div class="sessions form large-9 medium-8 columns content">
     <?= $this->Form->create($session)?>
     <fieldset>
