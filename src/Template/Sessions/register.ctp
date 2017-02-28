@@ -15,6 +15,7 @@ $button_class = ($ongoing) ? 'end' : 'begin';
 		<li><?= $this->Html->link(__('New Ticket'), ['controller' => 'Tickets', 'action' => 'add']) ?></li>
 	</ul>
 </nav>
+<div><?php echo $this->element('table/todays_detail'); ?></div>
 <div class="sessions form large-9 medium-8 columns content">
     <?= $this->Form->create($session)?>
     <fieldset>
