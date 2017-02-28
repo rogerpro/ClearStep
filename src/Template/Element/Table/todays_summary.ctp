@@ -1,4 +1,4 @@
-<h3><?= __('Sessions') ?></h3>
+<h3><?= __('Today\'s summary') ?></h3>
 <table cellpadding="0" cellspacing="0">
 	<thead>
 		<tr>
