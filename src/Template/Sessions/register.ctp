@@ -5,7 +5,7 @@
 $button_caption = ($ongoing) ? 'End' : 'Begin';
 $button_class = ($ongoing) ? 'end' : 'begin';
 ?>
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
+<nav class="large-1 medium-4 columns" id="actions-sidebar">
 	<ul class="side-nav">
 		<li class="heading"><?= __('Actions') ?></li>
 		<li><?= $this->Html->link(__('List Sessions'), ['action' => 'index']) ?></li>
@@ -15,7 +15,7 @@ $button_class = ($ongoing) ? 'end' : 'begin';
 		<li><?= $this->Html->link(__('New Ticket'), ['controller' => 'Tickets', 'action' => 'add']) ?></li>
 	</ul>
 </nav>
-<div class="sessions form large-9 medium-8 columns content">
+<div class="sessions form large-11 medium-8 columns content">
 	<div><?php echo $this->element('table/todays_detail'); ?></div>
     <?= $this->Form->create($session)?>
     <fieldset>
