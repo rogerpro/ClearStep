@@ -160,6 +160,32 @@ class SessionsTable extends Table
     }
 
     /**
+     * Find Today's summary.
+     *
+     * Total time spent today per project.
+     *
+     * @param Query $q            
+     * @return Query
+     */
+    public function findTodaysSummary(Query $q)
+    {
+        $q->select([
+            'project_id',
+            'total_time' => $q->func()
+                ->sum('time')
+        ])
+            ->where([
+            $this->aliasField('begin >=') => Chronos::today(),
+            $this->aliasField('begin <') => Chronos::tomorrow()
+        ])
+            ->group('project_id')
+            ->order([
+            'created' => 'ASC'
+        ]);
+        return $q;
+    }
+
+    /**
      * Calculate the interval between the begin and end of a session.
      *
      * Sustract timestamps of both.

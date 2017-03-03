@@ -7,10 +7,10 @@
 		</tr>
 	</thead>
 	<tbody>
-            <?php foreach ($sessions as $session): ?>
+            <?php foreach ($summary_projects as $summary_project): ?>
             <tr>
-			<td><?= $session->has('project') ? $this->Html->link($session->project->name, ['controller' => 'Projects', 'action' => 'view', $session->project->id]) : '' ?></td>
-			<td><?= h($session->time) ?></td>
+			<td><?= $summary_project->has('project') ? $this->Html->link($summary_project->project->name, ['controller' => 'Projects', 'action' => 'view', $summary_project->project->id]) : '' ?></td>
+			<td><?= h($summary_project->total_time) ?></td>
 		</tr>
             <?php endforeach; ?>
         </tbody>

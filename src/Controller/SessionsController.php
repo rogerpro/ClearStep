@@ -111,10 +111,18 @@ class SessionsController extends AppController
         ]);
         
         // Get Today's summary
-        $summary = null;
+        $summary_projects = $this->Sessions->find('todaysSummary');
+        $this->set(compact('summary_projects'));
+        $this->set('_serialize', [
+            'summary_projects'
+        ]);
         
         // Get Today's total
         $total = null;
+        $this->set(compact('total'));
+        $this->set('_serialize', [
+            'total'
+        ]);
         
         if ($ongoing) {
             // Ongoing sessions: edit
