@@ -105,11 +105,12 @@ class SessionsTable extends Table
     /**
      * Find ongoing sessions.
      *
+     * Sessions that has not a defined end.
+     *
      * @param Query $q            
-     * @param array $options            
-     * @throws OutOfBoundsException
+     * @return Query
      */
-    public function findOngoingSessions(Query $q, array $options)
+    public function findOngoingSessions(Query $q)
     {
         $q->select([
             'id',
