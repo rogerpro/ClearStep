@@ -2,7 +2,7 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
-use Cake\I18n\Time;
+use Cake\I18n\FrozenTime;
 
 /**
  * Sessions Controller
@@ -120,7 +120,7 @@ class SessionsController extends AppController
             ])) {
                 // Set end time to session
                 $data = array_merge($this->request->data, [
-                    'end' => Time::now()
+                    'end' => FrozenTime::now()
                 ]);
                 
                 $session = $this->Sessions->patchEntity($session, $data);
@@ -142,7 +142,7 @@ class SessionsController extends AppController
                 
                 // Set begin time to session
                 $data = array_merge($this->request->data, [
-                    'begin' => Time::now()
+                    'begin' => FrozenTime::now()
                 ]);
                 
                 $session = $this->Sessions->patchEntity($session, $data);
