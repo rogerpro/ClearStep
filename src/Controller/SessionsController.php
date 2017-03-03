@@ -90,9 +90,9 @@ class SessionsController extends AppController
     }
 
     /**
-     * Log method
+     * Register method
      *
-     * @return \Cake\Network\Response|null Redirects on successful add, renders view otherwise.
+     * @return \Cake\Network\Response|null Redirects on successful register, renders view otherwise.
      */
     public function register()
     {
