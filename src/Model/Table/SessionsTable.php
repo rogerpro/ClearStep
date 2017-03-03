@@ -1,6 +1,7 @@
 <?php
 namespace App\Model\Table;
 
+use Cake\Chronos\Chronos;
 use Cake\Event\Event;
 use Cake\ORM\Query;
 use Cake\ORM\RulesChecker;
@@ -121,6 +122,36 @@ class SessionsTable extends Table
         ])
             ->where([
             $this->aliasField('end IS') => null
+        ])
+            ->order([
+            'created' => 'ASC'
+        ]);
+        return $q;
+    }
+
+    /**
+     * Find Today's detail.
+     *
+     * All sessions that begin today.
+     *
+     * @param Query $q            
+     * @return Query
+     */
+    public function findTodaysDetail(Query $q)
+    {
+        $q->select([
+            'id',
+            'project_id',
+            'begin',
+            'end',
+            'time',
+            'section',
+            'subsection',
+            'task'
+        ])
+            ->where([
+            $this->aliasField('begin >=') => Chronos::today(),
+            $this->aliasField('begin <') => Chronos::tomorrow()
         ])
             ->order([
             'created' => 'ASC'

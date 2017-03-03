@@ -97,12 +97,24 @@ class SessionsController extends AppController
     public function register()
     {
         // Check for ongoing sessions
-        // debug($this->Auth->user('id'));
         $ongoing = $this->Sessions->find('ongoingSessions', [])->first();
         
         $this->set('ongoing', $ongoing);
         
         $projects = $this->Sessions->Projects->find('list')->find('activeProjects');
+        
+        // Get Today's detail
+        $sessions = $this->Sessions->find('todaysDetail', [])->all();
+        $this->set(compact('sessions'));
+        $this->set('_serialize', [
+            'sessions'
+        ]);
+        
+        // Get Today's summary
+        $summary = null;
+        
+        // Get Today's total
+        $total = null;
         
         if ($ongoing) {
             // Ongoing sessions: edit
