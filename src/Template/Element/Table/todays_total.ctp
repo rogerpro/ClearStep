@@ -7,7 +7,7 @@
 	</thead>
 	<tbody>
 		<tr>
-			<td><?= h($session->time) ?></td>
+			<td><?= h($total) ?></td>
 		</tr>
 	</tbody>
 </table>

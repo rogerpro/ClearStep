@@ -186,6 +186,27 @@ class SessionsTable extends Table
     }
 
     /**
+     * Find Today's total.
+     *
+     * Total time spent today.
+     *
+     * @param Query $q            
+     * @return Query
+     */
+    public function findTodaysTotal(Query $q)
+    {
+        $q->select([
+            'total_time' => $q->func()
+                ->sum('time')
+        ])
+            ->where([
+            $this->aliasField('begin >=') => Chronos::today(),
+            $this->aliasField('begin <') => Chronos::tomorrow()
+        ]);
+        return $q;
+    }
+
+    /**
      * Calculate the interval between the begin and end of a session.
      *
      * Sustract timestamps of both.
