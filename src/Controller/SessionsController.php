@@ -104,7 +104,7 @@ class SessionsController extends AppController
         $projects = $this->Sessions->Projects->find('list')->find('activeProjects');
         
         // Get Today's detail
-        $sessions = $this->Sessions->find('todaysDetail', [])->all();
+        $sessions = $this->Sessions->find('todaysDetail');
         $this->set(compact('sessions'));
         $this->set('_serialize', [
             'sessions'
