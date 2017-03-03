@@ -216,6 +216,7 @@ class SessionsTable extends Table
         // Only if session ended
         if (isset($end)) {
             $session->set('time', $this->getInterval($begin, $end));
+            // TODO: consider using SQL function TIMEDIFF()
         }
     }
 }
