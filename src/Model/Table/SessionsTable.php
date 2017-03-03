@@ -1,10 +1,13 @@
 <?php
 namespace App\Model\Table;
 
+use Cake\Event\Event;
 use Cake\ORM\Query;
 use Cake\ORM\RulesChecker;
 use Cake\ORM\Table;
+use Cake\I18n\FrozenTime;
 use Cake\Validation\Validator;
+use App\Model\Entity\Session;
 
 /**
  * Sessions Model
@@ -123,5 +126,39 @@ class SessionsTable extends Table
             'created' => 'ASC'
         ]);
         return $q;
+    }
+
+    /**
+     * Calculate the interval between the begin and end of a session.
+     *
+     * Sustract timestamps of both.
+     *
+     * @param \Cake\I18n\FrozenTime $begin            
+     * @param \Cake\I18n\FrozenTime $end            
+     * @return \Cake\I18n\FrozenTime
+     */
+    private function getInterval($begin, $end)
+    {
+        return new FrozenTime($end->format('U') - $begin->format('U'));
+    }
+
+    /**
+     * Calculate total session time.
+     *
+     * @param \Cake\Event\Event $event
+     *            The event that was triggered
+     * @param \App\Model\Entity\Session $session
+     *            Session entity being saved
+     * @return void
+     */
+    public function beforeSave(Event $event, Session $session)
+    {
+        $begin = $session->begin;
+        $end = $session->end;
+        
+        // Only if session ended
+        if (isset($end)) {
+            $session->set('time', $this->getInterval($begin, $end));
+        }
     }
 }
