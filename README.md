@@ -50,20 +50,20 @@ The app uses a subset of [Foundation](http://foundation.zurb.com/) CSS framework
 ## What's done *(try it now!)*
 
 - Log of working sessions, registering:
- - When did they start
- - When did they ended
- - Total duration
- - Project
- - Related ticket
- - Task description
+  - When did they start
+  - When did they ended
+  - Total duration
+  - Project
+  - Related ticket
+  - Task description
 - Management of:
- - Clients
- - Projects
- - Sessions
+  - Clients
+  - Projects
+  - Sessions
 - Summaries:
- - Today's detail
- - Today's summary
- - Today's total
+  - Today's detail
+  - Today's summary
+  - Today's total
 - Multiclient
 - Multiproject
 - i18n (Internationalization) ready (current literals in English)
@@ -71,25 +71,25 @@ The app uses a subset of [Foundation](http://foundation.zurb.com/) CSS framework
 ## What's coming *(TO DO list)*
 
 - Management of:
- - Tickets
- - Users
- - Budgets
- - Fiscal data
- - Invoices
- - Financial transactions
+  - Tickets
+  - Users
+  - Budgets
+  - Fiscal data
+  - Invoices
+  - Financial transactions
 - Summaries & statistics *(big data)*:
- - Average & total time
+  - Average & total time
   - per client
   - per project
- - Most productive
-  - working hours
-  - working days
- - Average ticket resolution time
+  - Most productive
+    - working hours
+    - working days
+  - Average ticket resolution time
 - Automatic email sending
 - Alerts:
- - Expected time reached per client, project, etc.
- - Maximum client credit reached
- - Discontinued project
+  - Expected time reached per client, project, etc.
+  - Maximum client credit reached
+  - Discontinued project
 - Invoice generation (PDF)
 - Multiuser
 - Multicountry
