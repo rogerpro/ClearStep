@@ -173,6 +173,8 @@ class SessionsController extends AppController
                 }
             }
             
+            // TODO: send last session project to the view to select it by default on the dropdown menu (using a finder)
+            
             $this->set(compact('session', 'projects'));
             $this->set('_serialize', [
                 'session'
