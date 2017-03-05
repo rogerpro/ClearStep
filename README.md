@@ -1,54 +1,109 @@
-# CakePHP Application Skeleton
+# ClearStep
 
-[![Build Status](https://img.shields.io/travis/cakephp/app/master.svg?style=flat-square)](https://travis-ci.org/cakephp/app)
-[![License](https://img.shields.io/packagist/l/cakephp/app.svg?style=flat-square)](https://packagist.org/packages/cakephp/app)
+A web app to help you organizing your & your client/provider tasks, and more. Made with [CakePHP](http://cakephp.org) 3 ([cakephp/cakephp](https://github.com/cakephp/cakephp)).
 
-A skeleton for creating applications with [CakePHP](http://cakephp.org) 3.x.
+- Both for professional & personal tasks, as a TO DO list.
+- Set deadlines, tags & comments for your pending tasks using tickets.
+- Log your working/whatever sessions and link them with your tickets (or just keep them standalone).
+- Get app & email alerts when something happens (new ticket, changed ticket, deadline approaching, overtime dedicated to a project, etc).
 
-The framework source code can be found here: [cakephp/cakephp](https://github.com/cakephp/cakephp).
+Great to be installed as a developer extranet. 
 
 ## Installation
 
 1. Download [Composer](http://getcomposer.org/doc/00-intro.md) or update `composer self-update`.
-2. Run `php composer.phar create-project --prefer-dist cakephp/app [app_name]`.
+2. Run `php composer.phar create-project rogerpro/ClearStep ClearStep`.
 
 If Composer is installed globally, run
 
 ```bash
-composer create-project --prefer-dist cakephp/app
+composer create-project rogerpro/ClearStep
 ```
 
 In case you want to use a custom app dir name (e.g. `/myapp/`):
 
 ```bash
-composer create-project --prefer-dist cakephp/app myapp
+composer create-project rogerpro/ClearStep myapp
 ```
 
-You should now be able to visit the path to where you installed the app and see the default home page.
-
-### Installation of 3.next
-
-In case you want to try the unstable branch:
-
-```bash
-composer create-project --prefer-dist cakephp/app=dev-3.next app
-```
-
-You may then install specific RC, for example:
-
-```bash
-cd app;
-composer require cakephp/cakephp:3.4.0-RC3
-```
-
-## Update
-
-Since this skeleton is a starting point for your application and various files would have been modified as per your needs, there isn't a way to provide automated upgrades, so you have to do any updates manually.
+You should now be able to visit the path to where you installed the app and see the home page.
 
 ## Configuration
+
+You need a SQL database and a LAMP (or similar) installation to run the app. Check the [CakePHP Cookbook](https://book.cakephp.org/3.0/en/installation.html#requirements) to know the exact requirements.
 
 Read and edit `config/app.php` and setup the `'Datasources'` and any other
 configuration relevant for your application.
 
+## Update
+
+Currently, I'm working on the app on a daily basis. To update the application, just run, from the app root:
+
+```bash
+composer update
+```
+
 ## Layout
-The app skeleton uses a subset of [Foundation](http://foundation.zurb.com/) CSS framework by default. You can, however, replace it with any other library or custom styles.
+
+The app uses a subset of [Foundation](http://foundation.zurb.com/) CSS framework by default. You can, however, replace it with any other library or custom styles.
+
+## What's done *(try it now!)*
+
+- Log of working sessions, registering:
+    - When did they start
+    - When did they ended
+    - Total duration
+    - Project
+    - Seccion of subsection of budget
+    - Task description
+- Management of:
+    - Clients
+    - Projects
+    - Sessions
+- Summaries:
+    - Today's detail
+    - Today's summary
+    - Today's total
+- Multiclient
+- Multiproject
+- i18n ready (current literals in English)
+
+## What's coming *(TO DO list)*
+
+- Management of:
+    - Tickets
+    - Users
+    - Budgets
+    - Fiscal data
+    - Invoices
+    - Financial transactions
+- Summaries & statistics *(big data)*:
+    - Average & total time
+        - per client
+        - per project
+    - Most productive working hours
+    - Most productive working days
+- Automatic email sending
+- Alerts:
+    - Expected time reached per client, project, etc.
+    - Maximum client credit reached
+    - Discontinued project
+- Invoice generation (PDF)
+- Multiuser
+- Multicountry
+- Multicurrency
+- L10n
+
+### Contributing
+
+Feel free to share what would you like ClearStep to do with an [issue](https://github.com/rogerpro/ClearStep/issues) or directly with a [PR](https://github.com/rogerpro/ClearStep/pulls). You can also write me directly via [email](mailto:git@roger.pro).
+
+## License
+
+Copyright 2017 Roger Campanera. All rights reserved.
+
+Licensed under the [MIT](http://www.opensource.org/licenses/mit-license.php) License. Redistributions of the source code included in this repository must retain the copyright notice found in each file.
+
+##Disclaimer
+
+Because this app is still on their first days of live *(not even in version 1.0)*, the content of this README file may require some fixing. Thanks for your comprehension.
