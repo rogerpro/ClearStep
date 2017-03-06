@@ -95,6 +95,7 @@ The app uses a subset of [Foundation](http://foundation.zurb.com/) CSS framework
 - Multicountry
 - Multicurrency
 - L10n (localization)
+- Export tickets with deadline to calendar app formats (Google, Apple, Outlook, etc)
 
 ## Contributing
 
