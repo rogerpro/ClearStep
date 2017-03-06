@@ -79,8 +79,8 @@ The app uses a subset of [Foundation](http://foundation.zurb.com/) CSS framework
   - Financial transactions
 - Summaries & statistics *(big data)*:
   - Average & total time
-  - per client
-  - per project
+    - per client
+    - per project
   - Most productive
     - working hours
     - working days
