@@ -7,7 +7,7 @@ A web app to help you organizing your & your client/provider tasks, and more. Ma
 - Log your working/whatever sessions and link them with your tickets (or just keep them standalone).
 - Get app & email alerts when something happens (new ticket, changed ticket, deadline approaching, overtime dedicated to a project, etc).
 
-Great to be installed as a developer extranet. 
+Great to be installed as an extranet. 
 
 ## Installation
 
@@ -96,7 +96,7 @@ The app uses a subset of [Foundation](http://foundation.zurb.com/) CSS framework
 - Multicurrency
 - L10n (localization)
 
-### Contributing
+## Contributing
 
 Feel free to share what would you like ClearStep to do with an [issue](https://github.com/rogerpro/ClearStep/issues) or directly with a [PR](https://github.com/rogerpro/ClearStep/pulls). You can also write me directly via [email](mailto:git@roger.pro).
 
