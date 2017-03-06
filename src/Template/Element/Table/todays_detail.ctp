@@ -6,8 +6,6 @@
 			<th scope="col"><?= $this->Paginator->sort('begin') ?></th>
 			<th scope="col"><?= $this->Paginator->sort('end') ?></th>
 			<th scope="col"><?= $this->Paginator->sort('time') ?></th>
-			<th scope="col"><?= $this->Paginator->sort('section') ?></th>
-			<th scope="col"><?= $this->Paginator->sort('subsection') ?></th>
 			<th scope="col"><?= $this->Paginator->sort('task') ?></th>
 		</tr>
 	</thead>
@@ -18,8 +16,6 @@
 			<td><?= h($session->begin) ?></td>
 			<td><?= h($session->end) ?></td>
 			<td><?= h($session->time) ?></td>
-			<td><?= $this->Number->format($session->section) ?></td>
-			<td><?= $this->Number->format($session->subsection) ?></td>
 			<td><?= h($session->task) ?></td>
 		</tr>
             <?php endforeach; ?>
