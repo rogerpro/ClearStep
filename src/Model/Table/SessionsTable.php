@@ -155,7 +155,7 @@ class SessionsTable extends Table
             $this->aliasField('begin <') => Chronos::tomorrow()
         ])
             ->order([
-            'created' => 'ASC'
+            'begin' => 'ASC'
         ]);
         return $q;
     }
