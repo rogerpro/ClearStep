@@ -1,6 +1,6 @@
 # ClearStep
 
-A web app to help you organizing your & your client/provider tasks, and more. Made with [CakePHP](http://cakephp.org) 3 ([cakephp/cakephp](https://github.com/cakephp/cakephp)).
+A web app to help you organizing your & your client/provider tasks, and more. Made with [CakePHP 3](https://github.com/cakephp/cakephp).
 
 - Both for professional & personal tasks, as a TO DO list.
 - Set deadlines, tags & comments for your pending tasks using tickets.
@@ -37,7 +37,7 @@ configuration relevant for your application.
 
 ## Update
 
-Currently, I'm working on the app on a daily basis. To update the application, just run, from the app root:
+To update the application, just run, from the app root:
 
 ```bash
 composer update
@@ -107,6 +107,6 @@ Copyright 2017 Roger Campanera. All rights reserved.
 
 Licensed under the [MIT](http://www.opensource.org/licenses/mit-license.php) License. Redistributions of the source code included in this repository must retain the copyright notice found in each file.
 
-##Disclaimer
+## Disclaimer
 
 Because this app is still on their first days of live *(not even in version 1.0)*, the content of this README file may require some fixing. Thanks for your comprehension.
