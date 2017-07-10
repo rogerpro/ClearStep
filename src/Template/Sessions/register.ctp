@@ -22,8 +22,8 @@ $button_class = ($ongoing) ? 'end' : 'begin';
 		<legend><?= __('Add Session') ?></legend>
         <?php
         echo $this->Form->input('project_id');
-        // echo $this->Form->input('section');
-        // echo $this->Form->input('subsection');
+        echo $this->Form->input('section');
+        echo $this->Form->input('subsection');
         echo $this->Form->input('task');
         // echo $this->Form->input('expected_hours');
         ?>
