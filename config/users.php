@@ -118,7 +118,9 @@ $config = [
                     'httpOnly' => true
                 ]
             ]
-        ]
+        ],
+        // Controller used to manage users plugin features & actions
+        'controller' => 'CakeDC/Users.Users'
     ],
     'GoogleAuthenticator' => [
         'verifyAction' => [
@@ -140,13 +142,13 @@ $config = [
             'all' => [
                 'finder' => 'auth'
             ],
-            'CakeDC/Users.ApiKey',
-            'CakeDC/Users.RememberMe',
+            'CakeDC/Auth.ApiKey',
+            'CakeDC/Auth.RememberMe',
             'Form'
         ],
         'authorize' => [
-            'CakeDC/Users.Superuser',
-            'CakeDC/Users.SimpleRbac'
+            'CakeDC/Auth.Superuser',
+            'CakeDC/Auth.SimpleRbac'
         ]
     ],
     'OAuth' => [
