@@ -11,11 +11,11 @@
 	</thead>
 	<tbody>
             <?php foreach ($sessions as $session): ?>
-            <tr>
+		<tr>
 			<td><?= $session->has('project') ? $this->Html->link($session->project->name, ['controller' => 'Projects', 'action' => 'view', $session->project->id]) : '' ?></td>
 			<td><?= h($session->begin) ?></td>
 			<td><?= h($session->end) ?></td>
-			<td><?= h($session->time) ?></td>
+			<td><?= isset($session->time) ? h($session->time->format('G:i:s')) : '' ?></td>
 			<td><?= h($session->task) ?></td>
 		</tr>
             <?php endforeach; ?>

@@ -39,7 +39,7 @@
 				<td><?= $session->has('project') ? $this->Html->link($session->project->name, ['controller' => 'Projects', 'action' => 'view', $session->project->id]) : '' ?></td>
 				<td><?= h($session->begin) ?></td>
 				<td><?= h($session->end) ?></td>
-				<td><?= h($session->time) ?></td>
+				<td><?= isset($session->time) ? h($session->time->format('G:i:s')) : '' ?></td>
 				<td><?= $this->Number->format($session->section) ?></td>
 				<td><?= $this->Number->format($session->subsection) ?></td>
 				<td><?= h($session->task) ?></td>
