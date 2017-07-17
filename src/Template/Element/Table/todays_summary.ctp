@@ -1,3 +1,6 @@
+<?php
+use Cake\I18n\FrozenTime;
+?>
 <h3><?= __('Today\'s summary') ?></h3>
 <table cellpadding="0" cellspacing="0">
 	<thead>
@@ -8,9 +11,9 @@
 	</thead>
 	<tbody>
             <?php foreach ($summary_projects as $summary_project): ?>
-            <tr>
+		<tr>
 			<td><?= $summary_project->has('project') ? $this->Html->link($summary_project->project->name, ['controller' => 'Projects', 'action' => 'view', $summary_project->project->id]) : '' ?></td>
-			<td><?= h($summary_project->total_time) ?></td>
+			<td><?= (new FrozenTime($summary_project->total_time))->format('G:i:s') ?></td>
 		</tr>
             <?php endforeach; ?>
         </tbody>
