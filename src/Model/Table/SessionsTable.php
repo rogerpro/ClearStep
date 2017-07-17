@@ -141,21 +141,26 @@ class SessionsTable extends Table
     public function findTodaysDetail(Query $q)
     {
         $q->select([
-            'id',
-            'project_id',
-            'begin',
-            'end',
-            'time',
-            'section',
-            'subsection',
-            'task'
+            'Projects.id',
+            'Projects.name',
+            'Sessions.id',
+            'Sessions.project_id',
+            'Sessions.begin',
+            'Sessions.end',
+            'Sessions.time',
+            'Sessions.section',
+            'Sessions.subsection',
+            'Sessions.task'
+        ])
+            ->contain([
+            'Projects'
         ])
             ->where([
-            $this->aliasField('begin >=') => Chronos::today(),
-            $this->aliasField('begin <') => Chronos::tomorrow()
+            $this->aliasField('Sessions.begin >=') => Chronos::today(),
+            $this->aliasField('Sessions.begin <') => Chronos::tomorrow()
         ])
             ->order([
-            'begin' => 'ASC'
+            'Sessions.begin' => 'ASC'
         ]);
         return $q;
     }
