@@ -1,3 +1,6 @@
+<?php
+use Cake\I18n\FrozenTime;
+?>
 <h3><?= __('Today\'s total') ?></h3>
 <table cellpadding="0" cellspacing="0">
 	<thead>
@@ -7,7 +10,7 @@
 	</thead>
 	<tbody>
 		<tr>
-			<td><?= h($total) ?></td>
+			<td><?= (new FrozenTime($total))->format('G:i:s') ?></td>
 		</tr>
 	</tbody>
 </table>
