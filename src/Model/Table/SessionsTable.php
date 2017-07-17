@@ -176,17 +176,21 @@ class SessionsTable extends Table
     public function findTodaysSummary(Query $q)
     {
         $q->select([
-            'project_id',
+            'Projects.id',
+            'Projects.name',
             'total_time' => $q->func()
                 ->sum('time')
         ])
-            ->where([
-            $this->aliasField('begin >=') => Chronos::today(),
-            $this->aliasField('begin <') => Chronos::tomorrow()
+            ->contain([
+            'Projects'
         ])
-            ->group('project_id')
+            ->where([
+            $this->aliasField('Sessions.begin >=') => Chronos::today(),
+            $this->aliasField('Sessions.begin <') => Chronos::tomorrow()
+        ])
+            ->group('Sessions.project_id')
             ->order([
-            'created' => 'ASC'
+            'Sessions.created' => 'ASC'
         ]);
         return $q;
     }
