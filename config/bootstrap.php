@@ -225,3 +225,5 @@ if (Configure::read('debug')) {
         'bootstrap' => true
     ]);
 }
+
+Plugin::load('Migrations');
