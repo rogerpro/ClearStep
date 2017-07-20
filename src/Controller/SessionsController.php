@@ -118,7 +118,7 @@ class SessionsController extends AppController
         ]);
         
         // Get Today's total
-        $total = $this->Sessions->find('todaysTotal')->first()->total_time;
+        $total = $this->Sessions->find('todaysTotal')->first()->total_duration;
         $this->set(compact('total'));
         $this->set('_serialize', [
             'total'
