@@ -1,3 +1,6 @@
+<?php
+use Cake\I18n\FrozenTime;
+?>
 <h3><?= __('Today\'s detail') ?></h3>
 <table cellpadding="0" cellspacing="0">
 	<thead>
@@ -5,7 +8,7 @@
 			<th scope="col"><?= $this->Paginator->sort('project_id') ?></th>
 			<th scope="col"><?= $this->Paginator->sort('begin') ?></th>
 			<th scope="col"><?= $this->Paginator->sort('end') ?></th>
-			<th scope="col"><?= $this->Paginator->sort('time') ?></th>
+			<th scope="col"><?= $this->Paginator->sort('duration') ?></th>
 			<th scope="col"><?= $this->Paginator->sort('task') ?></th>
 		</tr>
 	</thead>
@@ -15,7 +18,7 @@
 			<td><?= $session->has('project') ? $this->Html->link($session->project->name, ['controller' => 'Projects', 'action' => 'view', $session->project->id]) : '' ?></td>
 			<td><?= h($session->begin) ?></td>
 			<td><?= h($session->end) ?></td>
-			<td><?= isset($session->time) ? h($session->time->format('G:i:s')) : '' ?></td>
+			<td><?= isset($session->duration) ? (new FrozenTime($session->duration))->format('G:i:s') : '' ?></td>
 			<td><?= h($session->task) ?></td>
 		</tr>
             <?php endforeach; ?>

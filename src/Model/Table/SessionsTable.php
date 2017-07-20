@@ -149,7 +149,7 @@ class SessionsTable extends Table
             'Sessions.project_id',
             'Sessions.begin',
             'Sessions.end',
-            'Sessions.time',
+            'Sessions.duration',
             'Sessions.section',
             'Sessions.subsection',
             'Sessions.task'
@@ -225,14 +225,16 @@ class SessionsTable extends Table
      *
      * @param \Cake\I18n\FrozenTime $begin            
      * @param \Cake\I18n\FrozenTime $end            
-     * @return \Cake\I18n\FrozenTime
+     * @return int
      */
     private function getInterval($begin, $end)
     {
-        return new FrozenTime($end->format('U') - $begin->format('U'));
+        return $end->format('U') - $begin->format('U');
     }
 
     /**
+     * Before save.
+     *
      * Calculate total session time.
      *
      * @param \Cake\Event\Event $event
@@ -248,8 +250,7 @@ class SessionsTable extends Table
         
         // Only if session ended
         if (isset($end)) {
-            $session->set('time', $this->getInterval($begin, $end));
-            // TODO: consider using SQL function TIMEDIFF()
+            $session->set('duration', $this->getInterval($begin, $end));
         }
     }
 }
