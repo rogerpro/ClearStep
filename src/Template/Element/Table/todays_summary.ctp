@@ -13,7 +13,7 @@ use Cake\I18n\FrozenTime;
             <?php foreach ($summary_projects as $summary_project): ?>
 		<tr>
 			<td><?= $summary_project->has('project') ? $this->Html->link($summary_project->project->name, ['controller' => 'Projects', 'action' => 'view', $summary_project->project->id]) : '' ?></td>
-			<td><?= (new FrozenTime($summary_project->total_time))->format('G:i:s') ?></td>
+			<td><?= (new FrozenTime($summary_project->total_duration))->format('G:i:s') ?></td>
 		</tr>
             <?php endforeach; ?>
         </tbody>

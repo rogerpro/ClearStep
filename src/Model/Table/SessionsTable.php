@@ -118,7 +118,6 @@ class SessionsTable extends Table
             'id',
             'project_id',
             'begin',
-            'time',
             'section',
             'subsection',
             'task'
@@ -180,8 +179,8 @@ class SessionsTable extends Table
         $q->select([
             'Projects.id',
             'Projects.name',
-            'total_time' => $q->func()
-                ->sum('time')
+            'total_duration' => $q->func()
+                ->sum('duration')
         ])
             ->contain([
             'Projects'
@@ -208,8 +207,8 @@ class SessionsTable extends Table
     public function findTodaysTotal(Query $q)
     {
         $q->select([
-            'total_time' => $q->func()
-                ->sum('time')
+            'total_duration' => $q->func()
+                ->sum('duration')
         ])
             ->where([
             $this->aliasField('begin >=') => Chronos::today(),
