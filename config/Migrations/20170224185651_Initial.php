@@ -54,16 +54,16 @@ class Initial extends AbstractMigration
                 'limit' => null,
                 'null' => false,
             ])
-            ->addColumn('created', 'datetime', [
+            ->addColumn('created', 'timestamp', [
                 'comment' => 'Budget date',
                 'default' => null,
                 'limit' => null,
-                'null' => false,
+                'null' => true,
             ])
-            ->addColumn('modified', 'datetime', [
+            ->addColumn('modified', 'timestamp', [
                 'default' => null,
                 'limit' => null,
-                'null' => false,
+                'null' => true,
             ])
             ->addIndex(
                 [
@@ -130,15 +130,15 @@ class Initial extends AbstractMigration
                 'limit' => 255,
                 'null' => false,
             ])
-            ->addColumn('created', 'datetime', [
+            ->addColumn('created', 'timestamp', [
                 'default' => null,
                 'limit' => null,
-                'null' => false,
+                'null' => true,
             ])
-            ->addColumn('modified', 'datetime', [
+            ->addColumn('modified', 'timestamp', [
                 'default' => null,
                 'limit' => null,
-                'null' => false,
+                'null' => true,
             ])
             ->addIndex(
                 [
@@ -174,15 +174,15 @@ class Initial extends AbstractMigration
                 'limit' => 10000,
                 'null' => false,
             ])
-            ->addColumn('created', 'datetime', [
+            ->addColumn('created', 'timestamp', [
                 'default' => null,
                 'limit' => null,
-                'null' => false,
+                'null' => true,
             ])
-            ->addColumn('modified', 'datetime', [
+            ->addColumn('modified', 'timestamp', [
                 'default' => null,
                 'limit' => null,
-                'null' => false,
+                'null' => true,
             ])
             ->addIndex(
                 [
@@ -243,15 +243,15 @@ class Initial extends AbstractMigration
                 'limit' => 255,
                 'null' => false,
             ])
-            ->addColumn('created', 'datetime', [
+            ->addColumn('created', 'timestamp', [
                 'default' => null,
                 'limit' => null,
-                'null' => false,
+                'null' => true,
             ])
-            ->addColumn('modified', 'datetime', [
+            ->addColumn('modified', 'timestamp', [
                 'default' => null,
                 'limit' => null,
-                'null' => false,
+                'null' => true,
             ])
             ->addIndex(
                 [
@@ -317,15 +317,15 @@ class Initial extends AbstractMigration
                 'limit' => 255,
                 'null' => false,
             ])
-            ->addColumn('created', 'datetime', [
+            ->addColumn('created', 'timestamp', [
                 'default' => null,
                 'limit' => null,
-                'null' => false,
+                'null' => true,
             ])
-            ->addColumn('modified', 'datetime', [
+            ->addColumn('modified', 'timestamp', [
                 'default' => null,
                 'limit' => null,
-                'null' => false,
+                'null' => true,
             ])
             ->addIndex(
                 [
@@ -432,15 +432,15 @@ class Initial extends AbstractMigration
                 'limit' => null,
                 'null' => false,
             ])
-            ->addColumn('created', 'datetime', [
+            ->addColumn('created', 'timestamp', [
                 'default' => null,
                 'limit' => null,
-                'null' => false,
+                'null' => true,
             ])
-            ->addColumn('modified', 'datetime', [
+            ->addColumn('modified', 'timestamp', [
                 'default' => null,
                 'limit' => null,
-                'null' => false,
+                'null' => true,
             ])
             ->addIndex(
                 [
@@ -573,16 +573,16 @@ class Initial extends AbstractMigration
                 'limit' => null,
                 'null' => false,
             ])
-            ->addColumn('created', 'datetime', [
+            ->addColumn('created', 'timestamp', [
                 'comment' => 'Invoice date',
                 'default' => null,
                 'limit' => null,
-                'null' => false,
+                'null' => true,
             ])
-            ->addColumn('modified', 'datetime', [
+            ->addColumn('modified', 'timestamp', [
                 'default' => null,
                 'limit' => null,
-                'null' => false,
+                'null' => true,
             ])
             ->addIndex(
                 [
@@ -660,15 +660,15 @@ class Initial extends AbstractMigration
                 'limit' => 50,
                 'null' => false,
             ])
-            ->addColumn('created', 'datetime', [
+            ->addColumn('created', 'timestamp', [
                 'default' => null,
                 'limit' => null,
-                'null' => false,
+                'null' => true,
             ])
-            ->addColumn('modified', 'datetime', [
+            ->addColumn('modified', 'timestamp', [
                 'default' => null,
                 'limit' => null,
-                'null' => false,
+                'null' => true,
             ])
             ->addIndex(
                 [
@@ -727,15 +727,15 @@ class Initial extends AbstractMigration
                 'limit' => null,
                 'null' => false,
             ])
-            ->addColumn('created', 'datetime', [
+            ->addColumn('created', 'timestamp', [
                 'default' => null,
                 'limit' => null,
-                'null' => false,
+                'null' => true,
             ])
-            ->addColumn('modified', 'datetime', [
+            ->addColumn('modified', 'timestamp', [
                 'default' => null,
                 'limit' => null,
-                'null' => false,
+                'null' => true,
             ])
             ->addIndex(
                 [
@@ -832,15 +832,15 @@ class Initial extends AbstractMigration
                 'precision' => 5,
                 'scale' => 2,
             ])
-            ->addColumn('created', 'datetime', [
+            ->addColumn('created', 'timestamp', [
                 'default' => null,
                 'limit' => null,
-                'null' => false,
+                'null' => true,
             ])
-            ->addColumn('modified', 'datetime', [
+            ->addColumn('modified', 'timestamp', [
                 'default' => null,
                 'limit' => null,
-                'null' => false,
+                'null' => true,
             ])
             ->addIndex(
                 [
@@ -905,15 +905,15 @@ class Initial extends AbstractMigration
                 'limit' => 255,
                 'null' => false,
             ])
-            ->addColumn('created', 'datetime', [
+            ->addColumn('created', 'timestamp', [
                 'default' => null,
                 'limit' => null,
-                'null' => false,
+                'null' => true,
             ])
-            ->addColumn('modified', 'datetime', [
+            ->addColumn('modified', 'timestamp', [
                 'default' => null,
                 'limit' => null,
-                'null' => false,
+                'null' => true,
             ])
             ->addIndex(
                 [
@@ -981,15 +981,15 @@ class Initial extends AbstractMigration
                 'limit' => null,
                 'null' => true,
             ])
-            ->addColumn('created', 'datetime', [
+            ->addColumn('created', 'timestamp', [
                 'default' => null,
                 'limit' => null,
-                'null' => false,
+                'null' => true,
             ])
-            ->addColumn('modified', 'datetime', [
+            ->addColumn('modified', 'timestamp', [
                 'default' => null,
                 'limit' => null,
-                'null' => false,
+                'null' => true,
             ])
             ->addIndex(
                 [
@@ -1055,15 +1055,15 @@ class Initial extends AbstractMigration
                 'limit' => 10000,
                 'null' => true,
             ])
-            ->addColumn('created', 'datetime', [
+            ->addColumn('created', 'timestamp', [
                 'default' => null,
                 'limit' => null,
-                'null' => false,
+                'null' => true,
             ])
-            ->addColumn('modified', 'datetime', [
+            ->addColumn('modified', 'timestamp', [
                 'default' => null,
                 'limit' => null,
-                'null' => false,
+                'null' => true,
             ])
             ->addIndex(
                 [
