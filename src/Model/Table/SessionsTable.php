@@ -74,6 +74,8 @@ class SessionsTable extends Table
         
         $validator->time('time')->allowEmpty('time');
         
+        $validator->integer('duration')->allowEmpty('duration');
+        
         $validator->integer('section')->allowEmpty('section');
         
         $validator->integer('subsection')->allowEmpty('subsection');
