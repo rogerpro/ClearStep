@@ -6,7 +6,7 @@ use Cake\I18n\FrozenTime;
 	<thead>
 		<tr>
 			<th scope="col"><?= $this->Paginator->sort('project_id') ?></th>
-			<th scope="col"><?= $this->Paginator->sort('time') ?></th>
+			<th scope="col"><?= $this->Paginator->sort('duration') ?></th>
 		</tr>
 	</thead>
 	<tbody>

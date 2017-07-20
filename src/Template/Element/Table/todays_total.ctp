@@ -5,7 +5,7 @@ use Cake\I18n\FrozenTime;
 <table cellpadding="0" cellspacing="0">
 	<thead>
 		<tr>
-			<th scope="col"><?= $this->Paginator->sort('time') ?></th>
+			<th scope="col"><?= $this->Paginator->sort('duration') ?></th>
 		</tr>
 	</thead>
 	<tbody>
