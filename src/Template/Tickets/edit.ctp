@@ -27,26 +27,26 @@
     <fieldset>
 		<legend><?= __('Edit Ticket') ?></legend>
         <?php
-        echo $this->Form->input('project_id', [
+        echo $this->Form->control('project_id', [
             'options' => $projects
         ]);
-        echo $this->Form->input('session_id', [
+        echo $this->Form->control('session_id', [
             'options' => $sessions
         ]);
-        echo $this->Form->input('invoice_id');
-        echo $this->Form->input('state_id', [
+        echo $this->Form->control('invoice_id');
+        echo $this->Form->control('state_id', [
             'options' => $states
         ]);
-        echo $this->Form->input('budget_id', [
+        echo $this->Form->control('budget_id', [
             'options' => $budgets
         ]);
-        echo $this->Form->input('min_time', [
+        echo $this->Form->control('min_time', [
             'empty' => true
         ]);
-        echo $this->Form->input('max_time', [
+        echo $this->Form->control('max_time', [
             'empty' => true
         ]);
-        echo $this->Form->input('deadline', [
+        echo $this->Form->control('deadline', [
             'empty' => true
         ]);
         ?>

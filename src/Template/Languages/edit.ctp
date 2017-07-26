@@ -15,8 +15,8 @@
     <fieldset>
 		<legend><?= __('Edit Language') ?></legend>
         <?php
-        echo $this->Form->input('iso');
-        echo $this->Form->input('name');
+        echo $this->Form->control('iso');
+        echo $this->Form->control('name');
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit'))?>

@@ -17,9 +17,9 @@
     <fieldset>
 		<legend><?= __('Edit Transaction') ?></legend>
         <?php
-        echo $this->Form->input('amount');
-        echo $this->Form->input('paypal_details');
-        echo $this->Form->input('paypal_result');
+        echo $this->Form->control('amount');
+        echo $this->Form->control('paypal_details');
+        echo $this->Form->control('paypal_result');
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit'))?>

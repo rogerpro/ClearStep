@@ -21,16 +21,16 @@
     <fieldset>
 		<legend><?= __('Edit Project') ?></legend>
         <?php
-        echo $this->Form->input('client_id', [
+        echo $this->Form->control('client_id', [
             'options' => $clients,
             'empty' => true
         ]);
-        echo $this->Form->input('name');
-        echo $this->Form->input('description');
-        echo $this->Form->input('billable');
-        echo $this->Form->input('hourly_price');
-        echo $this->Form->input('expected_hours');
-        echo $this->Form->input('active');
+        echo $this->Form->control('name');
+        echo $this->Form->control('description');
+        echo $this->Form->control('billable');
+        echo $this->Form->control('hourly_price');
+        echo $this->Form->control('expected_hours');
+        echo $this->Form->control('active');
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit'))?>

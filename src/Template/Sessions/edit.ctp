@@ -19,18 +19,18 @@
     <fieldset>
 		<legend><?= __('Edit Session') ?></legend>
         <?php
-        echo $this->Form->input('project_id', [
+        echo $this->Form->control('project_id', [
             'options' => $projects
         ]);
-        echo $this->Form->input('begin');
-        echo $this->Form->input('end');
-        echo $this->Form->input('time', [
+        echo $this->Form->control('begin');
+        echo $this->Form->control('end');
+        echo $this->Form->control('time', [
             'empty' => true
         ]);
-        echo $this->Form->input('section');
-        echo $this->Form->input('subsection');
-        echo $this->Form->input('task');
-        echo $this->Form->input('expected_hours');
+        echo $this->Form->control('section');
+        echo $this->Form->control('subsection');
+        echo $this->Form->control('task');
+        echo $this->Form->control('expected_hours');
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit'))?>

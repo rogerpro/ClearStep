@@ -19,24 +19,24 @@
     <fieldset>
 		<legend><?= __('Edit Fiscal Data') ?></legend>
         <?php
-        echo $this->Form->input('client_id', [
+        echo $this->Form->control('client_id', [
             'options' => $clients
         ]);
-        echo $this->Form->input('name');
-        echo $this->Form->input('commercial_name');
-        echo $this->Form->input('is_company');
-        echo $this->Form->input('is_freelancer');
-        echo $this->Form->input('is_roi');
-        echo $this->Form->input('address');
-        echo $this->Form->input('postal_code');
-        echo $this->Form->input('city');
-        echo $this->Form->input('country_id', [
+        echo $this->Form->control('name');
+        echo $this->Form->control('commercial_name');
+        echo $this->Form->control('is_company');
+        echo $this->Form->control('is_freelancer');
+        echo $this->Form->control('is_roi');
+        echo $this->Form->control('address');
+        echo $this->Form->control('postal_code');
+        echo $this->Form->control('city');
+        echo $this->Form->control('country_id', [
             'options' => $countries
         ]);
-        echo $this->Form->input('phone');
-        echo $this->Form->input('eu_vat_number');
-        echo $this->Form->input('tax_num');
-        echo $this->Form->input('privacy');
+        echo $this->Form->control('phone');
+        echo $this->Form->control('eu_vat_number');
+        echo $this->Form->control('tax_num');
+        echo $this->Form->control('privacy');
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit'))?>

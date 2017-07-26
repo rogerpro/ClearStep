@@ -16,10 +16,10 @@
     <fieldset>
 		<legend><?= __('Add Comment') ?></legend>
         <?php
-        echo $this->Form->input('ticket_id', [
+        echo $this->Form->control('ticket_id', [
             'options' => $tickets
         ]);
-        echo $this->Form->input('content');
+        echo $this->Form->control('content');
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit'))?>

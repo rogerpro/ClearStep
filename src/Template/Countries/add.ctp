@@ -16,12 +16,12 @@
     <fieldset>
 		<legend><?= __('Add Country') ?></legend>
         <?php
-        echo $this->Form->input('iso2');
-        echo $this->Form->input('iso3');
-        echo $this->Form->input('is_eu');
-        echo $this->Form->input('name');
-        echo $this->Form->input('spa');
-        echo $this->Form->input('cat');
+        echo $this->Form->control('iso2');
+        echo $this->Form->control('iso3');
+        echo $this->Form->control('is_eu');
+        echo $this->Form->control('name');
+        echo $this->Form->control('spa');
+        echo $this->Form->control('cat');
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit'))?>

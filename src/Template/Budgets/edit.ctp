@@ -21,16 +21,16 @@
     <fieldset>
 		<legend><?= __('Edit Budget') ?></legend>
         <?php
-        echo $this->Form->input('year');
-        echo $this->Form->input('number');
-        echo $this->Form->input('title');
-        echo $this->Form->input('description');
-        echo $this->Form->input('currency_id', [
+        echo $this->Form->control('year');
+        echo $this->Form->control('number');
+        echo $this->Form->control('title');
+        echo $this->Form->control('description');
+        echo $this->Form->control('currency_id', [
             'options' => $currencies
         ]);
-        echo $this->Form->input('amount');
-        echo $this->Form->input('rendered');
-        echo $this->Form->input('invoice_id', [
+        echo $this->Form->control('amount');
+        echo $this->Form->control('rendered');
+        echo $this->Form->control('invoice_id', [
             'options' => $invoices
         ]);
         ?>
