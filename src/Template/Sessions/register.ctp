@@ -25,7 +25,6 @@ $button_class = ($ongoing) ? 'end' : 'begin';
         echo $this->Form->input('section');
         echo $this->Form->input('subsection');
         echo $this->Form->input('task');
-        // echo $this->Form->input('expected_hours');
         ?>
     </fieldset>
     <?= $this->Form->button(__($button_caption), ['class' => $button_class])?>
