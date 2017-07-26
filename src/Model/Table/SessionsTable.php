@@ -230,6 +230,9 @@ class SessionsTable extends Table
         $q->select([
             'project_id'
         ])
+            ->where([
+            'Sessions.begin <=' => new FrozenTime()
+        ])
             ->order([
             'Sessions.begin' => 'DESC'
         ])
