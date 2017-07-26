@@ -21,7 +21,9 @@ $button_class = ($ongoing) ? 'end' : 'begin';
     <fieldset>
 		<legend><?= __('Add Session') ?></legend>
         <?php
-        echo $this->Form->control('project_id');
+        echo $this->Form->control('project_id', [
+            'default' => $last_project
+        ]);
         echo $this->Form->control('section');
         echo $this->Form->control('subsection');
         echo $this->Form->control('task', [

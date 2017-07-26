@@ -218,6 +218,26 @@ class SessionsTable extends Table
     }
 
     /**
+     * Find last session's project.
+     *
+     * From the current time.
+     *
+     * @param Query $q            
+     * @return Query
+     */
+    public function findLastProject(Query $q)
+    {
+        $q->select([
+            'project_id'
+        ])
+            ->order([
+            'Sessions.begin' => 'DESC'
+        ])
+            ->limit(1);
+        return $q;
+    }
+
+    /**
      * Calculate the interval between the begin and end of a session.
      *
      * Sustract timestamps of both.

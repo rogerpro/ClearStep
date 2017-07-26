@@ -124,6 +124,8 @@ class SessionsController extends AppController
             'total'
         ]);
         
+        $last_project = null;
+        
         if ($ongoing) {
             // Ongoing sessions: edit
             
@@ -157,6 +159,9 @@ class SessionsController extends AppController
         } else {
             // No ongoing sessions: add
             
+            // Get last session's project
+            $last_project = $this->Sessions->find('lastProject')->first()['project_id'];
+            
             $session = $this->Sessions->newEntity();
             if ($this->request->is('post')) {
                 
@@ -180,6 +185,9 @@ class SessionsController extends AppController
                 'session'
             ]);
         }
+        
+        $this->set(compact('last_project'));
+        
     }
 
     /**
