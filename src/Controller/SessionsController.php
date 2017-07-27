@@ -119,10 +119,9 @@ class SessionsController extends AppController
         
         // Get Today's total
         $total = $this->Sessions->find('todaysTotal')->first()->total_duration;
+        // Force zero instead of null
+        $total = $total ? $total : 0;
         $this->set(compact('total'));
-        $this->set('_serialize', [
-            'total'
-        ]);
         
         $last_project = null;
         
