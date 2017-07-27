@@ -129,11 +129,8 @@ class SessionsController extends AppController
         if ($ongoing) {
             // Ongoing sessions: edit
             
-            $id = $ongoing['id'];
-            
-            $session = $this->Sessions->get($id, [
-                'contain' => []
-            ]);
+            // Get ongoing session data
+            $session = $this->Sessions->get($ongoing['id']);
             
             if ($this->request->is([
                 'patch',
@@ -151,11 +148,6 @@ class SessionsController extends AppController
                 }
                 $this->Flash->error(__('The session could not be saved. Please, try again.'));
             }
-            
-            $this->set(compact('session', 'projects'));
-            $this->set('_serialize', [
-                'session'
-            ]);
         } else {
             // No ongoing sessions: add
             
@@ -177,17 +169,12 @@ class SessionsController extends AppController
                     $this->Flash->error(__('The session could not be saved. Please, try again.'));
                 }
             }
-            
-            // TODO: send last session project to the view to select it by default on the dropdown menu (using a finder)
-            
-            $this->set(compact('session', 'projects'));
-            $this->set('_serialize', [
-                'session'
-            ]);
         }
         
-        $this->set(compact('last_project'));
-        
+        $this->set(compact('session', 'projects', 'last_project'));
+        $this->set('_serialize', [
+            'projects'
+        ]);
     }
 
     /**
