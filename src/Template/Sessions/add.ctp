@@ -23,9 +23,6 @@
         ]);
         echo $this->Form->control('begin');
         echo $this->Form->control('end');
-        echo $this->Form->control('time', [
-            'empty' => true
-        ]);
         echo $this->Form->control('section');
         echo $this->Form->control('subsection');
         echo $this->Form->control('task');
