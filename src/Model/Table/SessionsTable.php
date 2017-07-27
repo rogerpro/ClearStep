@@ -115,18 +115,18 @@ class SessionsTable extends Table
     public function findOngoingSessions(Query $q)
     {
         $q->select([
-            'id',
-            'project_id',
-            'begin',
-            'section',
-            'subsection',
-            'task'
+            $this->aliasField('id'),
+            $this->aliasField('project_id'),
+            $this->aliasField('begin'),
+            $this->aliasField('section'),
+            $this->aliasField('subsection'),
+            $this->aliasField('task')
         ])
             ->where([
             $this->aliasField('end IS') => null
         ])
             ->order([
-            'created' => 'ASC'
+            $this->aliasField('created') => 'ASC'
         ]);
         return $q;
     }
@@ -142,16 +142,16 @@ class SessionsTable extends Table
     public function findTodaysDetail(Query $q)
     {
         $q->select([
-            'Projects.id',
-            'Projects.name',
-            'Sessions.id',
-            'Sessions.project_id',
-            'Sessions.begin',
-            'Sessions.end',
-            'Sessions.duration',
-            'Sessions.section',
-            'Sessions.subsection',
-            'Sessions.task'
+            $this->aliasField('Projects.id'),
+            $this->aliasField('Projects.name'),
+            $this->aliasField('Sessions.id'),
+            $this->aliasField('Sessions.project_id'),
+            $this->aliasField('Sessions.begin'),
+            $this->aliasField('Sessions.end'),
+            $this->aliasField('Sessions.duration'),
+            $this->aliasField('Sessions.section'),
+            $this->aliasField('Sessions.subsection'),
+            $this->aliasField('Sessions.task')
         ])
             ->contain([
             'Projects'
@@ -161,7 +161,7 @@ class SessionsTable extends Table
             $this->aliasField('Sessions.begin <') => Chronos::tomorrow()
         ])
             ->order([
-            'Sessions.begin' => 'ASC'
+            $this->aliasField('Sessions.begin') => 'ASC'
         ]);
         return $q;
     }
@@ -177,10 +177,10 @@ class SessionsTable extends Table
     public function findTodaysSummary(Query $q)
     {
         $q->select([
-            'Projects.id',
-            'Projects.name',
+            $this->aliasField('Projects.id'),
+            $this->aliasField('Projects.name'),
             'total_duration' => $q->func()
-                ->sum('duration')
+                ->sum($this->aliasField('duration'))
         ])
             ->contain([
             'Projects'
@@ -189,9 +189,9 @@ class SessionsTable extends Table
             $this->aliasField('Sessions.begin >=') => Chronos::today(),
             $this->aliasField('Sessions.begin <') => Chronos::tomorrow()
         ])
-            ->group('Sessions.project_id')
+            ->group($this->aliasField('Sessions.project_id'))
             ->order([
-            'Sessions.created' => 'ASC'
+            $this->aliasField('Sessions.created') => 'ASC'
         ]);
         return $q;
     }
@@ -208,7 +208,7 @@ class SessionsTable extends Table
     {
         $q->select([
             'total_duration' => $q->func()
-                ->sum('duration')
+                ->sum($this->aliasField('duration'))
         ])
             ->where([
             $this->aliasField('begin >=') => Chronos::today(),
@@ -228,13 +228,13 @@ class SessionsTable extends Table
     public function findLastProject(Query $q)
     {
         $q->select([
-            'project_id'
+            $this->aliasField('project_id')
         ])
             ->where([
-            'Sessions.begin <=' => new FrozenTime()
+            $this->aliasField('Sessions.begin <=') => new FrozenTime()
         ])
             ->order([
-            'Sessions.begin' => 'DESC'
+            $this->aliasField('Sessions.begin') => 'DESC'
         ])
             ->limit(1);
         return $q;

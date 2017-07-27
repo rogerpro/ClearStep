@@ -119,14 +119,14 @@ class ProjectsTable extends Table
     public function findActiveProjects(Query $q, array $options)
     {
         $q->select([
-            'id',
-            'name'
+            $this->aliasField('id'),
+            $this->aliasField('name')
         ])
             ->where([
             $this->aliasField('active') => true
         ])
             ->order([
-            'name' => 'ASC'
+            $this->aliasField('name') => 'ASC'
         ]);
         return $q;
     }
