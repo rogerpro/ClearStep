@@ -1,5 +1,8 @@
 <?php
+use Cake\I18n\FrozenTime;
+
 /**
+ *
  * @var \App\View\AppView $this
  */
 ?>
@@ -52,8 +55,8 @@
 			<td><?= h($session->end) ?></td>
 		</tr>
 		<tr>
-			<th scope="row"><?= __('Time') ?></th>
-			<td><?= h($session->time) ?></td>
+			<th scope="row"><?= __('Duration') ?></th>
+			<td><?= isset($session->duration) ? (new FrozenTime($session->duration))->format('G:i:s') : '' ?></td>
 		</tr>
 		<tr>
 			<th scope="row"><?= __('Created') ?></th>

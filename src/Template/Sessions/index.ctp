@@ -1,5 +1,8 @@
 <?php
+use Cake\I18n\FrozenTime;
+
 /**
+ *
  * @var \App\View\AppView $this
  */
 ?>
@@ -22,7 +25,7 @@
 				<th scope="col"><?= $this->Paginator->sort('project_id') ?></th>
 				<th scope="col"><?= $this->Paginator->sort('begin') ?></th>
 				<th scope="col"><?= $this->Paginator->sort('end') ?></th>
-				<th scope="col"><?= $this->Paginator->sort('time') ?></th>
+				<th scope="col"><?= $this->Paginator->sort('duration') ?></th>
 				<th scope="col"><?= $this->Paginator->sort('section') ?></th>
 				<th scope="col"><?= $this->Paginator->sort('subsection') ?></th>
 				<th scope="col"><?= $this->Paginator->sort('task') ?></th>
@@ -39,7 +42,7 @@
 				<td><?= $session->has('project') ? $this->Html->link($session->project->name, ['controller' => 'Projects', 'action' => 'view', $session->project->id]) : '' ?></td>
 				<td><?= h($session->begin) ?></td>
 				<td><?= h($session->end) ?></td>
-				<td><?= isset($session->time) ? h($session->time->format('G:i:s')) : '' ?></td>
+				<td><?= isset($session->duration) ? (new FrozenTime($session->duration))->format('G:i:s') : '' ?></td>
 				<td><?= $this->Number->format($session->section) ?></td>
 				<td><?= $this->Number->format($session->subsection) ?></td>
 				<td><?= h($session->task) ?></td>
