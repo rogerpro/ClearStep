@@ -2,6 +2,7 @@
 namespace App\Model\Entity;
 
 use Cake\ORM\Entity;
+use Cake\I18n\FrozenTime;
 
 /**
  * Session Entity
@@ -37,4 +38,17 @@ class Session extends Entity
         '*' => true,
         'id' => false
     ];
+
+    /**
+     * Virtual property: format duration with human readable time like h:mm:ss
+     *
+     * Better solution than a getter https://github.com/cakephp/cakephp/issues/10993
+     *
+     * @return string
+     */
+    protected function _getDurationTime()
+    {
+        $duration = $this->_properties['duration'];
+        return isset($duration) ? (new FrozenTime($duration))->format('G:i:s') : '';
+    }
 }

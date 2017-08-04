@@ -42,7 +42,7 @@ use Cake\I18n\FrozenTime;
 				<td><?= $session->has('project') ? $this->Html->link($session->project->name, ['controller' => 'Projects', 'action' => 'view', $session->project->id]) : '' ?></td>
 				<td><?= h($session->begin) ?></td>
 				<td><?= h($session->end) ?></td>
-				<td><?= isset($session->duration) ? (new FrozenTime($session->duration))->format('G:i:s') : '' ?></td>
+				<td><?= h($session->duration_time) ?></td>
 				<td><?= $this->Number->format($session->section) ?></td>
 				<td><?= $this->Number->format($session->subsection) ?></td>
 				<td><?= h($session->task) ?></td>
