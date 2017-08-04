@@ -11,7 +11,7 @@ use Cake\I18n\FrozenTime;
  * @property string $project_id
  * @property \Cake\I18n\Time $begin
  * @property \Cake\I18n\Time $end
- * @property \Cake\I18n\Time $time
+ * @property int $duration
  * @property int $section
  * @property int $subsection
  * @property string $task
