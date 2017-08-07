@@ -1,6 +1,3 @@
-<?php
-use Cake\I18n\FrozenTime;
-?>
 <h3><?= __('Today\'s detail') ?></h3>
 <table cellpadding="0" cellspacing="0">
 	<thead>
