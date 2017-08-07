@@ -128,6 +128,7 @@ class SessionsTable extends Table
             ->order([
             $this->aliasField('created') => 'ASC'
         ]);
+        
         return $q;
     }
 
@@ -163,6 +164,7 @@ class SessionsTable extends Table
             ->order([
             $this->aliasField('Sessions.begin') => 'ASC'
         ]);
+        
         return $q;
     }
 
@@ -193,6 +195,7 @@ class SessionsTable extends Table
             ->order([
             $this->aliasField('Sessions.created') => 'ASC'
         ]);
+        
         return $q;
     }
 
@@ -214,6 +217,7 @@ class SessionsTable extends Table
             $this->aliasField('begin >=') => Chronos::today(),
             $this->aliasField('begin <') => Chronos::tomorrow()
         ]);
+        
         return $q;
     }
 
@@ -237,6 +241,7 @@ class SessionsTable extends Table
             $this->aliasField('Sessions.begin') => 'DESC'
         ])
             ->limit(1);
+        
         return $q;
     }
 
