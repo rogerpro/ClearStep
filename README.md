@@ -13,9 +13,10 @@ Great to be installed as an extranet.
 
 You can install ClearStep easily using [Composer](https://getcomposer.org) or [Git](https://git-scm.com).
 
-<aside class="warning">
+[quote]
+#Warning
 The app will be installable when reaching the first stable version. Please, check this repository soon.
-</aside>
+[/quote]
 
 With Composer:
 ```bash
