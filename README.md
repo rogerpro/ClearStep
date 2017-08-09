@@ -11,19 +11,20 @@ Great to be installed as an extranet.
 
 ## Installation
 
-1. Download [Composer](http://getcomposer.org/doc/00-intro.md) or update `composer self-update`.
-2. Run `php composer.phar create-project rogerpro/ClearStep ClearStep`.
+You can install ClearStep easily using [Composer](https://getcomposer.org) or [Git](https://git-scm.com).
 
-If Composer is installed globally, run
+<aside class="warning">
+The app will be installable when reaching the first stable version. Please, check this repository soon.
+</aside>
 
+With Composer:
 ```bash
 composer create-project rogerpro/clearstep
 ```
 
-In case you want to use a custom app dir name (e.g. `/myapp/`):
-
+With Git:
 ```bash
-composer create-project rogerpro/clearstep myapp
+git clone git@github.com:rogerpro/ClearStep.git
 ```
 
 You should now be able to visit the path to where you installed the app and see the home page.
