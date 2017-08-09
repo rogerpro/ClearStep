@@ -1,7 +1,7 @@
 {
-    "name": "cakephp/app",
-    "description": "CakePHP skeleton app",
-    "homepage": "http://cakephp.org",
+    "name": "rogerpro/ClearStep",
+    "description": "A way to organize your tasks.",
+    "homepage": "https://github.com/rogerpro/ClearStep",
     "type": "project",
     "license": "MIT",
     "require": {
