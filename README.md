@@ -17,13 +17,13 @@ Great to be installed as an extranet.
 If Composer is installed globally, run
 
 ```bash
-composer create-project rogerpro/ClearStep
+composer create-project rogerpro/clearstep
 ```
 
 In case you want to use a custom app dir name (e.g. `/myapp/`):
 
 ```bash
-composer create-project rogerpro/ClearStep myapp
+composer create-project rogerpro/clearstep myapp
 ```
 
 You should now be able to visit the path to where you installed the app and see the home page.
