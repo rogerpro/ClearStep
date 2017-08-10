@@ -222,6 +222,35 @@ class SessionsTable extends Table
     }
 
     /**
+     * Find Last day's total summary.
+     *
+     * Total time spent per day for last specified days.
+     *
+     * @param Query $q            
+     * @return Query
+     */
+    public function findLastDaysTotal(Query $q, array $options)
+    {
+        $days = $options['days'];
+        
+        $q->select([
+            'day' => 'DATE(end)',
+            'duration' => $q->func()
+                ->sum($this->aliasField('Sessions.duration'))
+        ])
+            ->where([
+            $this->aliasField('Sessions.end >=') => Chronos::parse("-$days days"),
+            $this->aliasField('Sessions.end <') => Chronos::today()
+        ])
+            ->group('day')
+            ->order([
+            'day' => 'DESC'
+        ]);
+        
+        return $q;
+    }
+
+    /**
      * Find last session's project.
      *
      * From the current time.

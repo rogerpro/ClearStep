@@ -35,4 +35,5 @@ $button_class = ($ongoing) ? 'end' : 'begin';
     <?= $this->Form->end()?>
 	<div><?php echo $this->element('Table/todays_summary'); ?></div>
 	<div><?php echo $this->element('Table/todays_total'); ?></div>
+	<div><?php echo $this->element('Table/last_days'); ?></div>
 </div>
