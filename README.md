@@ -11,18 +11,12 @@ Great to be installed as an extranet.
 
 ## Installation
 
-You can install ClearStep easily using [Composer](https://getcomposer.org) or [Git](https://git-scm.com).
-
 ### The app will be installable when reaching the first stable version. Please, check this repository soon.
 
-With Composer:
+The recommended way to install ClearStep is with [Composer](https://getcomposer.org):
+
 ```bash
 composer create-project rogerpro/clearstep
-```
-
-With Git:
-```bash
-git clone git@github.com:rogerpro/ClearStep.git
 ```
 
 You should now be able to visit the path to where you installed the app and see the home page.
@@ -33,6 +27,31 @@ You need a SQL database and a LAMP (or similar) installation to run the app. Che
 
 Read and edit `config/app.php` and setup the `'Datasources'` and any other
 configuration relevant for your application.
+
+## Almost done: populating the database
+
+From the root directory of the app, run:
+
+```bash
+bin/cake migrations migrate
+```
+
+At this moment, you will have an app with the minimum data required on the database.
+
+## Last step: creating your users
+
+There's a default admin user at this time. Use it to log in.
+
+Username: temporary
+Password: 123456
+
+Once logged in, I recommend you to create a new admin with a new password. Log in with it, an then remove the original temporary user for security reasons.
+
+## Where to start
+
+Start creating a new project (clic 'New Project' on the left menu').
+
+Then, you can log your first working session
 
 ## Update
 
@@ -108,4 +127,4 @@ Licensed under the [MIT](http://www.opensource.org/licenses/mit-license.php) Lic
 
 ## Disclaimer
 
-Because this app is still on their first days of live *(not even in version 1.0)*, the content of this README file may require some fixing. Thanks for your comprehension.
+Because this app is still on their first days of live *(not even in version 1.0.0)*, the content of this README file may require some fixing. Thanks for your comprehension.
