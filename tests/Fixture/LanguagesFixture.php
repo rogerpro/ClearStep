@@ -45,17 +45,17 @@ class LanguagesFixture extends TestFixture
             'fixed' => null
         ],
         'created' => [
-            'type' => 'datetime',
+            'type' => 'timestamp',
             'length' => null,
-            'null' => false,
+            'null' => true,
             'default' => null,
             'comment' => '',
             'precision' => null
         ],
         'modified' => [
-            'type' => 'datetime',
+            'type' => 'timestamp',
             'length' => null,
-            'null' => false,
+            'null' => true,
             'default' => null,
             'comment' => '',
             'precision' => null
@@ -97,11 +97,11 @@ class LanguagesFixture extends TestFixture
      */
     public $records = [
         [
-            'id' => '0809fd92-ec2c-4669-b6d9-ed9cd083b7dc',
+            'id' => 'b5088948-aad3-4507-9200-ad23f342ed84',
             'iso' => 'L',
             'name' => 'Lorem ipsum dolor sit amet',
-            'created' => '2017-02-17 18:35:46',
-            'modified' => '2017-02-17 18:35:46'
+            'created' => 1502560068,
+            'modified' => 1502560068
         ]
     ];
 }

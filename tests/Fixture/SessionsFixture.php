@@ -56,10 +56,20 @@ class SessionsFixture extends TestFixture
             'comment' => 'Time spent',
             'precision' => null
         ],
+        'duration' => [
+            'type' => 'integer',
+            'length' => 11,
+            'unsigned' => true,
+            'null' => true,
+            'default' => null,
+            'comment' => 'In seconds',
+            'precision' => null,
+            'autoIncrement' => null
+        ],
         'section' => [
             'type' => 'integer',
             'length' => 4,
-            'unsigned' => false,
+            'unsigned' => true,
             'null' => true,
             'default' => null,
             'comment' => 'Budget\'s related section',
@@ -69,7 +79,7 @@ class SessionsFixture extends TestFixture
         'subsection' => [
             'type' => 'integer',
             'length' => 4,
-            'unsigned' => false,
+            'unsigned' => true,
             'null' => true,
             'default' => null,
             'comment' => 'Budget\'s related subsection',
@@ -96,17 +106,17 @@ class SessionsFixture extends TestFixture
             'comment' => 'Expected hours for the task execution'
         ],
         'created' => [
-            'type' => 'datetime',
+            'type' => 'timestamp',
             'length' => null,
-            'null' => false,
+            'null' => true,
             'default' => null,
             'comment' => '',
             'precision' => null
         ],
         'modified' => [
-            'type' => 'datetime',
+            'type' => 'timestamp',
             'length' => null,
-            'null' => false,
+            'null' => true,
             'default' => null,
             'comment' => '',
             'precision' => null
@@ -183,6 +193,13 @@ class SessionsFixture extends TestFixture
                     'modified'
                 ],
                 'length' => []
+            ],
+            'duration' => [
+                'type' => 'index',
+                'columns' => [
+                    'duration'
+                ],
+                'length' => []
             ]
         ],
         '_constraints' => [
@@ -221,17 +238,18 @@ class SessionsFixture extends TestFixture
      */
     public $records = [
         [
-            'id' => '85d9adf3-0c1e-4d79-910c-9fe04fc46f4c',
-            'project_id' => 'd18105d6-bb22-4d66-849b-cd2288752b1c',
-            'begin' => 1487356547,
-            'end' => 1487356547,
-            'time' => '18:35:47',
+            'id' => '227db5ba-1880-41c6-9830-677e57024a19',
+            'project_id' => 'bbe4b4b0-756b-4a49-9220-1644860afcae',
+            'begin' => 1502560068,
+            'end' => 1502560068,
+            'time' => '17:47:48',
+            'duration' => 1,
             'section' => 1,
             'subsection' => 1,
             'task' => 'Lorem ipsum dolor sit amet',
             'expected_hours' => 1,
-            'created' => '2017-02-17 18:35:47',
-            'modified' => '2017-02-17 18:35:47'
+            'created' => 1502560068,
+            'modified' => 1502560068
         ]
     ];
 }

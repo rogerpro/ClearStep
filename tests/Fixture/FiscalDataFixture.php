@@ -153,17 +153,17 @@ class FiscalDataFixture extends TestFixture
             'precision' => null
         ],
         'created' => [
-            'type' => 'datetime',
+            'type' => 'timestamp',
             'length' => null,
-            'null' => false,
+            'null' => true,
             'default' => null,
             'comment' => '',
             'precision' => null
         ],
         'modified' => [
-            'type' => 'datetime',
+            'type' => 'timestamp',
             'length' => null,
-            'null' => false,
+            'null' => true,
             'default' => null,
             'comment' => '',
             'precision' => null
@@ -324,8 +324,8 @@ class FiscalDataFixture extends TestFixture
      */
     public $records = [
         [
-            'id' => '4e4715cd-9a32-4c1f-b1d5-e48e65dbed03',
-            'client_id' => 'ec17df2a-f9fa-4622-b38c-823e7df57c42',
+            'id' => '558534d2-2ca4-478f-9f0e-1c76fe5e9395',
+            'client_id' => 'b76d0663-5994-48e7-9dd9-597d545511fe',
             'name' => 'Lorem ipsum dolor sit amet',
             'commercial_name' => 'Lorem ipsum dolor sit amet',
             'is_company' => 1,
@@ -334,13 +334,13 @@ class FiscalDataFixture extends TestFixture
             'address' => 'Lorem ipsum dolor sit amet',
             'postal_code' => 'Lorem ipsum dolor sit amet',
             'city' => 'Lorem ipsum dolor sit amet',
-            'country_id' => 'f69ff243-76ed-43c9-a351-1beb74ecdcd0',
+            'country_id' => 'ccf5b99e-6d9b-4db7-b948-f76283142f7b',
             'phone' => 'Lorem ipsum dolor sit amet',
             'eu_vat_number' => 'Lorem ipsum dolor sit amet',
             'tax_num' => 'Lorem ipsum dolor sit amet',
             'privacy' => 1,
-            'created' => '2017-02-17 18:35:46',
-            'modified' => '2017-02-17 18:35:46'
+            'created' => 1502560068,
+            'modified' => 1502560068
         ]
     ];
 }

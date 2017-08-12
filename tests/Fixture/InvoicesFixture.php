@@ -37,7 +37,7 @@ class InvoicesFixture extends TestFixture
         'number' => [
             'type' => 'integer',
             'length' => 10,
-            'unsigned' => false,
+            'unsigned' => true,
             'null' => false,
             'default' => null,
             'comment' => '',
@@ -96,17 +96,17 @@ class InvoicesFixture extends TestFixture
             'precision' => null
         ],
         'created' => [
-            'type' => 'datetime',
+            'type' => 'timestamp',
             'length' => null,
-            'null' => false,
+            'null' => true,
             'default' => null,
             'comment' => 'Invoice date',
             'precision' => null
         ],
         'modified' => [
-            'type' => 'datetime',
+            'type' => 'timestamp',
             'length' => null,
-            'null' => false,
+            'null' => true,
             'default' => null,
             'comment' => '',
             'precision' => null
@@ -253,17 +253,17 @@ class InvoicesFixture extends TestFixture
      */
     public $records = [
         [
-            'id' => '008bd952-0e64-4770-8a11-9f11e6b1d93d',
+            'id' => '59a3d568-1c55-413f-804b-70ea3367319d',
             'year' => 'Lorem ipsum dolor sit amet',
             'number' => 1,
-            'ticket_id' => 'b6bba574-7dce-4b78-a6c1-4fd345eadc24',
+            'ticket_id' => 'cf995870-a579-4790-a0cc-6b9a34e316c7',
             'title' => 'Lorem ipsum dolor sit amet',
-            'currency_id' => 'b0e7ccee-a3d0-459d-b991-da94c974229a',
+            'currency_id' => 'a1ddbb7c-a54f-44ed-88c6-ac8800934a42',
             'amount' => 1.5,
             'rendered' => 1,
-            'transaction_id' => '7d68f953-24e1-41f4-a2b8-ab9e06484e6c',
-            'created' => '2017-02-17 18:35:46',
-            'modified' => '2017-02-17 18:35:46'
+            'transaction_id' => 'cba7f5f1-5b33-427c-b9d8-c7dd271e6a82',
+            'created' => 1502560068,
+            'modified' => 1502560068
         ]
     ];
 }

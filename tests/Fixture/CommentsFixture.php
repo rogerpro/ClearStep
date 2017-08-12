@@ -43,17 +43,17 @@ class CommentsFixture extends TestFixture
             'fixed' => null
         ],
         'created' => [
-            'type' => 'datetime',
+            'type' => 'timestamp',
             'length' => null,
-            'null' => false,
+            'null' => true,
             'default' => null,
             'comment' => '',
             'precision' => null
         ],
         'modified' => [
-            'type' => 'datetime',
+            'type' => 'timestamp',
             'length' => null,
-            'null' => false,
+            'null' => true,
             'default' => null,
             'comment' => '',
             'precision' => null
@@ -117,11 +117,11 @@ class CommentsFixture extends TestFixture
      */
     public $records = [
         [
-            'id' => '4fd35ed4-d000-4fc4-afeb-80f5f6e5b44b',
-            'ticket_id' => '8fbafa4a-2b9f-405d-add9-e97a9c642375',
+            'id' => 'c0e53b89-0323-4853-8acd-4620bb338182',
+            'ticket_id' => '172ff9f1-b52f-4ce6-bc70-b597b8c82d28',
             'content' => 'Lorem ipsum dolor sit amet',
-            'created' => '2017-02-17 18:35:45',
-            'modified' => '2017-02-17 18:35:45'
+            'created' => 1502560068,
+            'modified' => 1502560068
         ]
     ];
 }

@@ -54,17 +54,17 @@ class TransactionsFixture extends TestFixture
             'fixed' => null
         ],
         'created' => [
-            'type' => 'datetime',
+            'type' => 'timestamp',
             'length' => null,
-            'null' => false,
+            'null' => true,
             'default' => null,
             'comment' => '',
             'precision' => null
         ],
         'modified' => [
-            'type' => 'datetime',
+            'type' => 'timestamp',
             'length' => null,
-            'null' => false,
+            'null' => true,
             'default' => null,
             'comment' => '',
             'precision' => null
@@ -115,12 +115,12 @@ class TransactionsFixture extends TestFixture
      */
     public $records = [
         [
-            'id' => '5d0be706-a696-4265-a7c2-776e6d82dc1b',
+            'id' => '30345b48-be61-44ef-8d0b-acddd5088d21',
             'amount' => 1.5,
             'paypal_details' => 'Lorem ipsum dolor sit amet',
             'paypal_result' => 'Lorem ipsum dolor sit amet',
-            'created' => '2017-02-17 18:35:47',
-            'modified' => '2017-02-17 18:35:47'
+            'created' => 1502560068,
+            'modified' => 1502560068
         ]
     ];
 }

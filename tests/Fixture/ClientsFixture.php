@@ -35,17 +35,17 @@ class ClientsFixture extends TestFixture
             'fixed' => null
         ],
         'created' => [
-            'type' => 'datetime',
+            'type' => 'timestamp',
             'length' => null,
-            'null' => false,
+            'null' => true,
             'default' => null,
             'comment' => '',
             'precision' => null
         ],
         'modified' => [
-            'type' => 'datetime',
+            'type' => 'timestamp',
             'length' => null,
-            'null' => false,
+            'null' => true,
             'default' => null,
             'comment' => '',
             'precision' => null
@@ -96,10 +96,10 @@ class ClientsFixture extends TestFixture
      */
     public $records = [
         [
-            'id' => '8c5a7693-00c0-4742-bfa3-fb260ba00ecf',
+            'id' => '9feb2792-a8fa-40ae-bf58-9ac5ecde9d25',
             'name' => 'Lorem ipsum dolor sit amet',
-            'created' => '2017-02-17 18:35:45',
-            'modified' => '2017-02-17 18:35:45'
+            'created' => 1502560068,
+            'modified' => 1502560068
         ]
     ];
 }

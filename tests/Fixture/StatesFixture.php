@@ -35,17 +35,17 @@ class StatesFixture extends TestFixture
             'fixed' => null
         ],
         'created' => [
-            'type' => 'datetime',
+            'type' => 'timestamp',
             'length' => null,
-            'null' => false,
+            'null' => true,
             'default' => null,
             'comment' => '',
             'precision' => null
         ],
         'modified' => [
-            'type' => 'datetime',
+            'type' => 'timestamp',
             'length' => null,
-            'null' => false,
+            'null' => true,
             'default' => null,
             'comment' => '',
             'precision' => null
@@ -96,10 +96,10 @@ class StatesFixture extends TestFixture
      */
     public $records = [
         [
-            'id' => '66916875-cf43-4609-bc7b-01acf7429c5f',
+            'id' => 'd706396b-ecd2-4cab-b50d-ed9bb02c22a7',
             'name' => 'Lorem ipsum dolor sit amet',
-            'created' => '2017-02-17 18:35:47',
-            'modified' => '2017-02-17 18:35:47'
+            'created' => 1502560068,
+            'modified' => 1502560068
         ]
     ];
 }

@@ -45,17 +45,17 @@ class CurrenciesFixture extends TestFixture
             'fixed' => null
         ],
         'created' => [
-            'type' => 'datetime',
+            'type' => 'timestamp',
             'length' => null,
-            'null' => false,
+            'null' => true,
             'default' => null,
             'comment' => '',
             'precision' => null
         ],
         'modified' => [
-            'type' => 'datetime',
+            'type' => 'timestamp',
             'length' => null,
-            'null' => false,
+            'null' => true,
             'default' => null,
             'comment' => '',
             'precision' => null
@@ -113,11 +113,11 @@ class CurrenciesFixture extends TestFixture
      */
     public $records = [
         [
-            'id' => 'cd6679d4-57b1-4427-a2f7-e8932202dc92',
+            'id' => '315d7366-ebc4-49d8-8120-2a909dc3bf2a',
             'iso' => 'L',
             'name' => 'Lorem ipsum dolor sit amet',
-            'created' => '2017-02-17 18:35:46',
-            'modified' => '2017-02-17 18:35:46'
+            'created' => 1502560068,
+            'modified' => 1502560068
         ]
     ];
 }

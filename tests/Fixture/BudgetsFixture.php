@@ -37,7 +37,7 @@ class BudgetsFixture extends TestFixture
         'number' => [
             'type' => 'integer',
             'length' => 10,
-            'unsigned' => false,
+            'unsigned' => true,
             'null' => false,
             'default' => null,
             'comment' => '',
@@ -98,17 +98,17 @@ class BudgetsFixture extends TestFixture
             'precision' => null
         ],
         'created' => [
-            'type' => 'datetime',
+            'type' => 'timestamp',
             'length' => null,
-            'null' => false,
+            'null' => true,
             'default' => null,
             'comment' => 'Budget date',
             'precision' => null
         ],
         'modified' => [
-            'type' => 'datetime',
+            'type' => 'timestamp',
             'length' => null,
-            'null' => false,
+            'null' => true,
             'default' => null,
             'comment' => '',
             'precision' => null
@@ -235,17 +235,17 @@ class BudgetsFixture extends TestFixture
      */
     public $records = [
         [
-            'id' => '4205897f-e7c1-4e2c-8aa1-690603f972d4',
+            'id' => 'a78ba84c-24ba-4b8a-b3a6-25f4cc328854',
             'year' => 'Lorem ipsum dolor sit amet',
             'number' => 1,
             'title' => 'Lorem ipsum dolor sit amet',
             'description' => 'Lorem ipsum dolor sit amet',
-            'currency_id' => '88b156d8-f9a1-41ae-902c-dd3d8183206e',
+            'currency_id' => '897f8c8e-bce7-44e1-bbf3-adbddffd8597',
             'amount' => 1.5,
             'rendered' => 1,
-            'invoice_id' => '3cbc5419-9a66-44d0-bcd5-8db17357275a',
-            'created' => '2017-02-17 18:35:45',
-            'modified' => '2017-02-17 18:35:45'
+            'invoice_id' => '45d7f80c-2d32-40af-8d36-134d70fa858e',
+            'created' => 1502560068,
+            'modified' => 1502560068
         ]
     ];
 }

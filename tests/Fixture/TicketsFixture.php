@@ -89,17 +89,17 @@ class TicketsFixture extends TestFixture
             'precision' => null
         ],
         'created' => [
-            'type' => 'datetime',
+            'type' => 'timestamp',
             'length' => null,
-            'null' => false,
+            'null' => true,
             'default' => null,
             'comment' => '',
             'precision' => null
         ],
         'modified' => [
-            'type' => 'datetime',
+            'type' => 'timestamp',
             'length' => null,
-            'null' => false,
+            'null' => true,
             'default' => null,
             'comment' => '',
             'precision' => null
@@ -250,17 +250,17 @@ class TicketsFixture extends TestFixture
      */
     public $records = [
         [
-            'id' => 'f20949e1-7b9b-46d9-bdf5-9da0128954c7',
-            'project_id' => 'ecf3f101-f451-4dba-8e68-c7e74791e931',
-            'session_id' => '5dcf16df-eeaf-4122-9fd0-ee257df9f651',
-            'invoice_id' => 'de424f73-05e7-48c5-bb2d-f927cc35c04e',
-            'state_id' => '0b6b86f6-7877-4ea9-a7fd-a1e6ce85cec8',
-            'budget_id' => 'ebaf07c2-1594-4d86-a416-acfa42a39780',
-            'min_time' => '18:35:47',
-            'max_time' => '18:35:47',
-            'deadline' => '2017-02-17',
-            'created' => '2017-02-17 18:35:47',
-            'modified' => '2017-02-17 18:35:47'
+            'id' => 'c95e053c-0a85-48fa-b01f-fccddd275308',
+            'project_id' => '5608b129-4ab0-4c1a-b614-a058d249d82d',
+            'session_id' => '20046130-bf69-42b5-b011-6c722d843077',
+            'invoice_id' => '45dd44b5-ebc2-4249-bdb5-7c8e62875161',
+            'state_id' => '69005074-6af3-4422-af10-c6153f0d26be',
+            'budget_id' => '46c0e531-f902-40e5-ba90-66399758693a',
+            'min_time' => '17:47:48',
+            'max_time' => '17:47:48',
+            'deadline' => '2017-08-12',
+            'created' => 1502560068,
+            'modified' => 1502560068
         ]
     ];
 }

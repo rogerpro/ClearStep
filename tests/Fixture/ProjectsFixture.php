@@ -72,7 +72,7 @@ class ProjectsFixture extends TestFixture
         'expected_hours' => [
             'type' => 'integer',
             'length' => 4,
-            'unsigned' => false,
+            'unsigned' => true,
             'null' => true,
             'default' => null,
             'comment' => 'Expected hours for the project execution',
@@ -88,17 +88,17 @@ class ProjectsFixture extends TestFixture
             'precision' => null
         ],
         'created' => [
-            'type' => 'datetime',
+            'type' => 'timestamp',
             'length' => null,
-            'null' => false,
+            'null' => true,
             'default' => null,
             'comment' => '',
             'precision' => null
         ],
         'modified' => [
-            'type' => 'datetime',
+            'type' => 'timestamp',
             'length' => null,
-            'null' => false,
+            'null' => true,
             'default' => null,
             'comment' => '',
             'precision' => null
@@ -197,16 +197,16 @@ class ProjectsFixture extends TestFixture
      */
     public $records = [
         [
-            'id' => 'd632d1f1-3994-474d-b7d4-fc6375bc5b4b',
-            'client_id' => '61d7b183-a55b-464d-adbb-fdbab85f8b72',
+            'id' => '0a6e9bc0-70f2-4362-99d7-85d07e7c56dd',
+            'client_id' => 'a5167e31-18d0-42e9-af4d-df5128c16593',
             'name' => 'Lorem ipsum dolor sit amet',
             'description' => 'Lorem ipsum dolor sit amet',
             'billable' => 1,
             'hourly_price' => 1,
             'expected_hours' => 1,
             'active' => 1,
-            'created' => '2017-02-17 18:35:46',
-            'modified' => '2017-02-17 18:35:46'
+            'created' => 1502560068,
+            'modified' => 1502560068
         ]
     ];
 }

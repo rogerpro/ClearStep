@@ -83,17 +83,17 @@ class CountriesFixture extends TestFixture
             'fixed' => null
         ],
         'created' => [
-            'type' => 'datetime',
+            'type' => 'timestamp',
             'length' => null,
-            'null' => false,
+            'null' => true,
             'default' => null,
             'comment' => '',
             'precision' => null
         ],
         'modified' => [
-            'type' => 'datetime',
+            'type' => 'timestamp',
             'length' => null,
-            'null' => false,
+            'null' => true,
             'default' => null,
             'comment' => '',
             'precision' => null
@@ -179,15 +179,15 @@ class CountriesFixture extends TestFixture
      */
     public $records = [
         [
-            'id' => 'e72a3329-4771-486b-8d2d-c528410ed917',
+            'id' => 'd6f8d8cb-43eb-4879-86a1-38dd27905f33',
             'iso2' => '',
             'iso3' => 'L',
             'is_eu' => 1,
             'name' => 'Lorem ipsum dolor sit amet',
             'spa' => 'Lorem ipsum dolor sit amet',
             'cat' => 'Lorem ipsum dolor sit amet',
-            'created' => '2017-02-17 18:35:45',
-            'modified' => '2017-02-17 18:35:45'
+            'created' => 1502560068,
+            'modified' => 1502560068
         ]
     ];
 }
