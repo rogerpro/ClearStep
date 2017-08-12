@@ -275,23 +275,7 @@ class SessionsTable extends Table
     }
 
     /**
-     * Calculate the interval between the begin and end of a session.
-     *
-     * Sustract timestamps of both.
-     *
-     * @param \Cake\I18n\FrozenTime $begin            
-     * @param \Cake\I18n\FrozenTime $end            
-     * @return int
-     */
-    private function getInterval($begin, $end)
-    {
-        return $end->format('U') - $begin->format('U');
-    }
-
-    /**
      * Before save.
-     *
-     * Calculate total session time.
      *
      * @param \Cake\Event\Event $event
      *            The event that was triggered
@@ -301,12 +285,10 @@ class SessionsTable extends Table
      */
     public function beforeSave(Event $event, Session $session)
     {
-        $begin = $session->begin;
-        $end = $session->end;
-        
         // Only if session ended
-        if (isset($end)) {
-            $session->set('duration', $this->getInterval($begin, $end));
+        if (isset($session->end)) {
+            // Set total session duration
+            $session->setDuration();
         }
     }
 }
