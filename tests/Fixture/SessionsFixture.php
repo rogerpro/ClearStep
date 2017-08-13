@@ -240,8 +240,8 @@ class SessionsFixture extends TestFixture
         [
             'id' => '37ee53a0-9fad-47e7-8b58-68189092ad42',
             'project_id' => 'cd5db656-176f-4ca4-92de-3e76c61fdb2a',
-            'begin' => 1502620925,
-            'end' => 1502621025,
+            'begin' => 1502582401,
+            'end' => 1502582501,
             'time' => null,
             'duration' => 100,
             'section' => 1,
@@ -254,8 +254,8 @@ class SessionsFixture extends TestFixture
         [
             'id' => '78b3e43c-c574-4174-9dff-d4e75c4e3d63',
             'project_id' => 'abb8b1ad-f720-4395-86a6-d4679bcdff37',
-            'begin' => 1602230925,
-            'end' => 1602230958,
+            'begin' => 1502644531,
+            'end' => 1502644564,
             'time' => null,
             'duration' => 33,
             'section' => 2,
@@ -268,8 +268,8 @@ class SessionsFixture extends TestFixture
         [
             'id' => '1b9ec654-03e8-4201-9003-dff293733759',
             'project_id' => '240b37b1-8a85-4ed6-b601-c343ee704642',
-            'begin' => 1752620925,
-            'end' => 1752621984,
+            'begin' => 1502667740,
+            'end' => 1502668799,
             'time' => null,
             'duration' => 1059,
             'section' => 3,
