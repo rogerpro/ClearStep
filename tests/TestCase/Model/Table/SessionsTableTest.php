@@ -69,26 +69,6 @@ class SessionsTableTest extends TestCase
     }
 
     /**
-     * Test findOngoingSessions method
-     *
-     * @return void
-     */
-    public function testFindOngoingSessions()
-    {
-        $this->markTestIncomplete('Not implemented yet.');
-    }
-
-    /**
-     * Test findTodaysDetail method
-     *
-     * @return void
-     */
-    public function testFindTodaysDetail()
-    {
-        $this->markTestIncomplete('Not implemented yet.');
-    }
-
-    /**
      * Test findTodaysSummary method
      *
      * @return void
@@ -116,35 +96,5 @@ class SessionsTableTest extends TestCase
         
         $this->assertInternalType('float', $total);
         $this->assertEquals(1192, $total);
-    }
-
-    /**
-     * Test findLastDaysTotal method
-     *
-     * @return void
-     */
-    public function testFindLastDaysTotal()
-    {
-        $this->markTestIncomplete('Not implemented yet.');
-    }
-
-    /**
-     * Test findLastProject method
-     *
-     * @return void
-     */
-    public function testFindLastProject()
-    {
-        $this->markTestIncomplete('Not implemented yet.');
-    }
-
-    /**
-     * Test beforeSave method
-     *
-     * @return void
-     */
-    public function testBeforeSave()
-    {
-        $this->markTestIncomplete('Not implemented yet.');
     }
 }
