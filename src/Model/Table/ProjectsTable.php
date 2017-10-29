@@ -47,6 +47,9 @@ class ProjectsTable extends Table
             'foreignKey' => 'client_id'
         ]);
         $this->hasMany('Sessions', [
+            'sort' => [
+                'Sessions.begin' => 'desc'
+            ],
             'foreignKey' => 'project_id'
         ]);
         $this->hasMany('Tickets', [
