@@ -25,7 +25,9 @@
         echo $this->Form->control('end');
         echo $this->Form->control('section');
         echo $this->Form->control('subsection');
-        echo $this->Form->control('task');
+        echo $this->Form->control('task', [
+            'type' => 'textarea'
+        ]);
         echo $this->Form->control('expected_hours');
         ?>
     </fieldset>
