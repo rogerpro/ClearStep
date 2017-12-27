@@ -1,13 +1,13 @@
 # ClearStep
 
-A web app to help you organizing your & your client/provider tasks, and more. Made with [CakePHP 3](https://github.com/cakephp/cakephp).
+A web app to help you organizing your client/provider & your own tasks. Made with [CakePHP 3](https://github.com/cakephp/cakephp).
 
 - Both for professional & personal tasks, as a TO DO list.
 - Set deadlines, tags & comments for your pending tasks using tickets.
 - Log your working/whatever sessions and link them with your tickets (or just keep them standalone).
 - Get app & email alerts when something happens (new ticket, changed ticket, deadline approaching, overtime dedicated to a project, etc).
 
-Great to be installed as an extranet. 
+Great to be installed as an extranet webapp.
 
 ## Installation
 
