@@ -11,8 +11,6 @@ Great to be installed as an extranet webapp.
 
 ## Installation
 
-### The app will be installable when reaching the first stable version. Please, check this repository soon.
-
 The recommended way to install ClearStep is with [Composer](https://getcomposer.org):
 
 ```bash
@@ -124,7 +122,3 @@ Feel free to share what would you like ClearStep to do with an [issue](https://g
 Copyright 2017 Roger Campanera. All rights reserved.
 
 Licensed under the [MIT](http://www.opensource.org/licenses/mit-license.php) License. Redistributions of the source code included in this repository must retain the copyright notice found in each file.
-
-## Disclaimer
-
-Because this app is still on their first days of live *(not even in version 1.0.0)*, the content of this README file may require some fixing. Thanks for your comprehension.
