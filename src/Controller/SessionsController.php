@@ -1,7 +1,7 @@
 <?php
+
 namespace App\Controller;
 
-use App\Controller\AppController;
 use Cake\I18n\FrozenTime;
 
 /**
@@ -31,7 +31,7 @@ class SessionsController extends AppController
             ]
         ];
         $sessions = $this->paginate($this->Sessions);
-        
+
         $this->set(compact('sessions'));
         $this->set('_serialize', [
             'sessions'
@@ -54,7 +54,7 @@ class SessionsController extends AppController
                 'Tickets'
             ]
         ]);
-        
+
         $this->set('session', $session);
         $this->set('_serialize', [
             'session'
@@ -73,7 +73,7 @@ class SessionsController extends AppController
             $session = $this->Sessions->patchEntity($session, $this->request->data);
             if ($this->Sessions->save($session)) {
                 $this->Flash->success(__('The session has been saved.'));
-                
+
                 return $this->redirect([
                     'action' => 'index'
                 ]);
@@ -98,31 +98,31 @@ class SessionsController extends AppController
     {
         // Check for ongoing sessions
         $ongoing = $this->Sessions->find('ongoingSessions', [])->first();
-        
+
         $this->set('ongoing', $ongoing);
-        
+
         $projects = $this->Sessions->Projects->find('list')->find('activeProjects');
-        
+
         // Get Today's detail
         $sessions = $this->Sessions->find('todaysDetail');
         $this->set(compact('sessions'));
         $this->set('_serialize', [
             'sessions'
         ]);
-        
+
         // Get Today's summary
         $summary_projects = $this->Sessions->find('todaysSummary');
         $this->set(compact('summary_projects'));
         $this->set('_serialize', [
             'summary_projects'
         ]);
-        
+
         // Get Today's total
         $total = $this->Sessions->find('todaysTotal')->first()->total_duration;
         // Force zero instead of null
         $total = $total ? $total : 0;
         $this->set(compact('total'));
-        
+
         // Get Last day's total summary
         $last_days = $this->Sessions->find('lastDaysTotal', [
             'days' => 7
@@ -131,15 +131,15 @@ class SessionsController extends AppController
         $this->set('_serialize', [
             'last_days'
         ]);
-        
+
         $last_project = null;
-        
+
         if ($ongoing) {
             // Ongoing sessions: edit
-            
+
             // Get ongoing session data
             $session = $this->Sessions->get($ongoing['id']);
-            
+
             if ($this->request->is([
                 'patch',
                 'post',
@@ -149,7 +149,7 @@ class SessionsController extends AppController
                 $data = array_merge($this->request->data, [
                     'end' => FrozenTime::now()
                 ]);
-                
+
                 $session = $this->Sessions->patchEntity($session, $data);
                 if ($this->Sessions->save($session)) {
                     return $this->redirect($this->here);
@@ -158,18 +158,18 @@ class SessionsController extends AppController
             }
         } else {
             // No ongoing sessions: add
-            
+
             // Get last session's project
             $last_project = $this->Sessions->find('lastProject')->first()['project_id'];
-            
+
             $session = $this->Sessions->newEntity();
             if ($this->request->is('post')) {
-                
+
                 // Set begin time to session
                 $data = array_merge($this->request->data, [
                     'begin' => FrozenTime::now()
                 ]);
-                
+
                 $session = $this->Sessions->patchEntity($session, $data);
                 if ($this->Sessions->save($session)) {
                     return $this->redirect($this->here);
@@ -178,7 +178,7 @@ class SessionsController extends AppController
                 }
             }
         }
-        
+
         $this->set(compact('session', 'projects', 'last_project'));
         $this->set('_serialize', [
             'projects'
@@ -206,7 +206,7 @@ class SessionsController extends AppController
             $session = $this->Sessions->patchEntity($session, $this->request->data);
             if ($this->Sessions->save($session)) {
                 $this->Flash->success(__('The session has been saved.'));
-                
+
                 return $this->redirect([
                     'action' => 'index'
                 ]);
@@ -242,7 +242,7 @@ class SessionsController extends AppController
         } else {
             $this->Flash->error(__('The session could not be deleted. Please, try again.'));
         }
-        
+
         return $this->redirect([
             'action' => 'index'
         ]);

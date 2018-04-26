@@ -12,9 +12,9 @@
  * @since     3.3.0
  * @license   http://www.opensource.org/licenses/mit-license.php MIT License
  */
+
 namespace App;
 
-use Cake\Core\Configure;
 use Cake\Error\Middleware\ErrorHandlerMiddleware;
 use Cake\Http\BaseApplication;
 use Cake\Routing\Middleware\AssetMiddleware;
@@ -43,12 +43,12 @@ class Application extends BaseApplication
         // and make an error page/response
         add(ErrorHandlerMiddleware::class)
             ->
-        // Handle plugin/theme assets like CakePHP normally does.
-        add(AssetMiddleware::class)
+            // Handle plugin/theme assets like CakePHP normally does.
+            add(AssetMiddleware::class)
             ->
-        // Apply routing
-        add(RoutingMiddleware::class);
-        
+            // Apply routing
+            add(RoutingMiddleware::class);
+
         return $middleware;
     }
 }

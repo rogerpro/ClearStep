@@ -1,7 +1,6 @@
 <?php
-namespace App\Controller;
 
-use App\Controller\AppController;
+namespace App\Controller;
 
 /**
  * Countries Controller
@@ -19,7 +18,7 @@ class CountriesController extends AppController
     public function index()
     {
         $countries = $this->paginate($this->Countries);
-        
+
         $this->set(compact('countries'));
         $this->set('_serialize', [
             'countries'
@@ -41,7 +40,7 @@ class CountriesController extends AppController
                 'FiscalData'
             ]
         ]);
-        
+
         $this->set('country', $country);
         $this->set('_serialize', [
             'country'
@@ -60,7 +59,7 @@ class CountriesController extends AppController
             $country = $this->Countries->patchEntity($country, $this->request->data);
             if ($this->Countries->save($country)) {
                 $this->Flash->success(__('The country has been saved.'));
-                
+
                 return $this->redirect([
                     'action' => 'index'
                 ]);
@@ -94,7 +93,7 @@ class CountriesController extends AppController
             $country = $this->Countries->patchEntity($country, $this->request->data);
             if ($this->Countries->save($country)) {
                 $this->Flash->success(__('The country has been saved.'));
-                
+
                 return $this->redirect([
                     'action' => 'index'
                 ]);
@@ -127,7 +126,7 @@ class CountriesController extends AppController
         } else {
             $this->Flash->error(__('The country could not be deleted. Please, try again.'));
         }
-        
+
         return $this->redirect([
             'action' => 'index'
         ]);

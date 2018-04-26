@@ -1,7 +1,7 @@
 <?php
+
 namespace App\Model\Table;
 
-use Cake\ORM\Query;
 use Cake\ORM\RulesChecker;
 use Cake\ORM\Table;
 use Cake\Validation\Validator;
@@ -20,8 +20,8 @@ use Cake\Validation\Validator;
  * @method \App\Model\Entity\Budget patchEntity(\Cake\Datasource\EntityInterface $entity, array $data, array $options = [])
  * @method \App\Model\Entity\Budget[] patchEntities($entities, array $data, array $options = [])
  * @method \App\Model\Entity\Budget findOrCreate($search, callable $callback = null, $options = [])
- *        
- *         @mixin \Cake\ORM\Behavior\TimestampBehavior
+ *
+ * @mixin \Cake\ORM\Behavior\TimestampBehavior
  */
 class BudgetsTable extends Table
 {
@@ -36,13 +36,13 @@ class BudgetsTable extends Table
     public function initialize(array $config)
     {
         parent::initialize($config);
-        
+
         $this->table('budgets');
         $this->displayField('title');
         $this->primaryKey('id');
-        
+
         $this->addBehavior('Timestamp');
-        
+
         $this->belongsTo('Currencies', [
             'foreignKey' => 'currency_id',
             'joinType' => 'INNER'
@@ -66,25 +66,25 @@ class BudgetsTable extends Table
     public function validationDefault(Validator $validator)
     {
         $validator->uuid('id')->allowEmpty('id', 'create');
-        
+
         $validator->requirePresence('year', 'create')->notEmpty('year');
-        
+
         $validator->integer('number')
             ->requirePresence('number', 'create')
             ->notEmpty('number');
-        
+
         $validator->requirePresence('title', 'create')->notEmpty('title');
-        
+
         $validator->requirePresence('description', 'create')->notEmpty('description');
-        
+
         $validator->decimal('amount')
             ->requirePresence('amount', 'create')
             ->notEmpty('amount');
-        
+
         $validator->boolean('rendered')
             ->requirePresence('rendered', 'create')
             ->notEmpty('rendered');
-        
+
         return $validator;
     }
 
@@ -104,7 +104,7 @@ class BudgetsTable extends Table
         $rules->add($rules->existsIn([
             'invoice_id'
         ], 'Invoices'));
-        
+
         return $rules;
     }
 }

@@ -12,6 +12,7 @@
  * @since     3.0.0
  * @license   http://www.opensource.org/licenses/mit-license.php MIT License
  */
+
 namespace App\Console;
 
 use Cake\Utility\Security;
@@ -37,12 +38,12 @@ class Installer
     public static function postInstall(Event $event)
     {
         $io = $event->getIO();
-        
+
         $rootDir = dirname(dirname(__DIR__));
-        
+
         static::createAppConfig($rootDir, $io);
         static::createWritableDirectories($rootDir, $io);
-        
+
         // ask if the permissions should be changed
         if ($io->isInteractive()) {
             $validator = function ($arg) {
@@ -56,8 +57,9 @@ class Installer
                 }
                 throw new Exception('This is not a valid answer. Please choose Y or n.');
             };
-            $setFolderPermissions = $io->askAndValidate('<info>Set Folder Permissions ? (Default to Y)</info> [<comment>Y,n</comment>]? ', $validator, 10, 'Y');
-            
+            $setFolderPermissions = $io->askAndValidate('<info>Set Folder Permissions ? (Default to Y)</info> [<comment>Y,n</comment>]? ',
+                $validator, 10, 'Y');
+
             if (in_array($setFolderPermissions, [
                 'Y',
                 'y'
@@ -67,9 +69,9 @@ class Installer
         } else {
             static::setFolderPermissions($rootDir, $io);
         }
-        
+
         static::setSecuritySalt($rootDir, $io);
-        
+
         if (class_exists('\Cake\Codeception\Console\Installer')) {
             \Cake\Codeception\Console\Installer::customizeCodeceptionBinary($event);
         }
@@ -88,7 +90,7 @@ class Installer
     {
         $appConfig = $dir . '/config/app.php';
         $defaultConfig = $dir . '/config/app.default.php';
-        if (! file_exists($appConfig)) {
+        if (!file_exists($appConfig)) {
             copy($defaultConfig, $appConfig);
             $io->write('Created `config/app.php` file');
         }
@@ -115,10 +117,10 @@ class Installer
             'tmp/sessions',
             'tmp/tests'
         ];
-        
+
         foreach ($paths as $path) {
             $path = $dir . '/' . $path;
-            if (! file_exists($path)) {
+            if (!file_exists($path)) {
                 mkdir($path);
                 $io->write('Created `' . $path . '` directory');
             }
@@ -145,7 +147,7 @@ class Installer
             if (($currentPerms & $perms) == $perms) {
                 return;
             }
-            
+
             $res = chmod($path, $currentPerms | $perms);
             if ($res) {
                 $io->write('Permissions set on ' . $path);
@@ -153,7 +155,7 @@ class Installer
                 $io->write('Failed to set permissions on ' . $path);
             }
         };
-        
+
         $walker = function ($dir, $perms, $io) use (&$walker, $changePerms) {
             $files = array_diff(scandir($dir), [
                 '.',
@@ -161,16 +163,16 @@ class Installer
             ]);
             foreach ($files as $file) {
                 $path = $dir . '/' . $file;
-                
-                if (! is_dir($path)) {
+
+                if (!is_dir($path)) {
                     continue;
                 }
-                
+
                 $changePerms($path, $perms, $io);
                 $walker($path, $perms, $io);
             }
         };
-        
+
         $worldWritable = bindec('0000000111');
         $walker($dir . '/tmp', $worldWritable, $io);
         $changePerms($dir . '/tmp', $worldWritable, $io);
@@ -190,20 +192,20 @@ class Installer
     {
         $config = $dir . '/config/app.php';
         $content = file_get_contents($config);
-        
+
         $newKey = hash('sha256', Security::randomBytes(64));
         $content = str_replace('__SALT__', $newKey, $content, $count);
-        
+
         if ($count == 0) {
             $io->write('No Security.salt placeholder to replace.');
-            
+
             return;
         }
-        
+
         $result = file_put_contents($config, $content);
         if ($result) {
             $io->write('Updated Security.salt value in config/app.php');
-            
+
             return;
         }
         $io->write('Unable to update Security.salt value.');

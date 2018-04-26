@@ -12,6 +12,7 @@
  * @since         3.3.4
  * @license       http://www.opensource.org/licenses/mit-license.php MIT License
  */
+
 namespace App\Controller;
 
 use Cake\Event\Event;
@@ -42,7 +43,8 @@ class ErrorController extends AppController
      * @return \Cake\Network\Response|null|void
      */
     public function beforeFilter(Event $event)
-    {}
+    {
+    }
 
     /**
      * beforeRender callback.
@@ -54,7 +56,7 @@ class ErrorController extends AppController
     public function beforeRender(Event $event)
     {
         parent::beforeRender($event);
-        
+
         $this->viewBuilder()->setTemplatePath('Error');
     }
 
@@ -66,5 +68,6 @@ class ErrorController extends AppController
      * @return \Cake\Network\Response|null|void
      */
     public function afterFilter(Event $event)
-    {}
+    {
+    }
 }

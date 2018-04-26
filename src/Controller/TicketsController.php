@@ -1,7 +1,6 @@
 <?php
-namespace App\Controller;
 
-use App\Controller\AppController;
+namespace App\Controller;
 
 /**
  * Tickets Controller
@@ -27,7 +26,7 @@ class TicketsController extends AppController
             ]
         ];
         $tickets = $this->paginate($this->Tickets);
-        
+
         $this->set(compact('tickets'));
         $this->set('_serialize', [
             'tickets'
@@ -54,7 +53,7 @@ class TicketsController extends AppController
                 'Comments'
             ]
         ]);
-        
+
         $this->set('ticket', $ticket);
         $this->set('_serialize', [
             'ticket'
@@ -73,7 +72,7 @@ class TicketsController extends AppController
             $ticket = $this->Tickets->patchEntity($ticket, $this->request->data);
             if ($this->Tickets->save($ticket)) {
                 $this->Flash->success(__('The ticket has been saved.'));
-                
+
                 return $this->redirect([
                     'action' => 'index'
                 ]);
@@ -119,7 +118,7 @@ class TicketsController extends AppController
             $ticket = $this->Tickets->patchEntity($ticket, $this->request->data);
             if ($this->Tickets->save($ticket)) {
                 $this->Flash->success(__('The ticket has been saved.'));
-                
+
                 return $this->redirect([
                     'action' => 'index'
                 ]);
@@ -164,7 +163,7 @@ class TicketsController extends AppController
         } else {
             $this->Flash->error(__('The ticket could not be deleted. Please, try again.'));
         }
-        
+
         return $this->redirect([
             'action' => 'index'
         ]);

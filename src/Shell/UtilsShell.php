@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Shell;
 
 use Cake\Console\Shell;
@@ -14,16 +15,16 @@ class UtilsShell extends Shell
     {
         $this->loadModel($model);
         $q = $this->$model->find();
-        
+
         foreach ($q as $key => $value) {
             $this->$model->query()
                 ->update()
                 ->set([
-                'id' => Text::uuid()
-            ])
+                    'id' => Text::uuid()
+                ])
                 ->where([
-                'id' => $value->id
-            ])
+                    'id' => $value->id
+                ])
                 ->execute();
         }
     }
@@ -38,11 +39,11 @@ class UtilsShell extends Shell
     {
         $this->loadModel($model);
         $q = $this->$model->find();
-        
+
         foreach ($q as $key => $value) {
             // Set all fields dirty to trigger events when saving
             $value->dirty('', true);
-            
+
             // Save
             $this->$model->save($value);
         }

@@ -1,7 +1,6 @@
 <?php
-namespace App\Controller;
 
-use App\Controller\AppController;
+namespace App\Controller;
 
 /**
  * Budgets Controller
@@ -25,7 +24,7 @@ class BudgetsController extends AppController
             ]
         ];
         $budgets = $this->paginate($this->Budgets);
-        
+
         $this->set(compact('budgets'));
         $this->set('_serialize', [
             'budgets'
@@ -49,7 +48,7 @@ class BudgetsController extends AppController
                 'Tickets'
             ]
         ]);
-        
+
         $this->set('budget', $budget);
         $this->set('_serialize', [
             'budget'
@@ -68,7 +67,7 @@ class BudgetsController extends AppController
             $budget = $this->Budgets->patchEntity($budget, $this->request->data);
             if ($this->Budgets->save($budget)) {
                 $this->Flash->success(__('The budget has been saved.'));
-                
+
                 return $this->redirect([
                     'action' => 'index'
                 ]);
@@ -108,7 +107,7 @@ class BudgetsController extends AppController
             $budget = $this->Budgets->patchEntity($budget, $this->request->data);
             if ($this->Budgets->save($budget)) {
                 $this->Flash->success(__('The budget has been saved.'));
-                
+
                 return $this->redirect([
                     'action' => 'index'
                 ]);
@@ -147,7 +146,7 @@ class BudgetsController extends AppController
         } else {
             $this->Flash->error(__('The budget could not be deleted. Please, try again.'));
         }
-        
+
         return $this->redirect([
             'action' => 'index'
         ]);

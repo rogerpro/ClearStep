@@ -1,14 +1,15 @@
 <?php
+
 namespace App\Model\Table;
 
+use App\Model\Entity\Session;
 use Cake\Chronos\Chronos;
 use Cake\Event\Event;
+use Cake\I18n\FrozenTime;
 use Cake\ORM\Query;
 use Cake\ORM\RulesChecker;
 use Cake\ORM\Table;
-use Cake\I18n\FrozenTime;
 use Cake\Validation\Validator;
-use App\Model\Entity\Session;
 
 /**
  * Sessions Model
@@ -23,8 +24,8 @@ use App\Model\Entity\Session;
  * @method \App\Model\Entity\Session patchEntity(\Cake\Datasource\EntityInterface $entity, array $data, array $options = [])
  * @method \App\Model\Entity\Session[] patchEntities($entities, array $data, array $options = [])
  * @method \App\Model\Entity\Session findOrCreate($search, callable $callback = null, $options = [])
- *        
- *         @mixin \Cake\ORM\Behavior\TimestampBehavior
+ *
+ * @mixin \Cake\ORM\Behavior\TimestampBehavior
  */
 class SessionsTable extends Table
 {
@@ -39,13 +40,13 @@ class SessionsTable extends Table
     public function initialize(array $config)
     {
         parent::initialize($config);
-        
+
         $this->table('sessions');
         $this->displayField('id');
         $this->primaryKey('id');
-        
+
         $this->addBehavior('Timestamp');
-        
+
         $this->belongsTo('Projects', [
             'foreignKey' => 'project_id',
             'joinType' => 'INNER'
@@ -65,25 +66,25 @@ class SessionsTable extends Table
     public function validationDefault(Validator $validator)
     {
         $validator->uuid('id')->allowEmpty('id', 'create');
-        
+
         $validator->dateTime('begin')
             ->requirePresence('begin', 'create')
             ->notEmpty('begin');
-        
+
         $validator->dateTime('end')->allowEmpty('end');
-        
+
         $validator->time('time')->allowEmpty('time');
-        
+
         $validator->integer('duration')->allowEmpty('duration');
-        
+
         $validator->integer('section')->allowEmpty('section');
-        
+
         $validator->integer('subsection')->allowEmpty('subsection');
-        
+
         $validator->allowEmpty('task');
-        
+
         $validator->numeric('expected_hours')->allowEmpty('expected_hours');
-        
+
         return $validator;
     }
 
@@ -100,7 +101,7 @@ class SessionsTable extends Table
         $rules->add($rules->existsIn([
             'project_id'
         ], 'Projects'));
-        
+
         return $rules;
     }
 
@@ -109,7 +110,7 @@ class SessionsTable extends Table
      *
      * Sessions that has not a defined end.
      *
-     * @param Query $q            
+     * @param Query $q
      * @return Query
      */
     public function findOngoingSessions(Query $q)
@@ -123,12 +124,12 @@ class SessionsTable extends Table
             $this->aliasField('task')
         ])
             ->where([
-            $this->aliasField('end IS') => null
-        ])
+                $this->aliasField('end IS') => null
+            ])
             ->order([
-            $this->aliasField('created') => 'ASC'
-        ]);
-        
+                $this->aliasField('created') => 'ASC'
+            ]);
+
         return $q;
     }
 
@@ -137,7 +138,7 @@ class SessionsTable extends Table
      *
      * All sessions that begin today.
      *
-     * @param Query $q            
+     * @param Query $q
      * @return Query
      */
     public function findTodaysDetail(Query $q)
@@ -155,16 +156,16 @@ class SessionsTable extends Table
             $this->aliasField('Sessions.task')
         ])
             ->contain([
-            'Projects'
-        ])
+                'Projects'
+            ])
             ->where([
-            $this->aliasField('Sessions.begin >=') => Chronos::today(),
-            $this->aliasField('Sessions.begin <') => Chronos::tomorrow()
-        ])
+                $this->aliasField('Sessions.begin >=') => Chronos::today(),
+                $this->aliasField('Sessions.begin <') => Chronos::tomorrow()
+            ])
             ->order([
-            $this->aliasField('Sessions.begin') => 'ASC'
-        ]);
-        
+                $this->aliasField('Sessions.begin') => 'ASC'
+            ]);
+
         return $q;
     }
 
@@ -173,7 +174,7 @@ class SessionsTable extends Table
      *
      * Total time spent today per project.
      *
-     * @param Query $q            
+     * @param Query $q
      * @return Query
      */
     public function findTodaysSummary(Query $q)
@@ -185,17 +186,17 @@ class SessionsTable extends Table
                 ->sum($this->aliasField('duration'))
         ])
             ->contain([
-            'Projects'
-        ])
+                'Projects'
+            ])
             ->where([
-            $this->aliasField('Sessions.begin >=') => Chronos::today(),
-            $this->aliasField('Sessions.begin <') => Chronos::tomorrow()
-        ])
+                $this->aliasField('Sessions.begin >=') => Chronos::today(),
+                $this->aliasField('Sessions.begin <') => Chronos::tomorrow()
+            ])
             ->group($this->aliasField('Sessions.project_id'))
             ->order([
-            $this->aliasField('Sessions.created') => 'ASC'
-        ]);
-        
+                $this->aliasField('Sessions.created') => 'ASC'
+            ]);
+
         return $q;
     }
 
@@ -204,7 +205,7 @@ class SessionsTable extends Table
      *
      * Total time spent today.
      *
-     * @param Query $q            
+     * @param Query $q
      * @return Query
      */
     public function findTodaysTotal(Query $q)
@@ -214,10 +215,10 @@ class SessionsTable extends Table
                 ->sum($this->aliasField('duration'))
         ])
             ->where([
-            $this->aliasField('begin >=') => Chronos::today(),
-            $this->aliasField('begin <') => Chronos::tomorrow()
-        ]);
-        
+                $this->aliasField('begin >=') => Chronos::today(),
+                $this->aliasField('begin <') => Chronos::tomorrow()
+            ]);
+
         return $q;
     }
 
@@ -226,27 +227,27 @@ class SessionsTable extends Table
      *
      * Total time spent per day for last specified days.
      *
-     * @param Query $q            
+     * @param Query $q
      * @return Query
      */
     public function findLastDaysTotal(Query $q, array $options)
     {
         $days = $options['days'];
-        
+
         $q->select([
             'day' => 'DATE(end)',
             'duration' => $q->func()
                 ->sum($this->aliasField('Sessions.duration'))
         ])
             ->where([
-            $this->aliasField('Sessions.end >=') => Chronos::parse("-$days days"),
-            $this->aliasField('Sessions.end <') => Chronos::today()
-        ])
+                $this->aliasField('Sessions.end >=') => Chronos::parse("-$days days"),
+                $this->aliasField('Sessions.end <') => Chronos::today()
+            ])
             ->group('day')
             ->order([
-            'day' => 'DESC'
-        ]);
-        
+                'day' => 'DESC'
+            ]);
+
         return $q;
     }
 
@@ -255,7 +256,7 @@ class SessionsTable extends Table
      *
      * From the current time.
      *
-     * @param Query $q            
+     * @param Query $q
      * @return Query
      */
     public function findLastProject(Query $q)
@@ -264,13 +265,13 @@ class SessionsTable extends Table
             $this->aliasField('project_id')
         ])
             ->where([
-            $this->aliasField('Sessions.begin <=') => new FrozenTime()
-        ])
+                $this->aliasField('Sessions.begin <=') => new FrozenTime()
+            ])
             ->order([
-            $this->aliasField('Sessions.begin') => 'DESC'
-        ])
+                $this->aliasField('Sessions.begin') => 'DESC'
+            ])
             ->limit(1);
-        
+
         return $q;
     }
 

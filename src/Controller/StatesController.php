@@ -1,7 +1,6 @@
 <?php
-namespace App\Controller;
 
-use App\Controller\AppController;
+namespace App\Controller;
 
 /**
  * States Controller
@@ -19,7 +18,7 @@ class StatesController extends AppController
     public function index()
     {
         $states = $this->paginate($this->States);
-        
+
         $this->set(compact('states'));
         $this->set('_serialize', [
             'states'
@@ -41,7 +40,7 @@ class StatesController extends AppController
                 'Tickets'
             ]
         ]);
-        
+
         $this->set('state', $state);
         $this->set('_serialize', [
             'state'
@@ -60,7 +59,7 @@ class StatesController extends AppController
             $state = $this->States->patchEntity($state, $this->request->data);
             if ($this->States->save($state)) {
                 $this->Flash->success(__('The state has been saved.'));
-                
+
                 return $this->redirect([
                     'action' => 'index'
                 ]);
@@ -94,7 +93,7 @@ class StatesController extends AppController
             $state = $this->States->patchEntity($state, $this->request->data);
             if ($this->States->save($state)) {
                 $this->Flash->success(__('The state has been saved.'));
-                
+
                 return $this->redirect([
                     'action' => 'index'
                 ]);
@@ -127,7 +126,7 @@ class StatesController extends AppController
         } else {
             $this->Flash->error(__('The state could not be deleted. Please, try again.'));
         }
-        
+
         return $this->redirect([
             'action' => 'index'
         ]);

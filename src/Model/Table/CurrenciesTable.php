@@ -1,7 +1,7 @@
 <?php
+
 namespace App\Model\Table;
 
-use Cake\ORM\Query;
 use Cake\ORM\RulesChecker;
 use Cake\ORM\Table;
 use Cake\Validation\Validator;
@@ -19,8 +19,8 @@ use Cake\Validation\Validator;
  * @method \App\Model\Entity\Currency patchEntity(\Cake\Datasource\EntityInterface $entity, array $data, array $options = [])
  * @method \App\Model\Entity\Currency[] patchEntities($entities, array $data, array $options = [])
  * @method \App\Model\Entity\Currency findOrCreate($search, callable $callback = null, $options = [])
- *        
- *         @mixin \Cake\ORM\Behavior\TimestampBehavior
+ *
+ * @mixin \Cake\ORM\Behavior\TimestampBehavior
  */
 class CurrenciesTable extends Table
 {
@@ -35,13 +35,13 @@ class CurrenciesTable extends Table
     public function initialize(array $config)
     {
         parent::initialize($config);
-        
+
         $this->table('currencies');
         $this->displayField('name');
         $this->primaryKey('id');
-        
+
         $this->addBehavior('Timestamp');
-        
+
         $this->hasMany('Budgets', [
             'foreignKey' => 'currency_id'
         ]);
@@ -60,21 +60,21 @@ class CurrenciesTable extends Table
     public function validationDefault(Validator $validator)
     {
         $validator->uuid('id')->allowEmpty('id', 'create');
-        
+
         $validator->requirePresence('iso', 'create')
             ->notEmpty('iso')
             ->add('iso', 'unique', [
-            'rule' => 'validateUnique',
-            'provider' => 'table'
-        ]);
-        
+                'rule' => 'validateUnique',
+                'provider' => 'table'
+            ]);
+
         $validator->requirePresence('name', 'create')
             ->notEmpty('name')
             ->add('name', 'unique', [
-            'rule' => 'validateUnique',
-            'provider' => 'table'
-        ]);
-        
+                'rule' => 'validateUnique',
+                'provider' => 'table'
+            ]);
+
         return $validator;
     }
 
@@ -94,7 +94,7 @@ class CurrenciesTable extends Table
         $rules->add($rules->isUnique([
             'name'
         ]));
-        
+
         return $rules;
     }
 }

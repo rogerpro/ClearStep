@@ -1,7 +1,7 @@
 <?php
+
 namespace App\Model\Table;
 
-use Cake\ORM\Query;
 use Cake\ORM\RulesChecker;
 use Cake\ORM\Table;
 use Cake\Validation\Validator;
@@ -24,8 +24,8 @@ use Cake\Validation\Validator;
  * @method \App\Model\Entity\Ticket patchEntity(\Cake\Datasource\EntityInterface $entity, array $data, array $options = [])
  * @method \App\Model\Entity\Ticket[] patchEntities($entities, array $data, array $options = [])
  * @method \App\Model\Entity\Ticket findOrCreate($search, callable $callback = null, $options = [])
- *        
- *         @mixin \Cake\ORM\Behavior\TimestampBehavior
+ *
+ * @mixin \Cake\ORM\Behavior\TimestampBehavior
  */
 class TicketsTable extends Table
 {
@@ -40,13 +40,13 @@ class TicketsTable extends Table
     public function initialize(array $config)
     {
         parent::initialize($config);
-        
+
         $this->table('tickets');
         $this->displayField('id');
         $this->primaryKey('id');
-        
+
         $this->addBehavior('Timestamp');
-        
+
         $this->belongsTo('Projects', [
             'foreignKey' => 'project_id',
             'joinType' => 'INNER'
@@ -85,13 +85,13 @@ class TicketsTable extends Table
     public function validationDefault(Validator $validator)
     {
         $validator->uuid('id')->allowEmpty('id', 'create');
-        
+
         $validator->time('min_time')->allowEmpty('min_time');
-        
+
         $validator->time('max_time')->allowEmpty('max_time');
-        
+
         $validator->date('deadline')->allowEmpty('deadline');
-        
+
         return $validator;
     }
 
@@ -120,7 +120,7 @@ class TicketsTable extends Table
         $rules->add($rules->existsIn([
             'budget_id'
         ], 'Budgets'));
-        
+
         return $rules;
     }
 }

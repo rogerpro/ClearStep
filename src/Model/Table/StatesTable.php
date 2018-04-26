@@ -1,7 +1,7 @@
 <?php
+
 namespace App\Model\Table;
 
-use Cake\ORM\Query;
 use Cake\ORM\RulesChecker;
 use Cake\ORM\Table;
 use Cake\Validation\Validator;
@@ -18,8 +18,8 @@ use Cake\Validation\Validator;
  * @method \App\Model\Entity\State patchEntity(\Cake\Datasource\EntityInterface $entity, array $data, array $options = [])
  * @method \App\Model\Entity\State[] patchEntities($entities, array $data, array $options = [])
  * @method \App\Model\Entity\State findOrCreate($search, callable $callback = null, $options = [])
- *        
- *         @mixin \Cake\ORM\Behavior\TimestampBehavior
+ *
+ * @mixin \Cake\ORM\Behavior\TimestampBehavior
  */
 class StatesTable extends Table
 {
@@ -34,13 +34,13 @@ class StatesTable extends Table
     public function initialize(array $config)
     {
         parent::initialize($config);
-        
+
         $this->table('states');
         $this->displayField('name');
         $this->primaryKey('id');
-        
+
         $this->addBehavior('Timestamp');
-        
+
         $this->hasMany('Tickets', [
             'foreignKey' => 'state_id'
         ]);
@@ -56,14 +56,14 @@ class StatesTable extends Table
     public function validationDefault(Validator $validator)
     {
         $validator->uuid('id')->allowEmpty('id', 'create');
-        
+
         $validator->requirePresence('name', 'create')
             ->notEmpty('name')
             ->add('name', 'unique', [
-            'rule' => 'validateUnique',
-            'provider' => 'table'
-        ]);
-        
+                'rule' => 'validateUnique',
+                'provider' => 'table'
+            ]);
+
         return $validator;
     }
 
@@ -80,7 +80,7 @@ class StatesTable extends Table
         $rules->add($rules->isUnique([
             'name'
         ]));
-        
+
         return $rules;
     }
 }

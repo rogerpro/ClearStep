@@ -1,7 +1,6 @@
 <?php
-namespace App\Controller;
 
-use App\Controller\AppController;
+namespace App\Controller;
 
 /**
  * Currencies Controller
@@ -19,7 +18,7 @@ class CurrenciesController extends AppController
     public function index()
     {
         $currencies = $this->paginate($this->Currencies);
-        
+
         $this->set(compact('currencies'));
         $this->set('_serialize', [
             'currencies'
@@ -42,7 +41,7 @@ class CurrenciesController extends AppController
                 'Invoices'
             ]
         ]);
-        
+
         $this->set('currency', $currency);
         $this->set('_serialize', [
             'currency'
@@ -61,7 +60,7 @@ class CurrenciesController extends AppController
             $currency = $this->Currencies->patchEntity($currency, $this->request->data);
             if ($this->Currencies->save($currency)) {
                 $this->Flash->success(__('The currency has been saved.'));
-                
+
                 return $this->redirect([
                     'action' => 'index'
                 ]);
@@ -95,7 +94,7 @@ class CurrenciesController extends AppController
             $currency = $this->Currencies->patchEntity($currency, $this->request->data);
             if ($this->Currencies->save($currency)) {
                 $this->Flash->success(__('The currency has been saved.'));
-                
+
                 return $this->redirect([
                     'action' => 'index'
                 ]);
@@ -128,7 +127,7 @@ class CurrenciesController extends AppController
         } else {
             $this->Flash->error(__('The currency could not be deleted. Please, try again.'));
         }
-        
+
         return $this->redirect([
             'action' => 'index'
         ]);

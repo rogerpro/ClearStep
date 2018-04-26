@@ -1,7 +1,6 @@
 <?php
-namespace App\Controller;
 
-use App\Controller\AppController;
+namespace App\Controller;
 
 /**
  * Projects Controller
@@ -24,7 +23,7 @@ class ProjectsController extends AppController
             ]
         ];
         $projects = $this->paginate($this->Projects);
-        
+
         $this->set(compact('projects'));
         $this->set('_serialize', [
             'projects'
@@ -48,7 +47,7 @@ class ProjectsController extends AppController
                 'Tickets'
             ]
         ]);
-        
+
         $this->set('project', $project);
         $this->set('_serialize', [
             'project'
@@ -67,7 +66,7 @@ class ProjectsController extends AppController
             $project = $this->Projects->patchEntity($project, $this->request->data);
             if ($this->Projects->save($project)) {
                 $this->Flash->success(__('The project has been saved.'));
-                
+
                 return $this->redirect([
                     'action' => 'index'
                 ]);
@@ -104,7 +103,7 @@ class ProjectsController extends AppController
             $project = $this->Projects->patchEntity($project, $this->request->data);
             if ($this->Projects->save($project)) {
                 $this->Flash->success(__('The project has been saved.'));
-                
+
                 return $this->redirect([
                     'action' => 'index'
                 ]);
@@ -140,7 +139,7 @@ class ProjectsController extends AppController
         } else {
             $this->Flash->error(__('The project could not be deleted. Please, try again.'));
         }
-        
+
         return $this->redirect([
             'action' => 'index'
         ]);

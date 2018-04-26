@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Model\Table;
 
 use Cake\ORM\Query;
@@ -20,8 +21,8 @@ use Cake\Validation\Validator;
  * @method \App\Model\Entity\Project patchEntity(\Cake\Datasource\EntityInterface $entity, array $data, array $options = [])
  * @method \App\Model\Entity\Project[] patchEntities($entities, array $data, array $options = [])
  * @method \App\Model\Entity\Project findOrCreate($search, callable $callback = null, $options = [])
- *        
- *         @mixin \Cake\ORM\Behavior\TimestampBehavior
+ *
+ * @mixin \Cake\ORM\Behavior\TimestampBehavior
  */
 class ProjectsTable extends Table
 {
@@ -36,13 +37,13 @@ class ProjectsTable extends Table
     public function initialize(array $config)
     {
         parent::initialize($config);
-        
+
         $this->table('projects');
         $this->displayField('name');
         $this->primaryKey('id');
-        
+
         $this->addBehavior('Timestamp');
-        
+
         $this->belongsTo('Clients', [
             'foreignKey' => 'client_id'
         ]);
@@ -67,28 +68,28 @@ class ProjectsTable extends Table
     public function validationDefault(Validator $validator)
     {
         $validator->uuid('id')->allowEmpty('id', 'create');
-        
+
         $validator->requirePresence('name', 'create')
             ->notEmpty('name')
             ->add('name', 'unique', [
-            'rule' => 'validateUnique',
-            'provider' => 'table'
-        ]);
-        
+                'rule' => 'validateUnique',
+                'provider' => 'table'
+            ]);
+
         $validator->allowEmpty('description');
-        
+
         $validator->boolean('billable')
             ->requirePresence('billable', 'create')
             ->notEmpty('billable');
-        
+
         $validator->numeric('hourly_price')->allowEmpty('hourly_price');
-        
+
         $validator->integer('expected_hours')->allowEmpty('expected_hours');
-        
+
         $validator->boolean('active')
             ->requirePresence('active', 'create')
             ->notEmpty('active');
-        
+
         return $validator;
     }
 
@@ -108,15 +109,15 @@ class ProjectsTable extends Table
         $rules->add($rules->existsIn([
             'client_id'
         ], 'Clients'));
-        
+
         return $rules;
     }
 
     /**
      * Find active projects.
      *
-     * @param Query $q            
-     * @param array $options            
+     * @param Query $q
+     * @param array $options
      * @throws OutOfBoundsException
      */
     public function findActiveProjects(Query $q, array $options)
@@ -126,11 +127,11 @@ class ProjectsTable extends Table
             $this->aliasField('name')
         ])
             ->where([
-            $this->aliasField('active') => true
-        ])
+                $this->aliasField('active') => true
+            ])
             ->order([
-            $this->aliasField('name') => 'ASC'
-        ]);
+                $this->aliasField('name') => 'ASC'
+            ]);
         return $q;
     }
 }

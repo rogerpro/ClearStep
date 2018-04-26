@@ -1,7 +1,6 @@
 <?php
-namespace App\Controller;
 
-use App\Controller\AppController;
+namespace App\Controller;
 
 /**
  * Invoices Controller
@@ -25,7 +24,7 @@ class InvoicesController extends AppController
             ]
         ];
         $invoices = $this->paginate($this->Invoices);
-        
+
         $this->set(compact('invoices'));
         $this->set('_serialize', [
             'invoices'
@@ -50,7 +49,7 @@ class InvoicesController extends AppController
                 'Budgets'
             ]
         ]);
-        
+
         $this->set('invoice', $invoice);
         $this->set('_serialize', [
             'invoice'
@@ -69,7 +68,7 @@ class InvoicesController extends AppController
             $invoice = $this->Invoices->patchEntity($invoice, $this->request->data);
             if ($this->Invoices->save($invoice)) {
                 $this->Flash->success(__('The invoice has been saved.'));
-                
+
                 return $this->redirect([
                     'action' => 'index'
                 ]);
@@ -109,7 +108,7 @@ class InvoicesController extends AppController
             $invoice = $this->Invoices->patchEntity($invoice, $this->request->data);
             if ($this->Invoices->save($invoice)) {
                 $this->Flash->success(__('The invoice has been saved.'));
-                
+
                 return $this->redirect([
                     'action' => 'index'
                 ]);
@@ -148,7 +147,7 @@ class InvoicesController extends AppController
         } else {
             $this->Flash->error(__('The invoice could not be deleted. Please, try again.'));
         }
-        
+
         return $this->redirect([
             'action' => 'index'
         ]);

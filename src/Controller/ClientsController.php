@@ -1,7 +1,6 @@
 <?php
-namespace App\Controller;
 
-use App\Controller\AppController;
+namespace App\Controller;
 
 /**
  * Clients Controller
@@ -19,7 +18,7 @@ class ClientsController extends AppController
     public function index()
     {
         $clients = $this->paginate($this->Clients);
-        
+
         $this->set(compact('clients'));
         $this->set('_serialize', [
             'clients'
@@ -42,7 +41,7 @@ class ClientsController extends AppController
                 'Projects'
             ]
         ]);
-        
+
         $this->set('client', $client);
         $this->set('_serialize', [
             'client'
@@ -61,7 +60,7 @@ class ClientsController extends AppController
             $client = $this->Clients->patchEntity($client, $this->request->data);
             if ($this->Clients->save($client)) {
                 $this->Flash->success(__('The client has been saved.'));
-                
+
                 return $this->redirect([
                     'action' => 'index'
                 ]);
@@ -95,7 +94,7 @@ class ClientsController extends AppController
             $client = $this->Clients->patchEntity($client, $this->request->data);
             if ($this->Clients->save($client)) {
                 $this->Flash->success(__('The client has been saved.'));
-                
+
                 return $this->redirect([
                     'action' => 'index'
                 ]);
@@ -128,7 +127,7 @@ class ClientsController extends AppController
         } else {
             $this->Flash->error(__('The client could not be deleted. Please, try again.'));
         }
-        
+
         return $this->redirect([
             'action' => 'index'
         ]);

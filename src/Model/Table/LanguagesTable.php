@@ -1,7 +1,7 @@
 <?php
+
 namespace App\Model\Table;
 
-use Cake\ORM\Query;
 use Cake\ORM\RulesChecker;
 use Cake\ORM\Table;
 use Cake\Validation\Validator;
@@ -16,8 +16,8 @@ use Cake\Validation\Validator;
  * @method \App\Model\Entity\Language patchEntity(\Cake\Datasource\EntityInterface $entity, array $data, array $options = [])
  * @method \App\Model\Entity\Language[] patchEntities($entities, array $data, array $options = [])
  * @method \App\Model\Entity\Language findOrCreate($search, callable $callback = null, $options = [])
- *        
- *         @mixin \Cake\ORM\Behavior\TimestampBehavior
+ *
+ * @mixin \Cake\ORM\Behavior\TimestampBehavior
  */
 class LanguagesTable extends Table
 {
@@ -32,11 +32,11 @@ class LanguagesTable extends Table
     public function initialize(array $config)
     {
         parent::initialize($config);
-        
+
         $this->table('languages');
         $this->displayField('name');
         $this->primaryKey('id');
-        
+
         $this->addBehavior('Timestamp');
     }
 
@@ -50,21 +50,21 @@ class LanguagesTable extends Table
     public function validationDefault(Validator $validator)
     {
         $validator->uuid('id')->allowEmpty('id', 'create');
-        
+
         $validator->requirePresence('iso', 'create')
             ->notEmpty('iso')
             ->add('iso', 'unique', [
-            'rule' => 'validateUnique',
-            'provider' => 'table'
-        ]);
-        
+                'rule' => 'validateUnique',
+                'provider' => 'table'
+            ]);
+
         $validator->requirePresence('name', 'create')
             ->notEmpty('name')
             ->add('name', 'unique', [
-            'rule' => 'validateUnique',
-            'provider' => 'table'
-        ]);
-        
+                'rule' => 'validateUnique',
+                'provider' => 'table'
+            ]);
+
         return $validator;
     }
 
@@ -84,7 +84,7 @@ class LanguagesTable extends Table
         $rules->add($rules->isUnique([
             'iso'
         ]));
-        
+
         return $rules;
     }
 }

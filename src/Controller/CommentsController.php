@@ -1,7 +1,6 @@
 <?php
-namespace App\Controller;
 
-use App\Controller\AppController;
+namespace App\Controller;
 
 /**
  * Comments Controller
@@ -24,7 +23,7 @@ class CommentsController extends AppController
             ]
         ];
         $comments = $this->paginate($this->Comments);
-        
+
         $this->set(compact('comments'));
         $this->set('_serialize', [
             'comments'
@@ -46,7 +45,7 @@ class CommentsController extends AppController
                 'Tickets'
             ]
         ]);
-        
+
         $this->set('comment', $comment);
         $this->set('_serialize', [
             'comment'
@@ -65,7 +64,7 @@ class CommentsController extends AppController
             $comment = $this->Comments->patchEntity($comment, $this->request->data);
             if ($this->Comments->save($comment)) {
                 $this->Flash->success(__('The comment has been saved.'));
-                
+
                 return $this->redirect([
                     'action' => 'index'
                 ]);
@@ -102,7 +101,7 @@ class CommentsController extends AppController
             $comment = $this->Comments->patchEntity($comment, $this->request->data);
             if ($this->Comments->save($comment)) {
                 $this->Flash->success(__('The comment has been saved.'));
-                
+
                 return $this->redirect([
                     'action' => 'index'
                 ]);
@@ -138,7 +137,7 @@ class CommentsController extends AppController
         } else {
             $this->Flash->error(__('The comment could not be deleted. Please, try again.'));
         }
-        
+
         return $this->redirect([
             'action' => 'index'
         ]);

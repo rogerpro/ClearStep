@@ -1,7 +1,6 @@
 <?php
-namespace App\Controller;
 
-use App\Controller\AppController;
+namespace App\Controller;
 
 /**
  * Transactions Controller
@@ -19,7 +18,7 @@ class TransactionsController extends AppController
     public function index()
     {
         $transactions = $this->paginate($this->Transactions);
-        
+
         $this->set(compact('transactions'));
         $this->set('_serialize', [
             'transactions'
@@ -41,7 +40,7 @@ class TransactionsController extends AppController
                 'Invoices'
             ]
         ]);
-        
+
         $this->set('transaction', $transaction);
         $this->set('_serialize', [
             'transaction'
@@ -60,7 +59,7 @@ class TransactionsController extends AppController
             $transaction = $this->Transactions->patchEntity($transaction, $this->request->data);
             if ($this->Transactions->save($transaction)) {
                 $this->Flash->success(__('The transaction has been saved.'));
-                
+
                 return $this->redirect([
                     'action' => 'index'
                 ]);
@@ -94,7 +93,7 @@ class TransactionsController extends AppController
             $transaction = $this->Transactions->patchEntity($transaction, $this->request->data);
             if ($this->Transactions->save($transaction)) {
                 $this->Flash->success(__('The transaction has been saved.'));
-                
+
                 return $this->redirect([
                     'action' => 'index'
                 ]);
@@ -127,7 +126,7 @@ class TransactionsController extends AppController
         } else {
             $this->Flash->error(__('The transaction could not be deleted. Please, try again.'));
         }
-        
+
         return $this->redirect([
             'action' => 'index'
         ]);

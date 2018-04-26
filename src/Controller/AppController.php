@@ -12,6 +12,7 @@
  * @since     0.2.9
  * @license   http://www.opensource.org/licenses/mit-license.php MIT License
  */
+
 namespace App\Controller;
 
 use Cake\Controller\Controller;
@@ -41,17 +42,17 @@ class AppController extends Controller
     public function initialize()
     {
         parent::initialize();
-        
+
         $this->loadComponent('RequestHandler');
         $this->loadComponent('Flash');
-        
+
         /*
          * Enable the following components for recommended CakePHP security settings.
          * see http://book.cakephp.org/3.0/en/controllers/components/security.html
          */
         $this->loadComponent('Security');
         $this->loadComponent('Csrf');
-        
+
         $this->loadComponent('CakeDC/Users.UsersAuth');
 
         I18n::setLocale('fr-FR');
@@ -66,10 +67,10 @@ class AppController extends Controller
      */
     public function beforeRender(Event $event)
     {
-        if (! array_key_exists('_serialize', $this->viewVars) && in_array($this->response->type(), [
-            'application/json',
-            'application/xml'
-        ])) {
+        if (!array_key_exists('_serialize', $this->viewVars) && in_array($this->response->type(), [
+                'application/json',
+                'application/xml'
+            ])) {
             $this->set('_serialize', true);
         }
     }

@@ -6,19 +6,19 @@ $button_caption = ($ongoing) ? 'End' : 'Begin';
 $button_class = ($ongoing) ? 'end' : 'begin';
 ?>
 <nav class="large-1 medium-12 columns" id="actions-sidebar">
-	<ul class="side-nav">
-		<li class="heading"><?= __('Actions') ?></li>
-		<li><?= $this->Html->link(__('List Sessions'), ['action' => 'index']) ?></li>
-		<li><?= $this->Html->link(__('List Projects'), ['controller' => 'Projects', 'action' => 'index']) ?></li>
-		<li><?= $this->Html->link(__('New Project'), ['controller' => 'Projects', 'action' => 'add']) ?></li>
-		<li><?= $this->Html->link(__('List Tickets'), ['controller' => 'Tickets', 'action' => 'index']) ?></li>
-		<li><?= $this->Html->link(__('New Ticket'), ['controller' => 'Tickets', 'action' => 'add']) ?></li>
-	</ul>
+    <ul class="side-nav">
+        <li class="heading"><?= __('Actions') ?></li>
+        <li><?= $this->Html->link(__('List Sessions'), ['action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('List Projects'), ['controller' => 'Projects', 'action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('New Project'), ['controller' => 'Projects', 'action' => 'add']) ?></li>
+        <li><?= $this->Html->link(__('List Tickets'), ['controller' => 'Tickets', 'action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('New Ticket'), ['controller' => 'Tickets', 'action' => 'add']) ?></li>
+    </ul>
 </nav>
 <div class="sessions form large-11 medium-12 columns content">
-    <?= $this->Form->create($session)?>
+    <?= $this->Form->create($session) ?>
     <fieldset>
-		<legend><?= __('Add Session') ?></legend>
+        <legend><?= __('Add Session') ?></legend>
         <?php
         echo $this->Form->control('project_id', [
             'default' => $last_project
@@ -30,10 +30,10 @@ $button_class = ($ongoing) ? 'end' : 'begin';
         ]);
         ?>
     </fieldset>
-    <?= $this->Form->button(__($button_caption), ['class' => $button_class])?>
-    <?= $this->Form->end()?>
-	<div><?php echo $this->element('Table/todays_detail'); ?></div>
-	<div><?php echo $this->element('Table/todays_summary'); ?></div>
-	<div><?php echo $this->element('Table/todays_total'); ?></div>
-	<div><?php echo $this->element('Table/last_days'); ?></div>
+    <?= $this->Form->button(__($button_caption), ['class' => $button_class]) ?>
+    <?= $this->Form->end() ?>
+    <div><?php echo $this->element('Table/todays_detail'); ?></div>
+    <div><?php echo $this->element('Table/todays_summary'); ?></div>
+    <div><?php echo $this->element('Table/todays_total'); ?></div>
+    <div><?php echo $this->element('Table/last_days'); ?></div>
 </div>

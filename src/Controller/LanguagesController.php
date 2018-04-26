@@ -1,7 +1,6 @@
 <?php
-namespace App\Controller;
 
-use App\Controller\AppController;
+namespace App\Controller;
 
 /**
  * Languages Controller
@@ -19,7 +18,7 @@ class LanguagesController extends AppController
     public function index()
     {
         $languages = $this->paginate($this->Languages);
-        
+
         $this->set(compact('languages'));
         $this->set('_serialize', [
             'languages'
@@ -39,7 +38,7 @@ class LanguagesController extends AppController
         $language = $this->Languages->get($id, [
             'contain' => []
         ]);
-        
+
         $this->set('language', $language);
         $this->set('_serialize', [
             'language'
@@ -58,7 +57,7 @@ class LanguagesController extends AppController
             $language = $this->Languages->patchEntity($language, $this->request->data);
             if ($this->Languages->save($language)) {
                 $this->Flash->success(__('The language has been saved.'));
-                
+
                 return $this->redirect([
                     'action' => 'index'
                 ]);
@@ -92,7 +91,7 @@ class LanguagesController extends AppController
             $language = $this->Languages->patchEntity($language, $this->request->data);
             if ($this->Languages->save($language)) {
                 $this->Flash->success(__('The language has been saved.'));
-                
+
                 return $this->redirect([
                     'action' => 'index'
                 ]);
@@ -125,7 +124,7 @@ class LanguagesController extends AppController
         } else {
             $this->Flash->error(__('The language could not be deleted. Please, try again.'));
         }
-        
+
         return $this->redirect([
             'action' => 'index'
         ]);

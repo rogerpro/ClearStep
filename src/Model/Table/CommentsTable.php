@@ -1,7 +1,7 @@
 <?php
+
 namespace App\Model\Table;
 
-use Cake\ORM\Query;
 use Cake\ORM\RulesChecker;
 use Cake\ORM\Table;
 use Cake\Validation\Validator;
@@ -18,8 +18,8 @@ use Cake\Validation\Validator;
  * @method \App\Model\Entity\Comment patchEntity(\Cake\Datasource\EntityInterface $entity, array $data, array $options = [])
  * @method \App\Model\Entity\Comment[] patchEntities($entities, array $data, array $options = [])
  * @method \App\Model\Entity\Comment findOrCreate($search, callable $callback = null, $options = [])
- *        
- *         @mixin \Cake\ORM\Behavior\TimestampBehavior
+ *
+ * @mixin \Cake\ORM\Behavior\TimestampBehavior
  */
 class CommentsTable extends Table
 {
@@ -34,13 +34,13 @@ class CommentsTable extends Table
     public function initialize(array $config)
     {
         parent::initialize($config);
-        
+
         $this->table('comments');
         $this->displayField('id');
         $this->primaryKey('id');
-        
+
         $this->addBehavior('Timestamp');
-        
+
         $this->belongsTo('Tickets', [
             'foreignKey' => 'ticket_id',
             'joinType' => 'INNER'
@@ -57,9 +57,9 @@ class CommentsTable extends Table
     public function validationDefault(Validator $validator)
     {
         $validator->uuid('id')->allowEmpty('id', 'create');
-        
+
         $validator->requirePresence('content', 'create')->notEmpty('content');
-        
+
         return $validator;
     }
 
@@ -76,7 +76,7 @@ class CommentsTable extends Table
         $rules->add($rules->existsIn([
             'ticket_id'
         ], 'Tickets'));
-        
+
         return $rules;
     }
 }

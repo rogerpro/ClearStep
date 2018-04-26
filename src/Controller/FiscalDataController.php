@@ -1,7 +1,6 @@
 <?php
-namespace App\Controller;
 
-use App\Controller\AppController;
+namespace App\Controller;
 
 /**
  * FiscalData Controller
@@ -25,7 +24,7 @@ class FiscalDataController extends AppController
             ]
         ];
         $fiscalData = $this->paginate($this->FiscalData);
-        
+
         $this->set(compact('fiscalData'));
         $this->set('_serialize', [
             'fiscalData'
@@ -48,7 +47,7 @@ class FiscalDataController extends AppController
                 'Countries'
             ]
         ]);
-        
+
         $this->set('fiscalData', $fiscalData);
         $this->set('_serialize', [
             'fiscalData'
@@ -67,7 +66,7 @@ class FiscalDataController extends AppController
             $fiscalData = $this->FiscalData->patchEntity($fiscalData, $this->request->data);
             if ($this->FiscalData->save($fiscalData)) {
                 $this->Flash->success(__('The fiscal data has been saved.'));
-                
+
                 return $this->redirect([
                     'action' => 'index'
                 ]);
@@ -107,7 +106,7 @@ class FiscalDataController extends AppController
             $fiscalData = $this->FiscalData->patchEntity($fiscalData, $this->request->data);
             if ($this->FiscalData->save($fiscalData)) {
                 $this->Flash->success(__('The fiscal data has been saved.'));
-                
+
                 return $this->redirect([
                     'action' => 'index'
                 ]);
@@ -146,7 +145,7 @@ class FiscalDataController extends AppController
         } else {
             $this->Flash->error(__('The fiscal data could not be deleted. Please, try again.'));
         }
-        
+
         return $this->redirect([
             'action' => 'index'
         ]);
