@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e102a9bec6aed1aa563b9c6d4ad51291",
+    "content-hash": "7a3aeb7c306427d2ce0625dd6520f591",
     "packages": [
         {
             "name": "aura/intl",
@@ -3926,7 +3926,7 @@
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
-        "php": ">=5.6"
+        "php": "^7.0"
     },
     "platform-dev": []
 }
