@@ -90,4 +90,5 @@ return [
             'action' => ['other', 'display'],
             'allowed' => true,
         ],
-    ]];
+    ]
+];

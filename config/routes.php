@@ -17,10 +17,11 @@
  * @link          http://cakephp.org CakePHP(tm) Project
  * @license       http://www.opensource.org/licenses/mit-license.php MIT License
  */
+
 use Cake\Core\Plugin;
+use Cake\Routing\Route\DashedRoute;
 use Cake\Routing\RouteBuilder;
 use Cake\Routing\Router;
-use Cake\Routing\Route\DashedRoute;
 
 /**
  * The default class to use for all routes
@@ -51,7 +52,7 @@ Router::scope('/', function (RouteBuilder $routes) {
         'controller' => 'Sessions',
         'action' => 'register'
     ]);
-    
+
     /**
      * ...and connect the rest of 'Pages' controller's URLs.
      */
@@ -59,7 +60,7 @@ Router::scope('/', function (RouteBuilder $routes) {
         'controller' => 'Pages',
         'action' => 'display'
     ]);
-    
+
     /**
      * Connect catchall routes for all controllers.
      *

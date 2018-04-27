@@ -1,12 +1,12 @@
 .begin {
-	background: #15848F;
+    background: #15848F;
 }
 
 .end {
-	background: #DC143C;
+    background: #DC143C;
 }
 
 .form button.begin, .form button.end {
-	float: none;
-	margin-left: 45%;
+    float: none;
+    margin-left: 45%;
 }

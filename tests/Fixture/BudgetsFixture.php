@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Test\Fixture;
 
 use Cake\TestSuite\Fixture\TestFixture;
@@ -227,7 +228,7 @@ class BudgetsFixture extends TestFixture
         ]
     ];
     // @codingStandardsIgnoreEnd
-    
+
     /**
      * Records
      *

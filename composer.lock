@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7a3aeb7c306427d2ce0625dd6520f591",
+    "content-hash": "5258a2cf4da63b93e79b5c3e6ec57684",
     "packages": [
         {
             "name": "aura/intl",
@@ -105,21 +105,21 @@
         },
         {
             "name": "cakedc/users",
-            "version": "6.0.1",
+            "version": "7.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/CakeDC/users.git",
-                "reference": "2b609d4aa7c7fc4434fb22200f9c13579efe76f7"
+                "reference": "0dc18023fe1a3d31a33c3546c64c3918e27a6883"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/CakeDC/users/zipball/2b609d4aa7c7fc4434fb22200f9c13579efe76f7",
-                "reference": "2b609d4aa7c7fc4434fb22200f9c13579efe76f7",
+                "url": "https://api.github.com/repos/CakeDC/users/zipball/0dc18023fe1a3d31a33c3546c64c3918e27a6883",
+                "reference": "0dc18023fe1a3d31a33c3546c64c3918e27a6883",
                 "shasum": ""
             },
             "require": {
                 "cakedc/auth": "^2.0",
-                "cakephp/cakephp": "^3.5.0"
+                "cakephp/cakephp": "^3.6"
             },
             "require-dev": {
                 "google/recaptcha": "@stable",
@@ -171,7 +171,7 @@
                 "cakephp",
                 "oauth2"
             ],
-            "time": "2018-03-06T16:52:52+00:00"
+            "time": "2018-04-20T07:49:29+00:00"
         },
         {
             "name": "cakephp/cakephp",
@@ -3921,6 +3921,7 @@
     "minimum-stability": "stable",
     "stability-flags": {
         "cakephp/migrations": 0,
+        "cakedc/users": 0,
         "psy/psysh": 0
     },
     "prefer-stable": true,

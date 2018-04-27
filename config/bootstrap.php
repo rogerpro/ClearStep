@@ -21,14 +21,14 @@ if (version_compare(PHP_VERSION, '5.6.0') < 0) {
 /*
  * You can remove this if you are confident you have intl installed.
  */
-if (! extension_loaded('intl')) {
+if (!extension_loaded('intl')) {
     trigger_error('You must enable the intl extension to use CakePHP.', E_USER_ERROR);
 }
 
 /*
  * You can remove this if you are confident you have mbstring installed.
  */
-if (! extension_loaded('mbstring')) {
+if (!extension_loaded('mbstring')) {
     trigger_error('You must enable the mbstring extension to use CakePHP.', E_USER_ERROR);
 }
 
@@ -51,7 +51,6 @@ require CORE_PATH . 'config' . DS . 'bootstrap.php';
 
 use Cake\Cache\Cache;
 use Cake\Console\ConsoleErrorHandler;
-use Cake\Core\App;
 use Cake\Core\Configure;
 use Cake\Core\Configure\Engine\PhpConfig;
 use Cake\Core\Plugin;
@@ -61,7 +60,6 @@ use Cake\Error\ErrorHandler;
 use Cake\Log\Log;
 use Cake\Mailer\Email;
 use Cake\Network\Request;
-use Cake\Utility\Inflector;
 use Cake\Utility\Security;
 
 /*
@@ -135,12 +133,12 @@ if ($isCli) {
  *
  * If you define fullBaseUrl in your config file you can remove this.
  */
-if (! Configure::read('App.fullBaseUrl')) {
+if (!Configure::read('App.fullBaseUrl')) {
     $s = null;
     if (env('HTTPS')) {
         $s = 's';
     }
-    
+
     $httpHost = env('HTTP_HOST');
     if (isset($httpHost)) {
         Configure::write('App.fullBaseUrl', 'http' . $s . '://' . $httpHost);
@@ -167,12 +165,12 @@ Security::setSalt(Configure::consume('Security.salt'));
  */
 Request::addDetector('mobile', function ($request) {
     $detector = new \Detection\MobileDetect();
-    
+
     return $detector->isMobile();
 });
 Request::addDetector('tablet', function ($request) {
     $detector = new \Detection\MobileDetect();
-    
+
     return $detector->isTablet();
 });
 

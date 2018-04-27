@@ -1,10 +1,11 @@
 <?php
+
 namespace App\Test\TestCase\Model\Table;
 
 use App\Model\Table\SessionsTable;
+use Cake\Chronos\Chronos;
 use Cake\ORM\TableRegistry;
 use Cake\TestSuite\TestCase;
-use Cake\Chronos\Chronos;
 
 /**
  * App\Model\Table\SessionsTable Test Case
@@ -51,7 +52,7 @@ class SessionsTableTest extends TestCase
             'className' => SessionsTable::class
         ];
         $this->SessionsTable = TableRegistry::get('Sessions', $config);
-        
+
         // Set the date to match dates on fixtures
         Chronos::setTestNow(new Chronos('2017-08-13 12:00:00'));
     }
@@ -64,7 +65,7 @@ class SessionsTableTest extends TestCase
     public function tearDown()
     {
         unset($this->SessionsTable);
-        
+
         parent::tearDown();
     }
 
@@ -76,11 +77,11 @@ class SessionsTableTest extends TestCase
     public function testFindTodaysSummary()
     {
         $summary_projects = $this->SessionsTable->find('todaysSummary');
-        
+
         $this->assertInstanceOf('\Cake\ORM\Query', $summary_projects);
-        
+
         $record_count = $summary_projects->count();
-        
+
         $this->assertInternalType('int', $record_count);
         $this->assertEquals(3, $record_count);
     }
@@ -93,7 +94,7 @@ class SessionsTableTest extends TestCase
     public function testFindTodaysTotal()
     {
         $total = $this->SessionsTable->find('todaysTotal')->first()->total_duration;
-        
+
         $this->assertInternalType('float', $total);
         $this->assertEquals(1192, $total);
     }

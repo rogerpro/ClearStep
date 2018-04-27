@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Test\Fixture;
 
 use Cake\TestSuite\Fixture\TestFixture;
@@ -105,7 +106,7 @@ class CurrenciesFixture extends TestFixture
         ]
     ];
     // @codingStandardsIgnoreEnd
-    
+
     /**
      * Records
      *
