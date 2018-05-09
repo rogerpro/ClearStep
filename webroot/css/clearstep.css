@@ -28,6 +28,10 @@ button {
     margin-bottom: 0;
 }
 
+table td {
+    word-break: unset;
+}
+
 .task td {
     font-family: "Consolas", "Menlo", "Courier", monospace;
     font-size: x-small;
