@@ -21,10 +21,10 @@
         <thead>
         <tr>
             <th scope="col"><?= $this->Paginator->sort('project_id') ?></th>
-            <th scope="col"><?= $this->Paginator->sort('begin') ?></th>
-            <th scope="col"><?= $this->Paginator->sort('end') ?></th>
-            <th scope="col"><?= $this->Paginator->sort('duration') ?></th>
-            <th scope="col" class="actions"><?= __('Actions') ?></th>
+            <th scope="col" class="text-center"><?= $this->Paginator->sort('begin') ?></th>
+            <th scope="col" class="text-center"><?= $this->Paginator->sort('end') ?></th>
+            <th scope="col" class="text-center"><?= $this->Paginator->sort('duration') ?></th>
+            <th scope="col" class="actions text-center"><?= __('Actions') ?></th>
         </tr>
         </thead>
         <tbody>
@@ -32,10 +32,10 @@
             <tr>
                 <td><?= $session->has('project') ? $this->Html->link($session->project->name,
                         ['controller' => 'Projects', 'action' => 'view', $session->project->id]) : '' ?></td>
-                <td><?= h($session->begin) ?></td>
-                <td><?= h($session->end) ?></td>
-                <td><?= h($session->duration_time) ?></td>
-                <td class="actions">
+                <td class="text-center"><?= h($session->begin) ?></td>
+                <td class="text-center"><?= h($session->end) ?></td>
+                <td class="text-center"><?= h($session->duration_time) ?></td>
+                <td class="actions text-center">
                     <?= $this->Html->link(__('View'), ['action' => 'view', $session->id]) ?>
                 </td>
             </tr>
