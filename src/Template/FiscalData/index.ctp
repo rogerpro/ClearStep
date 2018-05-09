@@ -21,7 +21,7 @@
             <th scope="col"><?= $this->Paginator->sort('client_id') ?></th>
             <th scope="col"><?= $this->Paginator->sort('name') ?></th>
             <th scope="col"><?= $this->Paginator->sort('commercial_name') ?></th>
-            <th scope="col" class="actions"><?= __('Actions') ?></th>
+            <th scope="col" class="actions text-center"><?= __('Actions') ?></th>
         </tr>
         </thead>
         <tbody>
@@ -31,7 +31,7 @@
                         ['controller' => 'Clients', 'action' => 'view', $fiscalData->client->id]) : '' ?></td>
                 <td><?= h($fiscalData->name) ?></td>
                 <td><?= h($fiscalData->commercial_name) ?></td>
-                <td class="actions">
+                <td class="actions text-center">
                     <?= $this->Html->link(__('View'), ['action' => 'view', $fiscalData->id]) ?>
                 </td>
             </tr>
