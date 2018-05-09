@@ -5,17 +5,7 @@
 $button_caption = ($ongoing) ? 'End' : 'Begin';
 $button_class = ($ongoing) ? 'end' : 'begin';
 ?>
-<nav class="large-1 medium-12 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('List Sessions'), ['action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('List Projects'), ['controller' => 'Projects', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Project'), ['controller' => 'Projects', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Tickets'), ['controller' => 'Tickets', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Ticket'), ['controller' => 'Tickets', 'action' => 'add']) ?></li>
-    </ul>
-</nav>
-<div class="sessions form large-11 medium-12 columns content">
+<div class="sessions form large-12 medium-12 columns content">
     <?= $this->Form->create($session) ?>
     <fieldset>
         <legend><?= __('Add Session') ?></legend>
