@@ -99,38 +99,19 @@
         <?php if (!empty($client->projects)): ?>
             <table cellpadding="0" cellspacing="0">
                 <tr>
-                    <th scope="col"><?= __('Id') ?></th>
-                    <th scope="col"><?= __('Client Id') ?></th>
                     <th scope="col"><?= __('Name') ?></th>
-                    <th scope="col"><?= __('Description') ?></th>
                     <th scope="col"><?= __('Billable') ?></th>
-                    <th scope="col"><?= __('Hourly Price') ?></th>
-                    <th scope="col"><?= __('Expected Hours') ?></th>
                     <th scope="col"><?= __('Active') ?></th>
-                    <th scope="col"><?= __('Created') ?></th>
-                    <th scope="col"><?= __('Modified') ?></th>
                     <th scope="col" class="actions"><?= __('Actions') ?></th>
                 </tr>
                 <?php foreach ($client->projects as $projects): ?>
                     <tr>
-                        <td><?= h($projects->id) ?></td>
-                        <td><?= h($projects->client_id) ?></td>
                         <td><?= h($projects->name) ?></td>
-                        <td><?= h($projects->description) ?></td>
                         <td><?= h($projects->billable) ?></td>
-                        <td><?= h($projects->hourly_price) ?></td>
-                        <td><?= h($projects->expected_hours) ?></td>
                         <td><?= h($projects->active) ?></td>
-                        <td><?= h($projects->created) ?></td>
-                        <td><?= h($projects->modified) ?></td>
                         <td class="actions">
                             <?= $this->Html->link(__('View'),
                                 ['controller' => 'Projects', 'action' => 'view', $projects->id]) ?>
-                            <?= $this->Html->link(__('Edit'),
-                                ['controller' => 'Projects', 'action' => 'edit', $projects->id]) ?>
-                            <?= $this->Form->postLink(__('Delete'),
-                                ['controller' => 'Projects', 'action' => 'delete', $projects->id],
-                                ['confirm' => __('Are you sure you want to delete # {0}?', $projects->id)]) ?>
                         </td>
                     </tr>
                 <?php endforeach; ?>
