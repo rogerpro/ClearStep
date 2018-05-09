@@ -100,16 +100,16 @@
             <table cellpadding="0" cellspacing="0">
                 <tr>
                     <th scope="col"><?= __('Name') ?></th>
-                    <th scope="col"><?= __('Billable') ?></th>
-                    <th scope="col"><?= __('Active') ?></th>
-                    <th scope="col" class="actions"><?= __('Actions') ?></th>
+                    <th scope="col" class="text-center"><?= __('Billable') ?></th>
+                    <th scope="col" class="text-center"><?= __('Active') ?></th>
+                    <th scope="col" class="actions text-center"><?= __('Actions') ?></th>
                 </tr>
                 <?php foreach ($client->projects as $projects): ?>
                     <tr>
                         <td><?= h($projects->name) ?></td>
-                        <td><?= h($projects->billable) ?></td>
-                        <td><?= h($projects->active) ?></td>
-                        <td class="actions">
+                        <td class="text-center"><?= h($projects->billable) ?></td>
+                        <td class="text-center"><?= h($projects->active) ?></td>
+                        <td class="actions text-center">
                             <?= $this->Html->link(__('View'),
                                 ['controller' => 'Projects', 'action' => 'view', $projects->id]) ?>
                         </td>
