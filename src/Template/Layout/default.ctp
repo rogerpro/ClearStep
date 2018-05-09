@@ -39,7 +39,7 @@ $siteName = 'Extranet';
     <ul class="title-area large-3 medium-4 columns">
         <li class="name">
             <h1>
-                <a href=""><strong><?= $siteName ?></strong> - <?= $this->fetch('title') ?></a>
+                <a href="/"><strong><?= $siteName ?></strong> - <?= $this->fetch('title') ?></a>
             </h1>
         </li>
     </ul>
