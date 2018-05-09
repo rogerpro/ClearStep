@@ -2,7 +2,7 @@
 /**
  * @var \App\View\AppView $this
  */
-$button_caption = ($ongoing) ? 'End' : 'Begin';
+$button_caption = ($ongoing) ? __('End') : __('Begin');
 $button_class = ($ongoing) ? 'end' : 'begin';
 ?>
 <div class="sessions form large-12 medium-12 columns content">
