@@ -69,32 +69,22 @@
         <?php if (!empty($project->sessions)): ?>
             <table cellpadding="0" cellspacing="0">
                 <tr>
-                    <th scope="col"><?= __('Id') ?></th>
-                    <th scope="col"><?= __('Project Id') ?></th>
                     <th scope="col"><?= __('Begin') ?></th>
                     <th scope="col"><?= __('End') ?></th>
-                    <th scope="col"><?= __('Time') ?></th>
+                    <th scope="col"><?= __('Duration') ?></th>
                     <th scope="col"><?= __('Section') ?></th>
                     <th scope="col"><?= __('Subsection') ?></th>
                     <th scope="col"><?= __('Task') ?></th>
-                    <th scope="col"><?= __('Expected Hours') ?></th>
-                    <th scope="col"><?= __('Created') ?></th>
-                    <th scope="col"><?= __('Modified') ?></th>
                     <th scope="col" class="actions"><?= __('Actions') ?></th>
                 </tr>
                 <?php foreach ($project->sessions as $sessions): ?>
                     <tr>
-                        <td><?= h($sessions->id) ?></td>
-                        <td><?= h($sessions->project_id) ?></td>
                         <td><?= h($sessions->begin) ?></td>
                         <td><?= h($sessions->end) ?></td>
-                        <td><?= h($sessions->time) ?></td>
+                        <td><?= h($sessions->duration_time) ?></td>
                         <td><?= h($sessions->section) ?></td>
                         <td><?= h($sessions->subsection) ?></td>
                         <td><?= h($sessions->task) ?></td>
-                        <td><?= h($sessions->expected_hours) ?></td>
-                        <td><?= h($sessions->created) ?></td>
-                        <td><?= h($sessions->modified) ?></td>
                         <td class="actions">
                             <?= $this->Html->link(__('View'),
                                 ['controller' => 'Sessions', 'action' => 'view', $sessions->id]) ?>
