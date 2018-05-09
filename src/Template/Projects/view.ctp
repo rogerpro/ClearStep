@@ -69,21 +69,21 @@
         <?php if (!empty($project->sessions)): ?>
             <table cellpadding="0" cellspacing="0">
                 <tr>
-                    <th scope="col"><?= __('Begin') ?></th>
-                    <th scope="col"><?= __('End') ?></th>
-                    <th scope="col"><?= __('Duration') ?></th>
-                    <th scope="col"><?= __('Section') ?></th>
-                    <th scope="col"><?= __('Subsection') ?></th>
-                    <th scope="col" class="actions"><?= __('Actions') ?></th>
+                    <th scope="col" class="text-center"><?= __('Begin') ?></th>
+                    <th scope="col" class="text-center"><?= __('End') ?></th>
+                    <th scope="col" class="text-center"><?= __('Duration') ?></th>
+                    <th scope="col" class="text-center"><?= __('Section') ?></th>
+                    <th scope="col" class="text-center"><?= __('Subsection') ?></th>
+                    <th scope="col" class="actions text-center"><?= __('Actions') ?></th>
                 </tr>
                 <?php foreach ($project->sessions as $sessions): ?>
                     <tr>
-                        <td><?= h($sessions->begin) ?></td>
-                        <td><?= h($sessions->end) ?></td>
-                        <td><?= h($sessions->duration_time) ?></td>
-                        <td><?= h($sessions->section) ?></td>
-                        <td><?= h($sessions->subsection) ?></td>
-                        <td class="actions">
+                        <td class="text-center"><?= h($sessions->begin) ?></td>
+                        <td class="text-center"><?= h($sessions->end) ?></td>
+                        <td class="text-center"><?= h($sessions->duration_time) ?></td>
+                        <td class="text-center"><?= h($sessions->section) ?></td>
+                        <td class="text-center"><?= h($sessions->subsection) ?></td>
+                        <td class="actions text-center">
                             <?= $this->Html->link(__('Edit'),
                                 ['controller' => 'Sessions', 'action' => 'edit', $sessions->id]) ?>
                         </td>
