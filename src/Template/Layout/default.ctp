@@ -12,7 +12,7 @@
  * @since         0.10.0
  * @license       http://www.opensource.org/licenses/mit-license.php MIT License
  */
-$siteName = 'Extranet';
+$siteName = 'ClearStep';
 ?>
 <!DOCTYPE html>
 <html lang="en">
