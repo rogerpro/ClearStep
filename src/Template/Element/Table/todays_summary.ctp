@@ -4,7 +4,7 @@ use Cake\I18n\FrozenTime;
 
 ?>
 <h3><?= __('Today\'s summary') ?></h3>
-<table class="sessions form large-4 medium-6 small-12">
+<table class="sessions form large-6 medium-8 small-12">
     <thead>
     <tr>
         <th scope="col"><?= $this->Paginator->sort('project_id') ?></th>
