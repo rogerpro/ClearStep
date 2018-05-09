@@ -24,7 +24,6 @@
             <th scope="col"><?= $this->Paginator->sort('begin') ?></th>
             <th scope="col"><?= $this->Paginator->sort('end') ?></th>
             <th scope="col"><?= $this->Paginator->sort('duration') ?></th>
-            <th scope="col"><?= $this->Paginator->sort('task') ?></th>
             <th scope="col" class="actions"><?= __('Actions') ?></th>
         </tr>
         </thead>
@@ -36,11 +35,15 @@
                 <td><?= h($session->begin) ?></td>
                 <td><?= h($session->end) ?></td>
                 <td><?= h($session->duration_time) ?></td>
-                <td><?= h($session->task) ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['action' => 'view', $session->id]) ?>
                 </td>
             </tr>
+            <?php if ($session->task): ?>
+                <tr class="task">
+                    <td colspan="5"><?= nl2br(h($session->task)) ?></td>
+                </tr>
+            <?php endif ?>
         <?php endforeach; ?>
         </tbody>
     </table>
