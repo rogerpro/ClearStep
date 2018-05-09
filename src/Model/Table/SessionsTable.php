@@ -193,9 +193,7 @@ class SessionsTable extends Table
                 $this->aliasField('Sessions.begin <') => Chronos::tomorrow()
             ])
             ->group($this->aliasField('Sessions.project_id'))
-            ->order([
-                'total_duration' => 'DESC'
-            ]);
+            ->orderDesc('total_duration');
 
         return $q;
     }
