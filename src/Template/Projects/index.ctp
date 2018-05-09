@@ -20,14 +20,8 @@
     <table cellpadding="0" cellspacing="0">
         <thead>
         <tr>
-            <th scope="col"><?= $this->Paginator->sort('id') ?></th>
             <th scope="col"><?= $this->Paginator->sort('client_id') ?></th>
             <th scope="col"><?= $this->Paginator->sort('name') ?></th>
-            <th scope="col"><?= $this->Paginator->sort('description') ?></th>
-            <th scope="col"><?= $this->Paginator->sort('billable') ?></th>
-            <th scope="col"><?= $this->Paginator->sort('hourly_price') ?></th>
-            <th scope="col"><?= $this->Paginator->sort('expected_hours') ?></th>
-            <th scope="col"><?= $this->Paginator->sort('active') ?></th>
             <th scope="col"><?= $this->Paginator->sort('created') ?></th>
             <th scope="col"><?= $this->Paginator->sort('modified') ?></th>
             <th scope="col" class="actions"><?= __('Actions') ?></th>
@@ -36,22 +30,13 @@
         <tbody>
         <?php foreach ($projects as $project): ?>
             <tr>
-                <td><?= h($project->id) ?></td>
                 <td><?= $project->has('client') ? $this->Html->link($project->client->name,
                         ['controller' => 'Clients', 'action' => 'view', $project->client->id]) : '' ?></td>
                 <td><?= h($project->name) ?></td>
-                <td><?= h($project->description) ?></td>
-                <td><?= h($project->billable) ?></td>
-                <td><?= $this->Number->format($project->hourly_price) ?></td>
-                <td><?= $this->Number->format($project->expected_hours) ?></td>
-                <td><?= h($project->active) ?></td>
                 <td><?= h($project->created) ?></td>
                 <td><?= h($project->modified) ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['action' => 'view', $project->id]) ?>
-                    <?= $this->Html->link(__('Edit'), ['action' => 'edit', $project->id]) ?>
-                    <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $project->id],
-                        ['confirm' => __('Are you sure you want to delete # {0}?', $project->id)]) ?>
                 </td>
             </tr>
         <?php endforeach; ?>

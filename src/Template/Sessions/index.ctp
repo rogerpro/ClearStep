@@ -20,40 +20,25 @@
     <table cellpadding="0" cellspacing="0">
         <thead>
         <tr>
-            <th scope="col"><?= $this->Paginator->sort('id') ?></th>
             <th scope="col"><?= $this->Paginator->sort('project_id') ?></th>
             <th scope="col"><?= $this->Paginator->sort('begin') ?></th>
             <th scope="col"><?= $this->Paginator->sort('end') ?></th>
             <th scope="col"><?= $this->Paginator->sort('duration') ?></th>
-            <th scope="col"><?= $this->Paginator->sort('section') ?></th>
-            <th scope="col"><?= $this->Paginator->sort('subsection') ?></th>
             <th scope="col"><?= $this->Paginator->sort('task') ?></th>
-            <th scope="col"><?= $this->Paginator->sort('expected_hours') ?></th>
-            <th scope="col"><?= $this->Paginator->sort('created') ?></th>
-            <th scope="col"><?= $this->Paginator->sort('modified') ?></th>
             <th scope="col" class="actions"><?= __('Actions') ?></th>
         </tr>
         </thead>
         <tbody>
         <?php foreach ($sessions as $session): ?>
             <tr>
-                <td><?= h($session->id) ?></td>
                 <td><?= $session->has('project') ? $this->Html->link($session->project->name,
                         ['controller' => 'Projects', 'action' => 'view', $session->project->id]) : '' ?></td>
                 <td><?= h($session->begin) ?></td>
                 <td><?= h($session->end) ?></td>
                 <td><?= h($session->duration_time) ?></td>
-                <td><?= $this->Number->format($session->section) ?></td>
-                <td><?= $this->Number->format($session->subsection) ?></td>
                 <td><?= h($session->task) ?></td>
-                <td><?= $this->Number->format($session->expected_hours) ?></td>
-                <td><?= h($session->created) ?></td>
-                <td><?= h($session->modified) ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['action' => 'view', $session->id]) ?>
-                    <?= $this->Html->link(__('Edit'), ['action' => 'edit', $session->id]) ?>
-                    <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $session->id],
-                        ['confirm' => __('Are you sure you want to delete # {0}?', $session->id)]) ?>
                 </td>
             </tr>
         <?php endforeach; ?>
