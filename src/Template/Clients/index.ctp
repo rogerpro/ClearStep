@@ -19,18 +19,18 @@
         <thead>
         <tr>
             <th scope="col"><?= $this->Paginator->sort('name') ?></th>
-            <th scope="col"><?= $this->Paginator->sort('created') ?></th>
-            <th scope="col"><?= $this->Paginator->sort('modified') ?></th>
-            <th scope="col" class="actions"><?= __('Actions') ?></th>
+            <th scope="col" class="text-center"><?= $this->Paginator->sort('created') ?></th>
+            <th scope="col" class="text-center"><?= $this->Paginator->sort('modified') ?></th>
+            <th scope="col" class="actions text-center"><?= __('Actions') ?></th>
         </tr>
         </thead>
         <tbody>
         <?php foreach ($clients as $client): ?>
             <tr>
                 <td><?= h($client->name) ?></td>
-                <td><?= h($client->created) ?></td>
-                <td><?= h($client->modified) ?></td>
-                <td class="actions">
+                <td class="text-center"><?= h($client->created) ?></td>
+                <td class="text-center"><?= h($client->modified) ?></td>
+                <td class="actions text-center">
                     <?= $this->Html->link(__('View'), ['action' => 'view', $client->id]) ?>
                 </td>
             </tr>

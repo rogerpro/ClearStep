@@ -22,9 +22,9 @@
         <tr>
             <th scope="col"><?= $this->Paginator->sort('client_id') ?></th>
             <th scope="col"><?= $this->Paginator->sort('name') ?></th>
-            <th scope="col"><?= $this->Paginator->sort('created') ?></th>
-            <th scope="col"><?= $this->Paginator->sort('modified') ?></th>
-            <th scope="col" class="actions"><?= __('Actions') ?></th>
+            <th scope="col" class="text-center"><?= $this->Paginator->sort('created') ?></th>
+            <th scope="col" class="text-center"><?= $this->Paginator->sort('modified') ?></th>
+            <th scope="col" class="actions text-center"><?= __('Actions') ?></th>
         </tr>
         </thead>
         <tbody>
@@ -33,9 +33,9 @@
                 <td><?= $project->has('client') ? $this->Html->link($project->client->name,
                         ['controller' => 'Clients', 'action' => 'view', $project->client->id]) : '' ?></td>
                 <td><?= h($project->name) ?></td>
-                <td><?= h($project->created) ?></td>
-                <td><?= h($project->modified) ?></td>
-                <td class="actions">
+                <td class="text-center"><?= h($project->created) ?></td>
+                <td class="text-center"><?= h($project->modified) ?></td>
+                <td class="actions text-center">
                     <?= $this->Html->link(__('View'), ['action' => 'view', $project->id]) ?>
                 </td>
             </tr>
