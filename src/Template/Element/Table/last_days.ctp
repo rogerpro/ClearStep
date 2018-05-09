@@ -4,7 +4,7 @@ use Cake\I18n\FrozenTime;
 
 ?>
 <h3><?= __('Last days totals') ?></h3>
-<table class="sessions form large-2 medium-4 small-6">
+<table class="sessions form large-4 medium-4 small-8">
     <thead>
     <tr>
         <th scope="col" class="text-center"><?= $this->Paginator->sort('day') ?></th>
