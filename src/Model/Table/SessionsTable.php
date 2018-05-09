@@ -194,7 +194,7 @@ class SessionsTable extends Table
             ])
             ->group($this->aliasField('Sessions.project_id'))
             ->order([
-                $this->aliasField('Sessions.created') => 'ASC'
+                'total_duration' => 'DESC'
             ]);
 
         return $q;
