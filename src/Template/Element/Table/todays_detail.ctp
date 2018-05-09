@@ -17,11 +17,11 @@
             <td class="text-center"><?= h($session->end) ?></td>
             <td class="text-center"><?= h($session->duration_time) ?></td>
         </tr>
-        <tr class="task">
-            <?php if ($session->task): ?>
+        <?php if ($session->task): ?>
+            <tr class="task">
                 <td colspan="4"><?= nl2br(h($session->task)) ?></td>
-            <?php endif ?>
-        </tr>
+            </tr>
+        <?php endif ?>
     <?php endforeach; ?>
     </tbody>
 </table>
