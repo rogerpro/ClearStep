@@ -1,3 +1,7 @@
+textarea {
+    font-family: "Consolas", "Menlo", "Courier", monospace;
+}
+
 .begin {
     background: #15848F;
 }
@@ -17,4 +21,12 @@ button {
 .form button.begin, .form button.end {
     float: none;
     margin-left: 45%;
+}
+
+.task td {
+    font-family: "Consolas", "Menlo", "Courier", monospace;
+    font-size: x-small;
+    line-height: unset;
+    text-align: justify;
+    background-color: #fafafa;
 }

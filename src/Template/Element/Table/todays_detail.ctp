@@ -6,7 +6,6 @@
         <th scope="col"><?= $this->Paginator->sort('begin') ?></th>
         <th scope="col"><?= $this->Paginator->sort('end') ?></th>
         <th scope="col"><?= $this->Paginator->sort('duration') ?></th>
-        <th scope="col"><?= $this->Paginator->sort('task') ?></th>
     </tr>
     </thead>
     <tbody>
@@ -17,7 +16,11 @@
             <td><?= h($session->begin) ?></td>
             <td><?= h($session->end) ?></td>
             <td><?= h($session->duration_time) ?></td>
-            <td><?= h($session->task) ?></td>
+        </tr>
+        <tr class="task">
+            <?php if ($session->task): ?>
+                <td colspan="4"><?= nl2br(h($session->task)) ?></td>
+            <?php endif ?>
         </tr>
     <?php endforeach; ?>
     </tbody>
