@@ -74,7 +74,6 @@
                     <th scope="col"><?= __('Duration') ?></th>
                     <th scope="col"><?= __('Section') ?></th>
                     <th scope="col"><?= __('Subsection') ?></th>
-                    <th scope="col"><?= __('Task') ?></th>
                     <th scope="col" class="actions"><?= __('Actions') ?></th>
                 </tr>
                 <?php foreach ($project->sessions as $sessions): ?>
@@ -84,7 +83,6 @@
                         <td><?= h($sessions->duration_time) ?></td>
                         <td><?= h($sessions->section) ?></td>
                         <td><?= h($sessions->subsection) ?></td>
-                        <td><?= h($sessions->task) ?></td>
                         <td class="actions">
                             <?= $this->Html->link(__('View'),
                                 ['controller' => 'Sessions', 'action' => 'view', $sessions->id]) ?>
@@ -94,6 +92,11 @@
                                 ['controller' => 'Sessions', 'action' => 'delete', $sessions->id],
                                 ['confirm' => __('Are you sure you want to delete # {0}?', $sessions->id)]) ?>
                         </td>
+                    </tr>
+                    <tr class="task">
+                        <?php if ($sessions->task): ?>
+                            <td colspan="6"><?= nl2br(h($sessions->task)) ?></td>
+                        <?php endif ?>
                     </tr>
                 <?php endforeach; ?>
             </table>
