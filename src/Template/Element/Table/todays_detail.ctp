@@ -1,5 +1,5 @@
 <h3><?= __('Today\'s detail') ?></h3>
-<table cellpadding="0" cellspacing="0">
+<table>
     <thead>
     <tr>
         <th scope="col"><?= $this->Paginator->sort('project_id') ?></th>
