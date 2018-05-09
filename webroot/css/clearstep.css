@@ -6,6 +6,10 @@
     background: #DC143C;
 }
 
+.form button:hover, .form button:focus {
+    background: black;
+}
+
 .form button.begin, .form button.end {
     float: none;
     margin-left: 45%;
