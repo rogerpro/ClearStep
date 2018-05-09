@@ -16,35 +16,26 @@
     <table cellpadding="0" cellspacing="0">
         <thead>
         <tr>
-            <th scope="col"><?= $this->Paginator->sort('id') ?></th>
             <th scope="col"><?= $this->Paginator->sort('iso2') ?></th>
             <th scope="col"><?= $this->Paginator->sort('iso3') ?></th>
             <th scope="col"><?= $this->Paginator->sort('is_eu') ?></th>
             <th scope="col"><?= $this->Paginator->sort('name') ?></th>
             <th scope="col"><?= $this->Paginator->sort('spa') ?></th>
             <th scope="col"><?= $this->Paginator->sort('cat') ?></th>
-            <th scope="col"><?= $this->Paginator->sort('created') ?></th>
-            <th scope="col"><?= $this->Paginator->sort('modified') ?></th>
-            <th scope="col" class="actions"><?= __('Actions') ?></th>
+            <th scope="col" class="actions text-center"><?= __('Actions') ?></th>
         </tr>
         </thead>
         <tbody>
         <?php foreach ($countries as $country): ?>
             <tr>
-                <td><?= h($country->id) ?></td>
                 <td><?= h($country->iso2) ?></td>
                 <td><?= h($country->iso3) ?></td>
                 <td><?= h($country->is_eu) ?></td>
                 <td><?= h($country->name) ?></td>
                 <td><?= h($country->spa) ?></td>
                 <td><?= h($country->cat) ?></td>
-                <td><?= h($country->created) ?></td>
-                <td><?= h($country->modified) ?></td>
-                <td class="actions">
+                <td class="actions text-center">
                     <?= $this->Html->link(__('View'), ['action' => 'view', $country->id]) ?>
-                    <?= $this->Html->link(__('Edit'), ['action' => 'edit', $country->id]) ?>
-                    <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $country->id],
-                        ['confirm' => __('Are you sure you want to delete # {0}?', $country->id)]) ?>
                 </td>
             </tr>
         <?php endforeach; ?>
