@@ -23,6 +23,11 @@ button {
     margin-left: 45%;
 }
 
+.content h3 {
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+
 .task td {
     font-family: "Consolas", "Menlo", "Courier", monospace;
     font-size: x-small;
