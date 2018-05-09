@@ -8,7 +8,6 @@ $button_class = ($ongoing) ? 'end' : 'begin';
 <div class="sessions form large-12 medium-12 columns content">
     <?= $this->Form->create($session) ?>
     <fieldset>
-        <legend><?= __('Add Session') ?></legend>
         <?php
         echo $this->Form->control('project_id', [
             'default' => $last_project
