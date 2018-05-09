@@ -2,6 +2,7 @@
 /**
  * @var \App\View\AppView $this
  */
+$this->assign('title', 'Dashboard');
 $button_caption = ($ongoing) ? __('End') : __('Begin');
 $button_class = ($ongoing) ? 'end' : 'begin';
 ?>
