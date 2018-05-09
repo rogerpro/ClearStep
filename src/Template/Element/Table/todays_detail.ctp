@@ -3,9 +3,9 @@
     <thead>
     <tr>
         <th scope="col"><?= $this->Paginator->sort('project_id') ?></th>
-        <th scope="col"><?= $this->Paginator->sort('begin') ?></th>
-        <th scope="col"><?= $this->Paginator->sort('end') ?></th>
-        <th scope="col"><?= $this->Paginator->sort('duration') ?></th>
+        <th scope="col" class="text-center"><?= $this->Paginator->sort('begin') ?></th>
+        <th scope="col" class="text-center"><?= $this->Paginator->sort('end') ?></th>
+        <th scope="col" class="text-center"><?= $this->Paginator->sort('duration') ?></th>
     </tr>
     </thead>
     <tbody>
@@ -13,9 +13,9 @@
         <tr>
             <td><?= $session->has('project') ? $this->Html->link($session->project->name,
                     ['controller' => 'Projects', 'action' => 'view', $session->project->id]) : '' ?></td>
-            <td><?= h($session->begin) ?></td>
-            <td><?= h($session->end) ?></td>
-            <td><?= h($session->duration_time) ?></td>
+            <td class="text-center"><?= h($session->begin) ?></td>
+            <td class="text-center"><?= h($session->end) ?></td>
+            <td class="text-center"><?= h($session->duration_time) ?></td>
         </tr>
         <tr class="task">
             <?php if ($session->task): ?>
