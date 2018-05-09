@@ -6,6 +6,10 @@
     background: #DC143C;
 }
 
+button {
+    border-radius: 20%;
+}
+
 .form button:hover, .form button:focus {
     background: black;
 }
