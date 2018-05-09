@@ -28,7 +28,6 @@
         echo $this->Form->control('task', [
             'type' => 'textarea'
         ]);
-        echo $this->Form->control('expected_hours');
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>
