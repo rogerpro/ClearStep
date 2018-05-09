@@ -6,6 +6,7 @@
         <th scope="col" class="text-center"><?= $this->Paginator->sort('begin') ?></th>
         <th scope="col" class="text-center"><?= $this->Paginator->sort('end') ?></th>
         <th scope="col" class="text-center"><?= $this->Paginator->sort('duration') ?></th>
+        <th scope="col" class="actions text-center"><?= __('Actions') ?></th>
     </tr>
     </thead>
     <tbody>
@@ -16,10 +17,13 @@
             <td class="text-center"><?= h($session->begin) ?></td>
             <td class="text-center"><?= h($session->end) ?></td>
             <td class="text-center"><?= h($session->duration_time) ?></td>
+            <td class="actions text-center">
+                <?= $this->Html->link(__('Edit'), ['action' => 'edit', $session->id]) ?>
+            </td>
         </tr>
         <?php if ($session->task): ?>
             <tr class="task">
-                <td colspan="4"><?= nl2br(h($session->task)) ?></td>
+                <td colspan="5"><?= nl2br(h($session->task)) ?></td>
             </tr>
         <?php endif ?>
     <?php endforeach; ?>
