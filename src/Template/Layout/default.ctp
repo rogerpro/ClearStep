@@ -12,7 +12,7 @@
  * @since         0.10.0
  * @license       http://www.opensource.org/licenses/mit-license.php MIT License
  */
-$cakeDescription = 'CakePHP: the rapid development php framework';
+$siteName = 'Extranet';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -21,7 +21,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0">
     <title>
-        <?= $cakeDescription ?>:
+        <?= $siteName ?>:
         <?= $this->fetch('title') ?>
     </title>
     <?= $this->Html->meta('icon') ?>
@@ -39,7 +39,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     <ul class="title-area large-3 medium-4 columns">
         <li class="name">
             <h1>
-                <a href=""><?= $this->fetch('title') ?></a>
+                <a href=""><strong><?= $siteName ?></strong> - <?= $this->fetch('title') ?></a>
             </h1>
         </li>
     </ul>
