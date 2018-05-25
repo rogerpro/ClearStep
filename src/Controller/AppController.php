@@ -54,8 +54,6 @@ class AppController extends Controller
         $this->loadComponent('Csrf');
 
         $this->loadComponent('CakeDC/Users.UsersAuth');
-
-        I18n::setLocale('fr-FR');
     }
 
     /**
