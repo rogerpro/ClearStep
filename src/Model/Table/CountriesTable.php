@@ -35,10 +35,6 @@ class CountriesTable extends Table
     {
         parent::initialize($config);
 
-        $this->table('countries');
-        $this->displayField('name');
-        $this->primaryKey('id');
-
         $this->addBehavior('Timestamp');
 
         $this->hasMany('FiscalData', [

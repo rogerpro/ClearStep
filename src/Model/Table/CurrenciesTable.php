@@ -36,10 +36,6 @@ class CurrenciesTable extends Table
     {
         parent::initialize($config);
 
-        $this->table('currencies');
-        $this->displayField('name');
-        $this->primaryKey('id');
-
         $this->addBehavior('Timestamp');
 
         $this->hasMany('Budgets', [

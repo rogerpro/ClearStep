@@ -41,10 +41,6 @@ class TicketsTable extends Table
     {
         parent::initialize($config);
 
-        $this->table('tickets');
-        $this->displayField('id');
-        $this->primaryKey('id');
-
         $this->addBehavior('Timestamp');
 
         $this->belongsTo('Projects', [

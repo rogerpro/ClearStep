@@ -34,10 +34,6 @@ class TransactionsTable extends Table
     {
         parent::initialize($config);
 
-        $this->table('transactions');
-        $this->displayField('id');
-        $this->primaryKey('id');
-
         $this->addBehavior('Timestamp');
 
         $this->hasMany('Invoices', [

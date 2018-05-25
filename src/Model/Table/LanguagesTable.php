@@ -33,10 +33,6 @@ class LanguagesTable extends Table
     {
         parent::initialize($config);
 
-        $this->table('languages');
-        $this->displayField('name');
-        $this->primaryKey('id');
-
         $this->addBehavior('Timestamp');
     }
 

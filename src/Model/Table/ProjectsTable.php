@@ -38,10 +38,6 @@ class ProjectsTable extends Table
     {
         parent::initialize($config);
 
-        $this->table('projects');
-        $this->displayField('name');
-        $this->primaryKey('id');
-
         $this->addBehavior('Timestamp');
 
         $this->belongsTo('Clients', [

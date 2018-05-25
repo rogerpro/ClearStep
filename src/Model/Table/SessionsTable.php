@@ -41,10 +41,6 @@ class SessionsTable extends Table
     {
         parent::initialize($config);
 
-        $this->table('sessions');
-        $this->displayField('id');
-        $this->primaryKey('id');
-
         $this->addBehavior('Timestamp');
 
         $this->belongsTo('Projects', [

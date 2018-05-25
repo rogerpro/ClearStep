@@ -39,10 +39,6 @@ class InvoicesTable extends Table
     {
         parent::initialize($config);
 
-        $this->table('invoices');
-        $this->displayField('title');
-        $this->primaryKey('id');
-
         $this->addBehavior('Timestamp');
 
         $this->belongsTo('Tickets', [

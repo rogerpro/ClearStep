@@ -37,10 +37,6 @@ class BudgetsTable extends Table
     {
         parent::initialize($config);
 
-        $this->table('budgets');
-        $this->displayField('title');
-        $this->primaryKey('id');
-
         $this->addBehavior('Timestamp');
 
         $this->belongsTo('Currencies', [

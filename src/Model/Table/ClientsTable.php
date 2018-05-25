@@ -36,10 +36,6 @@ class ClientsTable extends Table
     {
         parent::initialize($config);
 
-        $this->table('clients');
-        $this->displayField('name');
-        $this->primaryKey('id');
-
         $this->addBehavior('Timestamp');
 
         $this->hasMany('FiscalData', [

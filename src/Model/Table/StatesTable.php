@@ -35,10 +35,6 @@ class StatesTable extends Table
     {
         parent::initialize($config);
 
-        $this->table('states');
-        $this->displayField('name');
-        $this->primaryKey('id');
-
         $this->addBehavior('Timestamp');
 
         $this->hasMany('Tickets', [
