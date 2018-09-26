@@ -207,9 +207,7 @@ class SessionsController extends AppController
             if ($this->Sessions->save($session)) {
                 $this->Flash->success(__('The session has been saved.'));
 
-                return $this->redirect([
-                    'action' => 'index'
-                ]);
+                return $this->redirect('/');
             }
             $this->Flash->error(__('The session could not be saved. Please, try again.'));
         }
