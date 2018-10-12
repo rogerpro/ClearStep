@@ -138,6 +138,20 @@ class SessionsTable extends Table
         return $monitor;
     }
 
+    public function findProjectDuration(Query $q, array $options)
+    {
+        $q->select([
+            'total_duration' => $q->func()
+                ->sum($this->aliasField('duration'))
+        ])
+            ->where([
+                $this->aliasField('project_id') => $options['project_id'],
+                $this->aliasField('begin >') => $options['begin']
+            ]);
+
+        return $q;
+    }
+
     /**
      * Find Today's detail.
      *

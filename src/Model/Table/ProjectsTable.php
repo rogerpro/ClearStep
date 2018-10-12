@@ -114,7 +114,15 @@ class ProjectsTable extends Table
         $q->select([
             $this->aliasField('Projects.id'),
             $this->aliasField('Projects.name'),
+            'week_sum' => $this->Sessions->findProjectDuration($this->Sessions->find(), [
+                'project_id' => $this->aliasField('Projects.id'),
+                'begin' => '2018-10-08 00:00:00'
+            ]),
             $this->aliasField('Projects.week_goal'),
+            'month_sum' => $this->Sessions->findProjectDuration($this->Sessions->find(), [
+                'project_id' => '123',
+                'begin' => '2018-10-08 00:00:00'
+            ]),
             $this->aliasField('Projects.month_goal')
         ])
             ->where([

@@ -16,9 +16,6 @@
     </thead>
     <tbody>
     <?php foreach ($monitor_projects as $monitor_project): ?>
-        <?php
-        //debug($monitor_project);
-        ?>
         <tr>
             <td><?= $this->Html->link($monitor_project->name,
                     ['controller' => 'Projects', 'action' => 'view', $monitor_project->id]) ?></td>
