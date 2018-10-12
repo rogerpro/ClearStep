@@ -136,8 +136,13 @@ class SessionsTable extends Table
         $monitor = $q->toArray();
 
         foreach ($monitor as &$monitor_item) {
-            $monitor_item['week_diff'] = $monitor_item['week_goal'] - $monitor_item['week_sum'];
-            $monitor_item['month_diff'] = $monitor_item['month_goal'] - $monitor_item['month_sum'];
+            if ($monitor_item['week_goal']) {
+                $monitor_item['week_diff'] = (3600 * $monitor_item['week_goal']) - $monitor_item['week_sum'];
+            }
+
+            if ($monitor_item['month_goal']) {
+                $monitor_item['month_diff'] = (3600 * $monitor_item['month_goal']) - $monitor_item['month_sum'];
+            }
         }
 
         return $monitor;
