@@ -129,6 +129,34 @@ class SessionsTable extends Table
         return $q;
     }
 
+    public function getMonitor()
+    {
+        $q = $this->find('sums');
+
+        $monitor = $q->toArray();
+
+        return $monitor;
+    }
+
+    public function findSums(Query $q)
+    {
+        $q->select([
+            $this->aliasField('Projects.id'),
+            $this->aliasField('Projects.name'),
+            $this->aliasField('Projects.week_goal'),
+            $this->aliasField('Projects.month_goal')
+        ])
+            ->contain([
+                'Projects'
+            ])
+            ->where([
+                $this->aliasField('Projects.week_monitor') => true
+            ])
+            ->order('Projects.name');
+
+        return $q;
+    }
+
     /**
      * Find Today's detail.
      *
