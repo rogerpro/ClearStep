@@ -145,8 +145,8 @@ class SessionsTable extends Table
                 ->sum($this->aliasField('duration'))
         ])
             ->where([
-                $this->aliasField('project_id') => $options['project_id'],
-                $this->aliasField('begin >') => $options['begin']
+                'Sessions.project_id = Projects.id',
+                $this->aliasField('begin >=') => $options['begin']
             ]);
 
         return $q;

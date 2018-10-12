@@ -2,6 +2,7 @@
 
 namespace App\Model\Table;
 
+use Cake\Chronos\Chronos;
 use Cake\ORM\Query;
 use Cake\ORM\RulesChecker;
 use Cake\ORM\Table;
@@ -115,13 +116,11 @@ class ProjectsTable extends Table
             $this->aliasField('Projects.id'),
             $this->aliasField('Projects.name'),
             'week_sum' => $this->Sessions->findProjectDuration($this->Sessions->find(), [
-                'project_id' => $this->aliasField('Projects.id'),
-                'begin' => '2018-10-08 00:00:00'
+                'begin' => '2018-10-08 00:00:00.000000'
             ]),
             $this->aliasField('Projects.week_goal'),
             'month_sum' => $this->Sessions->findProjectDuration($this->Sessions->find(), [
-                'project_id' => '123',
-                'begin' => '2018-10-08 00:00:00'
+                'begin' => get_object_vars(Chronos::today())['date']
             ]),
             $this->aliasField('Projects.month_goal')
         ])
