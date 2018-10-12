@@ -241,8 +241,6 @@ class SessionsController extends AppController
             $this->Flash->error(__('The session could not be deleted. Please, try again.'));
         }
 
-        return $this->redirect([
-            'action' => 'index'
-        ]);
+        return $this->redirect('/');
     }
 }
