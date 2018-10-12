@@ -115,11 +115,11 @@ class ProjectsTable extends Table
         $q->select([
             $this->aliasField('Projects.id'),
             $this->aliasField('Projects.name'),
-            'week_sum' => $this->Sessions->findProjectDuration($this->Sessions->find(), [
+            'week_sum' => $this->Sessions->find('projectDuration', [
                 'begin' => get_object_vars(new Chronos('last monday'))['date']
             ]),
             $this->aliasField('Projects.week_goal'),
-            'month_sum' => $this->Sessions->findProjectDuration($this->Sessions->find(), [
+            'month_sum' => $this->Sessions->find('projectDuration', [
                 'begin' => get_object_vars((new Chronos())->startOfMonth())['date']
             ]),
             $this->aliasField('Projects.month_goal')
