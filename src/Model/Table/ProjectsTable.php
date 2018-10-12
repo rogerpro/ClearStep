@@ -120,7 +120,7 @@ class ProjectsTable extends Table
             ]),
             $this->aliasField('Projects.week_goal'),
             'month_sum' => $this->Sessions->findProjectDuration($this->Sessions->find(), [
-                'begin' => get_object_vars(Chronos::today())['date']
+                'begin' => get_object_vars((new Chronos())->startOfMonth())['date']
             ]),
             $this->aliasField('Projects.month_goal')
         ])
