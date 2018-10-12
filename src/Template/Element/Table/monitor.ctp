@@ -1,5 +1,7 @@
 <?php
 
+use Cake\I18n\FrozenTime;
+
 ?>
 <h3><?= __('Monitor') ?></h3>
 <table>
@@ -19,12 +21,12 @@
         <tr>
             <td><?= $this->Html->link($monitor_project->name,
                     ['controller' => 'Projects', 'action' => 'view', $monitor_project->id]) ?></td>
-            <td class="text-center"><?= h($monitor_project->week_sum) ?></td>
-            <td class="text-center"><?= h($monitor_project->week_goal) ?></td>
-            <td class="text-center"><?= h($monitor_project->week_diff) ?></td>
-            <td class="text-center"><?= h($monitor_project->month_sum) ?></td>
-            <td class="text-center"><?= h($monitor_project->month_goal) ?></td>
-            <td class="text-center"><?= h($monitor_project->month_diff) ?></td>
+            <td class="text-center"><?= $monitor_project->week_sum ? (new FrozenTime($monitor_project->week_sum))->format('G:i:s') : '' ?></td>
+            <td class="text-center"><?= $monitor_project->week_goal ? (new FrozenTime(3600 * $monitor_project->week_goal))->format('G:i:s') : '' ?></td>
+            <td class="text-center"><?= $monitor_project->week_diff ? (new FrozenTime($monitor_project->week_diff))->format('G:i:s') : '' ?></td>
+            <td class="text-center"><?= $monitor_project->month_sum ? (new FrozenTime($monitor_project->month_sum))->format('G:i:s') : '' ?></td>
+            <td class="text-center"><?= $monitor_project->month_goal ? (new FrozenTime(3600 * $monitor_project->month_goal))->format('G:i:s') : '' ?></td>
+            <td class="text-center"><?= $monitor_project->month_diff ? (new FrozenTime($monitor_project->month_diff))->format('G:i:s') : '' ?></td>
         </tr>
     <?php endforeach; ?>
     </tbody>
