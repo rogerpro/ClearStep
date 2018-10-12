@@ -109,6 +109,25 @@ class ProjectsTable extends Table
         return $rules;
     }
 
+    public function findSums(Query $q)
+    {
+        $q->select([
+            $this->aliasField('Projects.id'),
+            $this->aliasField('Projects.name'),
+            $this->aliasField('Projects.week_goal'),
+            $this->aliasField('Projects.month_goal')
+        ])
+            ->where([
+                'OR' => [
+                    $this->aliasField('Projects.week_monitor') => true,
+                    $this->aliasField('Projects.month_monitor') => true
+                ]
+            ])
+            ->order('Projects.name');
+
+        return $q;
+    }
+
     /**
      * Find active projects.
      *
