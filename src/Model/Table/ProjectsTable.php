@@ -119,17 +119,17 @@ class ProjectsTable extends Table
                 'begin' => new Chronos('last monday'),
                 'end' => new Chronos('next monday')
             ]),
-            $this->aliasField('Projects.week_goal'),
+            $this->aliasField('Projects.weekly_goal'),
             'month_sum' => $this->Sessions->find('projectDuration', [
                 'begin' => (new Chronos())->startOfMonth(),
                 'end' => (new Chronos())->startOfMonth()->modify('+1 months')
             ]),
-            $this->aliasField('Projects.month_goal')
+            $this->aliasField('Projects.monthly_goal')
         ])
             ->where([
                 'OR' => [
-                    $this->aliasField('Projects.week_goal'),
-                    $this->aliasField('Projects.month_goal')
+                    $this->aliasField('Projects.weekly_goal'),
+                    $this->aliasField('Projects.monthly_goal')
                 ]
             ])
             ->order('Projects.name');

@@ -31,8 +31,8 @@
         echo $this->Form->control('billable');
         echo $this->Form->control('hourly_price');
         echo $this->Form->control('expected_hours');
-        echo $this->Form->control('week_goal');
-        echo $this->Form->control('month_goal');
+        echo $this->Form->control('weekly_goal');
+        echo $this->Form->control('monthly_goal');
         echo $this->Form->control('active');
         ?>
     </fieldset>

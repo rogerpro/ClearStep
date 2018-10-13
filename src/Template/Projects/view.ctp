@@ -48,12 +48,12 @@
             <td><?= $this->Number->format($project->expected_hours) ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Week Goal') ?></th>
-            <td><?= $this->Number->format($project->week_goal) ?></td>
+            <th scope="row"><?= __('Weekly Goal') ?></th>
+            <td><?= $this->Number->format($project->weekly_goal) ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Month Goal') ?></th>
-            <td><?= $this->Number->format($project->month_goal) ?></td>
+            <th scope="row"><?= __('Monthly Goal') ?></th>
+            <td><?= $this->Number->format($project->monthly_goal) ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Created') ?></th>
