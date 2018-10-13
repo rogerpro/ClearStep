@@ -18,9 +18,13 @@ class FormatterHelper extends Helper
      */
     public function toHumanTime(int $time = null, string $separator = ':')
     {
+        $negative = ($time < 0);
+        $time = abs($time);
+
         return $time
             ?
-            sprintf("%2d%s%02d%s%02d",
+            sprintf("%s%d%s%02d%s%02d",
+                $negative ? '-' : '',
                 floor($time / 3600),
                 $separator,
                 ($time / 60) % 60,
