@@ -1,13 +1,12 @@
 <?php
 
-namespace App\Model\Entity;
+namespace App\View\Helper;
 
 use Cake\I18n\Number;
-use Cake\ORM\Entity;
+use Cake\View\Helper;
 
-class ElapsedTime extends Entity
+class FormatterHelper extends Helper
 {
-    //TODO: convert to Helper
     /**
      * Return the amount of time in seconds formatted as hours:minutes:seconds or empty string on zero
      *
@@ -17,7 +16,7 @@ class ElapsedTime extends Entity
      * @param string $separator
      * @return string
      */
-    public static function format(int $time = null, string $separator = ':')
+    public function toHumanTime(int $time = null, string $separator = ':')
     {
         return $time
             ?
@@ -37,7 +36,7 @@ class ElapsedTime extends Entity
      * @param float|null $part
      * @return string
      */
-    public static function toPercentage(float $part = null)
+    public function toPercentage(float $part = null)
     {
         return is_null($part) ? '' : Number::toPercentage($part);
     }

@@ -1,7 +1,5 @@
 <?php
 
-use App\Model\Entity\ElapsedTime;
-
 //TODO: manage hour to seconds conversions in the Entity
 ?>
 <h3><?= __('Monitor') ?></h3>
@@ -24,14 +22,14 @@ use App\Model\Entity\ElapsedTime;
         <tr>
             <td><?= $this->Html->link($monitor_project->name,
                     ['controller' => 'Projects', 'action' => 'view', $monitor_project->id]) ?></td>
-            <td class="text-center"><?= ElapsedTime::format($monitor_project->week_sum) ?></td>
-            <td class="text-center"><?= ElapsedTime::format(3600 * $monitor_project->week_goal) ?></td>
-            <td class="text-center diff"><?= ElapsedTime::format($monitor_project->week_diff) ?></td>
-            <td class="text-center"><?= ElapsedTime::toPercentage($monitor_project->week_percentage) ?></td>
-            <td class="text-center"><?= ElapsedTime::format($monitor_project->month_sum) ?></td>
-            <td class="text-center"><?= ElapsedTime::format(3600 * $monitor_project->month_goal) ?></td>
-            <td class="text-center diff"><?= ElapsedTime::format($monitor_project->month_diff) ?></td>
-            <td class="text-center"><?= ElapsedTime::toPercentage($monitor_project->month_percentage) ?></td>
+            <td class="text-center"><?= $this->Formatter->toHumanTime($monitor_project->week_sum) ?></td>
+            <td class="text-center"><?= $this->Formatter->toHumanTime(3600 * $monitor_project->week_goal) ?></td>
+            <td class="text-center diff"><?= $this->Formatter->toHumanTime($monitor_project->week_diff) ?></td>
+            <td class="text-center"><?= $this->Formatter->toPercentage($monitor_project->week_percentage) ?></td>
+            <td class="text-center"><?= $this->Formatter->toHumanTime($monitor_project->month_sum) ?></td>
+            <td class="text-center"><?= $this->Formatter->toHumanTime(3600 * $monitor_project->month_goal) ?></td>
+            <td class="text-center diff"><?= $this->Formatter->toHumanTime($monitor_project->month_diff) ?></td>
+            <td class="text-center"><?= $this->Formatter->toPercentage($monitor_project->month_percentage) ?></td>
         </tr>
     <?php endforeach; ?>
     </tbody>
