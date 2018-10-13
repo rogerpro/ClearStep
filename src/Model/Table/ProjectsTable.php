@@ -128,8 +128,8 @@ class ProjectsTable extends Table
         ])
             ->where([
                 'OR' => [
-                    $this->aliasField('Projects.week_monitor') => true,
-                    $this->aliasField('Projects.month_monitor') => true
+                    $this->aliasField('Projects.week_goal'),
+                    $this->aliasField('Projects.month_goal')
                 ]
             ])
             ->order('Projects.name');
