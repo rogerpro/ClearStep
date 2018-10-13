@@ -39,3 +39,7 @@ table td {
     text-align: justify;
     background-color: #fafafa;
 }
+
+.diff {
+    color: red;
+}

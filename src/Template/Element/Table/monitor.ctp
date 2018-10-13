@@ -24,10 +24,10 @@ use App\Model\Entity\ElapsedTime;
                     ['controller' => 'Projects', 'action' => 'view', $monitor_project->id]) ?></td>
             <td class="text-center"><?= ElapsedTime::format($monitor_project->week_sum) ?></td>
             <td class="text-center"><?= ElapsedTime::format(3600 * $monitor_project->week_goal) ?></td>
-            <td class="text-center"><?= ElapsedTime::format($monitor_project->week_diff) ?></td>
+            <td class="text-center diff"><?= ElapsedTime::format($monitor_project->week_diff) ?></td>
             <td class="text-center"><?= ElapsedTime::format($monitor_project->month_sum) ?></td>
             <td class="text-center"><?= ElapsedTime::format(3600 * $monitor_project->month_goal) ?></td>
-            <td class="text-center"><?= ElapsedTime::format($monitor_project->month_diff) ?></td>
+            <td class="text-center diff"><?= ElapsedTime::format($monitor_project->month_diff) ?></td>
         </tr>
     <?php endforeach; ?>
     </tbody>
