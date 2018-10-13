@@ -1,7 +1,3 @@
-<?php
-
-//TODO: manage hour to seconds conversions in the Entity
-?>
 <h3><?= __('Monitor') ?></h3>
 <table>
     <thead>

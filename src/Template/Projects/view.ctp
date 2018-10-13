@@ -96,7 +96,7 @@
                     <tr>
                         <td class="text-center"><?= h($sessions->begin) ?></td>
                         <td class="text-center"><?= h($sessions->end) ?></td>
-                        <td class="text-center"><?= h($sessions->duration_time) ?></td>
+                        <td class="text-center"><?= $this->Formatter->toHumanTime($sessions->duration) ?></td>
                         <td class="text-center"><?= h($sessions->section) ?></td>
                         <td class="text-center"><?= h($sessions->subsection) ?></td>
                         <td class="actions text-center">

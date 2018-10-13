@@ -16,7 +16,7 @@
                     ['controller' => 'Projects', 'action' => 'view', $session->project->id]) : '' ?></td>
             <td class="text-center"><?= h($session->begin) ?></td>
             <td class="text-center"><?= h($session->end) ?></td>
-            <td class="text-center"><?= h($session->duration_time) ?></td>
+            <td class="text-center"><?= $this->Formatter->toHumanTime($session->duration) ?></td>
             <td class="actions text-center">
                 <?= $this->Html->link(__('Edit'), ['action' => 'edit', $session->id]) ?>
             </td>

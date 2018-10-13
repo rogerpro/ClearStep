@@ -1,8 +1,3 @@
-<?php
-
-use Cake\I18n\FrozenTime;
-
-?>
 <h3><?= __('Today\'s total') ?></h3>
 <table class="sessions form large-1 medium-2 small-3">
     <thead>
@@ -12,7 +7,7 @@ use Cake\I18n\FrozenTime;
     </thead>
     <tbody>
     <tr>
-        <td class="text-center"><?= (new FrozenTime($total))->format('G:i:s') ?></td>
+        <td class="text-center"><?= $this->Formatter->toHumanTime($total) ?></td>
     </tr>
     </tbody>
 </table>
