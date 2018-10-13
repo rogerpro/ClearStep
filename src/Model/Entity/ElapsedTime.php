@@ -2,6 +2,7 @@
 
 namespace App\Model\Entity;
 
+use Cake\I18n\Number;
 use Cake\ORM\Entity;
 
 class ElapsedTime extends Entity
@@ -12,7 +13,7 @@ class ElapsedTime extends Entity
      *
      * @link https://stackoverflow.com/questions/3172332/convert-seconds-to-hourminutesecond
      *
-     * @param int $time in seconds
+     * @param int|null $time in seconds
      * @param string $separator
      * @return string
      */
@@ -28,5 +29,16 @@ class ElapsedTime extends Entity
                 $time % 60)
             :
             '';
+    }
+
+    /**
+     * Return the percentage in localizated format or empty string on null
+     *
+     * @param float|null $part
+     * @return string
+     */
+    public static function toPercentage(float $part = null)
+    {
+        return is_null($part) ? '' : Number::toPercentage($part);
     }
 }

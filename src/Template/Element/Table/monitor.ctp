@@ -12,9 +12,11 @@ use App\Model\Entity\ElapsedTime;
         <th scope="col" class="text-center"><?= $this->Paginator->sort('week_sum') ?></th>
         <th scope="col" class="text-center"><?= $this->Paginator->sort('week_goal') ?></th>
         <th scope="col" class="text-center"><?= $this->Paginator->sort('week_diff') ?></th>
+        <th scope="col" class="text-center"><?= $this->Paginator->sort('week_percentage') ?></th>
         <th scope="col" class="text-center"><?= $this->Paginator->sort('month_sum') ?></th>
         <th scope="col" class="text-center"><?= $this->Paginator->sort('month_goal') ?></th>
         <th scope="col" class="text-center"><?= $this->Paginator->sort('month_diff') ?></th>
+        <th scope="col" class="text-center"><?= $this->Paginator->sort('month_percentage') ?></th>
     </tr>
     </thead>
     <tbody>
@@ -25,9 +27,11 @@ use App\Model\Entity\ElapsedTime;
             <td class="text-center"><?= ElapsedTime::format($monitor_project->week_sum) ?></td>
             <td class="text-center"><?= ElapsedTime::format(3600 * $monitor_project->week_goal) ?></td>
             <td class="text-center diff"><?= ElapsedTime::format($monitor_project->week_diff) ?></td>
+            <td class="text-center"><?= ElapsedTime::toPercentage($monitor_project->week_percentage) ?></td>
             <td class="text-center"><?= ElapsedTime::format($monitor_project->month_sum) ?></td>
             <td class="text-center"><?= ElapsedTime::format(3600 * $monitor_project->month_goal) ?></td>
             <td class="text-center diff"><?= ElapsedTime::format($monitor_project->month_diff) ?></td>
+            <td class="text-center"><?= ElapsedTime::toPercentage($monitor_project->month_percentage) ?></td>
         </tr>
     <?php endforeach; ?>
     </tbody>
