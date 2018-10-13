@@ -156,7 +156,8 @@ class SessionsTable extends Table
         ])
             ->where([
                 'Sessions.project_id = Projects.id',
-                $this->aliasField('begin >=') => $options['begin']
+                $this->aliasField('begin >=') => $options['begin'],
+                $this->aliasField('begin <') => $options['end']
             ]);
 
         return $q;
