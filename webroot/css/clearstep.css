@@ -44,6 +44,11 @@ table tr.billable {
     background-color: beige;
 }
 
+table tr.billable td.diff {
+    font-size: medium;
+    font-weight: bold;
+}
+
 .diff {
     color: red;
 }
