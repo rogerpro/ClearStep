@@ -277,7 +277,7 @@ class SessionsTable extends Table
                 ->sum($this->aliasField('Sessions.duration'))
         ])
             ->where([
-                $this->aliasField('Sessions.end >=') => Chronos::parse("-$days days"),
+                $this->aliasField('Sessions.end >=') => Chronos::today()->modify("-$days days"),
                 $this->aliasField('Sessions.end <') => Chronos::today()
             ])
             ->group('day')
