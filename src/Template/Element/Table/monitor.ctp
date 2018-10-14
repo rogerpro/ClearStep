@@ -20,12 +20,28 @@
                     ['controller' => 'Projects', 'action' => 'view', $monitor_project->id]) ?></td>
             <td class="text-center"><?= $this->Formatter->toHumanTime($monitor_project->week_sum) ?></td>
             <td class="text-center"><?= $this->Formatter->toHumanTime(3600 * $monitor_project->weekly_goal) ?></td>
-            <td class="text-center diff"><?= $this->Formatter->toHumanTime($monitor_project->week_diff) ?></td>
-            <td class="text-center"><?= $this->Formatter->toPercentage($monitor_project->week_percentage) ?></td>
+            <td class="text-center diff">
+                <?=
+                ($monitor_project->week_diff > 0) ? $this->Formatter->toHumanTime($monitor_project->week_diff) : ''
+                ?>
+            </td>
+            <td class="text-center">
+                <?=
+                ($monitor_project->week_percentage < 100) ? $this->Formatter->toPercentage($monitor_project->week_percentage) : ''
+                ?>
+            </td>
             <td class="text-center"><?= $this->Formatter->toHumanTime($monitor_project->month_sum) ?></td>
             <td class="text-center"><?= $this->Formatter->toHumanTime(3600 * $monitor_project->monthly_goal) ?></td>
-            <td class="text-center diff"><?= $this->Formatter->toHumanTime($monitor_project->month_diff) ?></td>
-            <td class="text-center"><?= $this->Formatter->toPercentage($monitor_project->month_percentage) ?></td>
+            <td class="text-center diff">
+                <?=
+                ($monitor_project->month_diff > 0) ? $this->Formatter->toHumanTime($monitor_project->month_diff) : ''
+                ?>
+            </td>
+            <td class="text-center">
+                <?=
+                ($monitor_project->month_percentage < 100) ? $this->Formatter->toPercentage($monitor_project->month_percentage) : ''
+                ?>
+            </td>
         </tr>
     <?php endforeach; ?>
     </tbody>
