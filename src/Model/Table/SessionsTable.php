@@ -149,7 +149,7 @@ class SessionsTable extends Table
 
         // Order by week_diff desc
         usort($monitor, function ($a, $b) {
-            return ($a->week_diff < $b->week_diff);
+            return ($a->month_diff < $b->month_diff);
         });
 
         return $monitor;
