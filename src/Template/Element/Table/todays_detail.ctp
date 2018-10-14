@@ -11,7 +11,7 @@
     </thead>
     <tbody>
     <?php foreach ($sessions as $session): ?>
-        <tr>
+        <tr class="<?= ($session->project->billable) ? 'billable' : '' ?>">
             <td><?= $session->has('project') ? $this->Html->link($session->project->name,
                     ['controller' => 'Projects', 'action' => 'view', $session->project->id]) : '' ?></td>
             <td class="text-center"><?= h($session->begin) ?></td>

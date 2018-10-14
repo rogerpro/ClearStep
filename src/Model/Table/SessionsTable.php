@@ -183,6 +183,7 @@ class SessionsTable extends Table
         $q->select([
             $this->aliasField('Projects.id'),
             $this->aliasField('Projects.name'),
+            $this->aliasField('Projects.billable'),
             $this->aliasField('Sessions.id'),
             $this->aliasField('Sessions.project_id'),
             $this->aliasField('Sessions.begin'),
@@ -219,6 +220,7 @@ class SessionsTable extends Table
         $q->select([
             $this->aliasField('Projects.id'),
             $this->aliasField('Projects.name'),
+            $this->aliasField('Projects.billable'),
             'total_duration' => $q->func()
                 ->sum($this->aliasField('duration'))
         ])
