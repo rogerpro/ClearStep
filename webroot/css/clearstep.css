@@ -40,6 +40,10 @@ table td {
     background-color: #fafafa;
 }
 
+table tr.billable {
+    background-color: beige;
+}
+
 .diff {
     color: red;
 }

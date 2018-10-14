@@ -115,6 +115,7 @@ class ProjectsTable extends Table
         $q->select([
             $this->aliasField('Projects.id'),
             $this->aliasField('Projects.name'),
+            $this->aliasField('Projects.billable'),
             'week_sum' => $this->Sessions->find('projectDuration', [
                 'begin' => new Chronos('last monday'),
                 'end' => new Chronos('next monday')

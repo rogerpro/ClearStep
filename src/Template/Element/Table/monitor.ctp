@@ -15,7 +15,7 @@
     </thead>
     <tbody>
     <?php foreach ($monitor_projects as $monitor_project): ?>
-        <tr>
+        <tr class="<?= ($monitor_project->billable) ? 'billable' : '' ?>">
             <td><?= $this->Html->link($monitor_project->name,
                     ['controller' => 'Projects', 'action' => 'view', $monitor_project->id]) ?></td>
             <td class="text-center">
