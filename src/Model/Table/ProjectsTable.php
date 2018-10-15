@@ -117,8 +117,8 @@ class ProjectsTable extends Table
             $this->aliasField('Projects.name'),
             $this->aliasField('Projects.billable'),
             'week_sum' => $this->Sessions->find('projectDuration', [
-                'begin' => new Chronos('last monday'),
-                'end' => new Chronos('next monday')
+                'begin' => (new Chronos())->startOfWeek(),
+                'end' => (new Chronos())->endOfWeek()->modify('+1 seconds')
             ]),
             $this->aliasField('Projects.weekly_goal'),
             'month_sum' => $this->Sessions->find('projectDuration', [
