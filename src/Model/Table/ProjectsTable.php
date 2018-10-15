@@ -2,6 +2,7 @@
 
 namespace App\Model\Table;
 
+use Cake\Chronos\Chronos;
 use Cake\ORM\Query;
 use Cake\ORM\RulesChecker;
 use Cake\ORM\Table;
@@ -107,6 +108,34 @@ class ProjectsTable extends Table
         ], 'Clients'));
 
         return $rules;
+    }
+
+    public function findSums(Query $q)
+    {
+        $q->select([
+            $this->aliasField('Projects.id'),
+            $this->aliasField('Projects.name'),
+            $this->aliasField('Projects.billable'),
+            'week_sum' => $this->Sessions->find('projectDuration', [
+                'begin' => (new Chronos())->startOfWeek(),
+                'end' => (new Chronos())->endOfWeek()->modify('+1 seconds')
+            ]),
+            $this->aliasField('Projects.weekly_goal'),
+            'month_sum' => $this->Sessions->find('projectDuration', [
+                'begin' => (new Chronos())->startOfMonth(),
+                'end' => (new Chronos())->startOfMonth()->modify('+1 months')
+            ]),
+            $this->aliasField('Projects.monthly_goal')
+        ])
+            ->where([
+                'OR' => [
+                    $this->aliasField('Projects.weekly_goal'),
+                    $this->aliasField('Projects.monthly_goal')
+                ]
+            ])
+            ->order('Projects.name');
+
+        return $q;
     }
 
     /**

@@ -48,6 +48,14 @@
             <td><?= $this->Number->format($project->expected_hours) ?></td>
         </tr>
         <tr>
+            <th scope="row"><?= __('Weekly Goal') ?></th>
+            <td><?= $this->Number->format($project->weekly_goal) ?></td>
+        </tr>
+        <tr>
+            <th scope="row"><?= __('Monthly Goal') ?></th>
+            <td><?= $this->Number->format($project->monthly_goal) ?></td>
+        </tr>
+        <tr>
             <th scope="row"><?= __('Created') ?></th>
             <td><?= h($project->created) ?></td>
         </tr>
@@ -80,7 +88,7 @@
                     <tr>
                         <td class="text-center"><?= h($sessions->begin) ?></td>
                         <td class="text-center"><?= h($sessions->end) ?></td>
-                        <td class="text-center"><?= h($sessions->duration_time) ?></td>
+                        <td class="text-center"><?= $this->Formatter->toHumanTime($sessions->duration) ?></td>
                         <td class="text-center"><?= h($sessions->section) ?></td>
                         <td class="text-center"><?= h($sessions->subsection) ?></td>
                         <td class="actions text-center">

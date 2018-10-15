@@ -62,6 +62,7 @@ class Session extends Entity
         return $end->format('U') - $begin->format('U');
     }
 
+    //TODO: remove as now we are using FormatterHelper
     /**
      * Virtual property: format duration with human readable time like h:mm:ss
      *

@@ -1,8 +1,3 @@
-<?php
-
-use Cake\I18n\FrozenTime;
-
-?>
 <h3><?= __('Last days totals') ?></h3>
 <table class="sessions form large-4 medium-4 small-8">
     <thead>
@@ -15,7 +10,7 @@ use Cake\I18n\FrozenTime;
     <?php foreach ($last_days as $day): ?>
         <tr>
             <td class="text-center"><?= h($day->day) ?></td>
-            <td class="text-center"><?= $day->duration ? (new FrozenTime($day->duration))->format('G:i:s') : '' ?></td>
+            <td class="text-center"><?= $this->Formatter->toHumanTime($day->duration) ?></td>
         </tr>
     <?php endforeach; ?>
     </tbody>

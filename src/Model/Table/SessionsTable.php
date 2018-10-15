@@ -129,6 +129,47 @@ class SessionsTable extends Table
         return $q;
     }
 
+    public function getMonitor()
+    {
+        $q = $this->Projects->find('sums');
+
+        $monitor = $q->toArray();
+
+        foreach ($monitor as &$monitor_item) {
+            if ($monitor_item['weekly_goal']) {
+                $monitor_item['week_diff'] = (3600 * $monitor_item['weekly_goal']) - $monitor_item['week_sum'];
+                $monitor_item['week_percentage'] = $monitor_item['week_sum'] / (3600 * $monitor_item['weekly_goal']) * 100;
+            }
+
+            if ($monitor_item['monthly_goal']) {
+                $monitor_item['month_diff'] = (3600 * $monitor_item['monthly_goal']) - $monitor_item['month_sum'];
+                $monitor_item['month_percentage'] = $monitor_item['month_sum'] / (3600 * $monitor_item['monthly_goal']) * 100;
+            }
+        }
+
+        // Order by month_diff desc
+        usort($monitor, function ($a, $b) {
+            return ($a->month_diff < $b->month_diff);
+        });
+
+        return $monitor;
+    }
+
+    public function findProjectDuration(Query $q, array $options)
+    {
+        $q->select([
+            'total_duration' => $q->func()
+                ->sum($this->aliasField('duration'))
+        ])
+            ->where([
+                'Sessions.project_id = Projects.id',
+                $this->aliasField('begin >=') => $options['begin'],
+                $this->aliasField('begin <') => $options['end']
+            ]);
+
+        return $q;
+    }
+
     /**
      * Find Today's detail.
      *
@@ -142,6 +183,7 @@ class SessionsTable extends Table
         $q->select([
             $this->aliasField('Projects.id'),
             $this->aliasField('Projects.name'),
+            $this->aliasField('Projects.billable'),
             $this->aliasField('Sessions.id'),
             $this->aliasField('Sessions.project_id'),
             $this->aliasField('Sessions.begin'),
@@ -178,6 +220,7 @@ class SessionsTable extends Table
         $q->select([
             $this->aliasField('Projects.id'),
             $this->aliasField('Projects.name'),
+            $this->aliasField('Projects.billable'),
             'total_duration' => $q->func()
                 ->sum($this->aliasField('duration'))
         ])
@@ -234,7 +277,7 @@ class SessionsTable extends Table
                 ->sum($this->aliasField('Sessions.duration'))
         ])
             ->where([
-                $this->aliasField('Sessions.end >=') => Chronos::parse("-$days days"),
+                $this->aliasField('Sessions.end >=') => Chronos::today()->modify("-$days days"),
                 $this->aliasField('Sessions.end <') => Chronos::today()
             ])
             ->group('day')

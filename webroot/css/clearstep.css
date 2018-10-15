@@ -39,3 +39,16 @@ table td {
     text-align: justify;
     background-color: #fafafa;
 }
+
+table tr.billable {
+    background-color: beige;
+}
+
+table tr.billable td.diff {
+    font-size: medium;
+    font-weight: bold;
+}
+
+.diff {
+    color: red;
+}

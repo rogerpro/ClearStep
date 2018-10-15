@@ -103,6 +103,13 @@ class SessionsController extends AppController
 
         $projects = $this->Sessions->Projects->find('list')->find('activeProjects');
 
+        // Get Monitor
+        $monitor_projects = $this->Sessions->getMonitor();
+        $this->set(compact('monitor_projects'));
+        $this->set('_serialize', [
+            'monitor_projects'
+        ]);
+
         // Get Today's detail
         $sessions = $this->Sessions->find('todaysDetail');
         $this->set(compact('sessions'));
