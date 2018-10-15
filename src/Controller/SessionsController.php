@@ -128,6 +128,14 @@ class SessionsController extends AppController
         $total = $this->Sessions->find('todaysTotal')->first();
         $this->set(compact('total'));
 
+        // Get this week's totals
+        $weekTotal = $this->Sessions->find('weekTotal')->first();
+        $this->set(compact('weekTotal'));
+
+        // Get this month's totals
+        $monthTotal = $this->Sessions->find('monthTotal')->first();
+        $this->set(compact('monthTotal'));
+
         // Get Last day's total summary
         $last_days = $this->Sessions->find('lastDaysTotal', [
             'days' => 30
@@ -136,14 +144,6 @@ class SessionsController extends AppController
         $this->set('_serialize', [
             'last_days'
         ]);
-
-        // Get this week's totals
-        $weekTotal = $this->Sessions->find('weekTotal')->first();
-        $this->set(compact('weekTotal'));
-
-        // Get this month's totals
-        $monthTotal = $this->Sessions->find('monthTotal')->first();
-        $this->set(compact('monthTotal'));
 
         $last_project = null;
 
