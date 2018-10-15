@@ -130,7 +130,7 @@ class SessionsController extends AppController
 
         // Get Last day's total summary
         $last_days = $this->Sessions->find('lastDaysTotal', [
-            'days' => 7
+            'days' => 30
         ]);
         $this->set(compact('last_days'));
         $this->set('_serialize', [
