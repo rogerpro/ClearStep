@@ -26,5 +26,7 @@ $button_class = ($ongoing) ? 'end' : 'begin';
     <div><?php echo $this->element('Table/todays_detail'); ?></div>
     <div><?php echo $this->element('Table/todays_summary'); ?></div>
     <div><?php echo $this->element('Table/todays_total'); ?></div>
+    <div><?php echo $this->element('Table/weeks_total'); ?></div>
+    <div><?php echo $this->element('Table/months_total'); ?></div>
     <div><?php echo $this->element('Table/last_days'); ?></div>
 </div>

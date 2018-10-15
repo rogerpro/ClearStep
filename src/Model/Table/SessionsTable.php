@@ -298,6 +298,56 @@ class SessionsTable extends Table
     }
 
     /**
+     * Find this week's total
+     *
+     * @param Query $q
+     * @return Query
+     */
+    public function findWeekTotal(Query $q)
+    {
+        $q->select([
+            'duration' => $q->func()
+                ->sum($this->aliasField('Sessions.duration')),
+            'amount' => $q->func()
+                ->sum('Projects.hourly_price * Sessions.duration / 3600')
+        ])
+            ->contain([
+                'Projects'
+            ])
+            ->where([
+                $this->aliasField('begin >=') => (new Chronos())->startOfWeek(),
+                $this->aliasField('begin <') => (new Chronos())->endOfWeek()->modify('+1 seconds')
+            ]);
+
+        return $q;
+    }
+
+    /**
+     * Find this month's total
+     *
+     * @param Query $q
+     * @return Query
+     */
+    public function findMonthTotal(Query $q)
+    {
+        $q->select([
+            'duration' => $q->func()
+                ->sum($this->aliasField('Sessions.duration')),
+            'amount' => $q->func()
+                ->sum('Projects.hourly_price * Sessions.duration / 3600')
+        ])
+            ->contain([
+                'Projects'
+            ])
+            ->where([
+                $this->aliasField('begin >=') => (new Chronos())->startOfMonth(),
+                $this->aliasField('begin <') => (new Chronos())->startOfMonth()->modify('+1 months')
+            ]);
+
+        return $q;
+    }
+
+    /**
      * Find last session's project.
      *
      * From the current time.

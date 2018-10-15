@@ -137,6 +137,14 @@ class SessionsController extends AppController
             'last_days'
         ]);
 
+        // Get this week's totals
+        $weekTotal = $this->Sessions->find('weekTotal')->first();
+        $this->set(compact('weekTotal'));
+
+        // Get this month's totals
+        $monthTotal = $this->Sessions->find('monthTotal')->first();
+        $this->set(compact('monthTotal'));
+
         $last_project = null;
 
         if ($ongoing) {
