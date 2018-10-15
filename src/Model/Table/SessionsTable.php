@@ -221,7 +221,8 @@ class SessionsTable extends Table
             $this->aliasField('Projects.id'),
             $this->aliasField('Projects.name'),
             $this->aliasField('Projects.billable'),
-            'amount' => 'Projects.hourly_price * Sessions.duration / 3600',
+            'amount' => $q->func()
+                ->sum('Projects.hourly_price * Sessions.duration / 3600'),
             'total_duration' => $q->func()
                 ->sum($this->aliasField('duration'))
         ])
