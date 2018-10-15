@@ -9,7 +9,7 @@
     </thead>
     <tbody>
     <?php foreach ($summary_projects as $summary_project): ?>
-        <tr class="<?= ($summary_project->project->billable) ? 'billable' : '' ?>">
+        <tr class="<?= ($summary_project->amount) ? 'billable' : '' ?>">
             <td><?= $summary_project->has('project') ? $this->Html->link($summary_project->project->name,
                     ['controller' => 'Projects', 'action' => 'view', $summary_project->project->id]) : '' ?></td>
             <td class="text-center"><?= $this->Formatter->toHumanTime($summary_project->total_duration) ?></td>
