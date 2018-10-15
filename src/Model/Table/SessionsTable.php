@@ -129,6 +129,11 @@ class SessionsTable extends Table
         return $q;
     }
 
+    /**
+     * Get monitor data
+     *
+     * @return array
+     */
     public function getMonitor()
     {
         $q = $this->Projects->find('sums');
@@ -155,6 +160,13 @@ class SessionsTable extends Table
         return $monitor;
     }
 
+    /**
+     * Find project duration
+     *
+     * @param Query $q
+     * @param array $options
+     * @return Query
+     */
     public function findProjectDuration(Query $q, array $options)
     {
         $q->select([
@@ -269,6 +281,7 @@ class SessionsTable extends Table
      * Total time spent per day for last specified days.
      *
      * @param Query $q
+     * @param array $options
      * @return Query
      */
     public function findLastDaysTotal(Query $q, array $options)

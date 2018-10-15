@@ -110,6 +110,12 @@ class ProjectsTable extends Table
         return $rules;
     }
 
+    /**
+     * Find sums for the monitor table
+     *
+     * @param Query $q
+     * @return Query
+     */
     public function findSums(Query $q)
     {
         $q->select([
@@ -142,10 +148,9 @@ class ProjectsTable extends Table
      * Find active projects.
      *
      * @param Query $q
-     * @param array $options
-     * @throws OutOfBoundsException
+     * @return Query
      */
-    public function findActiveProjects(Query $q, array $options)
+    public function findActiveProjects(Query $q)
     {
         $q->select([
             $this->aliasField('id'),
