@@ -278,8 +278,13 @@ class SessionsTable extends Table
         $q->select([
             'day' => 'DATE(end)',
             'duration' => $q->func()
-                ->sum($this->aliasField('Sessions.duration'))
+                ->sum($this->aliasField('Sessions.duration')),
+            'amount' => $q->func()
+                ->sum('Projects.hourly_price * Sessions.duration / 3600')
         ])
+            ->contain([
+                'Projects'
+            ])
             ->where([
                 $this->aliasField('Sessions.end >=') => Chronos::today()->modify("-$days days"),
                 $this->aliasField('Sessions.end <') => Chronos::today()
