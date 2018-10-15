@@ -241,17 +241,20 @@ class SessionsTable extends Table
     /**
      * Find Today's total.
      *
-     * Total time spent today.
-     *
      * @param Query $q
      * @return Query
      */
     public function findTodaysTotal(Query $q)
     {
         $q->select([
-            'total_duration' => $q->func()
-                ->sum($this->aliasField('duration'))
+            'duration' => $q->func()
+                ->sum($this->aliasField('duration')),
+            'amount' => $q->func()
+                ->sum('Projects.hourly_price * Sessions.duration / 3600')
         ])
+            ->contain([
+                'Projects'
+            ])
             ->where([
                 $this->aliasField('begin >=') => Chronos::today(),
                 $this->aliasField('begin <') => Chronos::tomorrow()

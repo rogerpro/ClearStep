@@ -125,9 +125,7 @@ class SessionsController extends AppController
         ]);
 
         // Get Today's total
-        $total = $this->Sessions->find('todaysTotal')->first()->total_duration;
-        // Force zero instead of null
-        $total = $total ? $total : 0;
+        $total = $this->Sessions->find('todaysTotal')->first();
         $this->set(compact('total'));
 
         // Get Last day's total summary
