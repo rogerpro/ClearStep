@@ -1,5 +1,5 @@
 <h3><?= __('Last days totals') ?></h3>
-<table class="sessions form large-4 medium-4 small-8">
+<table class="sessions form large-4 medium-6 small-8">
     <thead>
     <tr>
         <th scope="col" class="text-center"><?= $this->Paginator->sort('day') ?></th>

@@ -3,7 +3,7 @@
 //TODO: move average calculation to Model
 ?>
 <h3><?= __('Today\'s total') ?></h3>
-<table class="sessions form large-2 medium-3 small-4">
+<table class="sessions form large-4 medium-6 small-7">
     <thead>
     <tr>
         <th scope="col" class="text-center"><?= $this->Paginator->sort('duration') ?></th>
