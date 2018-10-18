@@ -14,8 +14,8 @@
         <tr class="<?= ($session->project->billable) ? 'billable' : '' ?>">
             <td><?= $session->has('project') ? $this->Html->link($session->project->name,
                     ['controller' => 'Projects', 'action' => 'view', $session->project->id]) : '' ?></td>
-            <td class="text-center"><?= h($session->begin) ?></td>
-            <td class="text-center"><?= h($session->end) ?></td>
+            <td class="text-center"><?= $session->begin->toTimeString() ?></td>
+            <td class="text-center"><?= $session->end->toTimeString() ?></td>
             <td class="text-center"><?= $this->Formatter->toHumanTime($session->duration) ?></td>
             <td class="actions text-center">
                 <?= $this->Html->link(__('Edit'), ['action' => 'edit', $session->id]) ?>
