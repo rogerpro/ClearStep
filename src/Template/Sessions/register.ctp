@@ -24,9 +24,9 @@ $button_class = ($ongoing) ? 'end' : 'begin';
     <?= $this->Form->end() ?>
     <div><?php echo $this->element('Table/monitor'); ?></div>
     <div><?php echo $this->element('Table/todays_detail'); ?></div>
-    <div><?php echo $this->element('Table/todays_summary'); ?></div>
-    <div><?php echo $this->element('Table/todays_total'); ?></div>
+    <div class="larger"><?php echo $this->element('Table/todays_summary'); ?></div>
+    <div class="larger"><?php echo $this->element('Table/todays_total'); ?></div>
     <div><?php echo $this->element('Table/weeks_total'); ?></div>
     <div><?php echo $this->element('Table/months_total'); ?></div>
-    <div><?php echo $this->element('Table/last_days'); ?></div>
+    <div class="smaller"><?php echo $this->element('Table/last_days'); ?></div>
 </div>

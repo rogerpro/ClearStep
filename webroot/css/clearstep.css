@@ -52,3 +52,11 @@ table tr.billable td.diff {
 .diff {
     color: red;
 }
+
+.larger th, .larger td {
+    font-size: large;
+}
+
+.smaller th, .smaller td {
+    font-size: x-small;
+}
