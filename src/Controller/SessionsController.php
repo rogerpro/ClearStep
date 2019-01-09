@@ -199,6 +199,14 @@ class SessionsController extends AppController
     }
 
     /**
+     * Extra stats section
+     */
+    public function stats()
+    {
+
+    }
+
+    /**
      * Edit method
      *
      * @param string|null $id

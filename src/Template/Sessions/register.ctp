@@ -29,4 +29,9 @@ $button_class = ($ongoing) ? 'end' : 'begin';
     <div><?php echo $this->element('Table/weeks_total'); ?></div>
     <div><?php echo $this->element('Table/months_total'); ?></div>
     <div class="smaller"><?php echo $this->element('Table/last_days'); ?></div>
+    <?= $this->Html->link(
+        __('See more stats'),
+        ['action' => 'stats']
+    ); ?>
+    <p>&nbsp;</p>
 </div>
