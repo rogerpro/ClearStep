@@ -1,5 +1,5 @@
 textarea {
-    font-family: "Consolas", "Menlo", "Courier", monospace;
+    font-family: "Consolas", "Monaco", "Menlo", "Courier", monospace;
 }
 
 .begin {
@@ -33,7 +33,7 @@ table td {
 }
 
 .task td {
-    font-family: "Consolas", "Menlo", "Courier", monospace;
+    font-family: "Consolas", "Monaco", "Menlo", "Courier", monospace;
     font-size: x-small;
     line-height: unset;
     text-align: justify;
